@@ -633,15 +633,48 @@ def generate_2LSP_sig_complete(rpv_coup):
     #out_2chain_df.to_csv("CSV/"+rpv_coup.upper()+"_2LSP_sig_complete.csv",index=False)
     return out_2chain_df
 
-def two_LSP_sig_cat_table(rpv_coup): 
+def two_LSP_sig_cat_complete(rpv_coup): 
     try:
         lsct = pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_2LSP_sig_complete.csv'))
         #for i in rdef.CAT_DICT[rpv_coup]:
         #    lsct[i] = lsct[i].map(eval) 
-        #return lsct
+        return lsct
     except:
-        print("Couldnt't find "+rpv_coup+"_2LSP_sig_complete.csv in data \nRegenerating",end="")
-        return generate_2LSP_sig_complete(rpv_coup)
+        print("Couldnt't find "+rpv_coup+"_2LSP_sig_complete.csv in data")
+        print("Will not run regenerate automatically as it might be computationally expensive, refer default table that came along with git repository or generate it manually if needed")
+        return None
+
+def generate_2LSP_sig_cat_table(rpv_coup):
+    output_pd = TWO_LSP_SIG_CAT_COMPLETE_DICT[rpv_coup]
+    output_pd = output_pd[["CAT","LSP","ALL"]]
+    try:
+        output_pd["LSP"] = output_pd["LSP"].map(eval).values
+    except:
+        pass
+
+    onechain_df = pd.DataFrame()
+    onechain_df["LSP"] = rdef.SPARTICLES_DEGENERACY
+    for i in rdef.CAT_DICT[rpv_coup]:
+        print(".",end="")
+        catdat = []
+        for j in rdef.SPARTICLES_DEGENERACY:
+            xset = set(output_pd[(output_pd["LSP"].map(frozenset) == frozenset(j)) & (output_pd["CAT"] == i)]["ALL"].map(eval).values[0])
+            catdat.append(xset)
+        onechain_df[i] = catdat
+    onechain_df.to_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_2LSP_SIG_CAT.csv'),index=False)
+    return onechain_df
+
+def two_LSP_sig_cat_table(rpv_coup): 
+    try:
+        lsct = pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_2LSP_SIG_CAT.csv'))
+        #for i in rdef.CAT_DICT[rpv_coup]:
+        #    lsct[i] = lsct[i].map(eval) 
+        return lsct
+    except:
+        print("Couldnt't find "+rpv_coup+"_2LSP_SIG_CAT.csv in data \nRegenerating",end="")
+        print("Will not run regenerate automatically as it might be computationally expensive, refer default table that came along with git repository or generate it manually if needed")
+        return None
+
 
 def minimal_set_greedy(tempsigset,doublecheck=False):
     #start_time = time.time()
@@ -740,11 +773,29 @@ LLE_2LSP_RPV_DECAY_TABLE = two_LSP_RPV_decay_table("LLE")
 LQD_2LSP_RPV_DECAY_TABLE = two_LSP_RPV_decay_table("LQD")
 UDD_2LSP_RPV_DECAY_TABLE = two_LSP_RPV_decay_table("UDD")
 
+LLE_2LSP_SIG_CAT_COMPLETE = two_LSP_sig_cat_complete("LLE")
+LQD_2LSP_SIG_CAT_COMPLETE = two_LSP_sig_cat_complete("LQD")
+UDD_2LSP_SIG_CAT_COMPLETE = two_LSP_sig_cat_complete("UDD")
+
+LLE_2LSP_SIG_CAT_TABLE = two_LSP_sig_cat_table("LLE")
+LQD_2LSP_SIG_CAT_TABLE = two_LSP_sig_cat_table("LQD")
+UDD_2LSP_SIG_CAT_TABLE = two_LSP_sig_cat_table("UDD")
+
+
 
 TWO_LSP_RPV_DECAY_DICT = { "LLE":LLE_2LSP_RPV_DECAY_TABLE,
                            "LQD":LQD_2LSP_RPV_DECAY_TABLE,
                            "UDD":UDD_2LSP_RPV_DECAY_TABLE,}
-
+TWO_LSP_SIG_CAT_COMPLETE_DICT ={
+    "LLE":LLE_2LSP_SIG_CAT_COMPLETE,
+    "LQD":LQD_2LSP_SIG_CAT_COMPLETE,
+    "UDD":UDD_2LSP_SIG_CAT_COMPLETE,
+}
+TWO_LSP_SIG_CAT_DICT = {
+    "LLE":LLE_2LSP_SIG_CAT_TABLE,
+    "LQD":LQD_2LSP_SIG_CAT_TABLE,
+    "UDD":UDD_2LSP_SIG_CAT_TABLE,
+}
 
 def find_one_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename="",save_results=True,verbose=True):
     assert type(signature) == str, "input signature needs to be str, only taking one signature at a time"
