@@ -64,6 +64,18 @@ def transition_sig(mother,daughter,sup,opt=False):
     assert len(transition) == 1, ("Should be one occurance of the transition in table_{sup}.csv".format(sup=sup), transition)
     return transition[0].split()
 
+
+def get_transition_sig(mother,daughter):
+    assert mother != daughter, "Same particle!"
+    if [mother,daughter] in rdef.SPARTICLES_SU2 or [daughter,mother] in rdef.SPARTICLES_SU2 :
+        print("Mother and Daughter are SU(2) degenerate, shouldnt be in default input tables, unless modified by user")
+    
+    for i in ("notsup","sup","strsup"):
+        k = transition_sig(mother,daughter,i)
+        if k:
+            return k, i 
+    raise LookupError("Can't find anything, check input tables in {x}/input/".format(x=abcrpv_package_path))
+
 def set_elements_simplified(instr):
     """
     In terms of signatures:
@@ -407,10 +419,10 @@ def transitions_table():
         print("Couldnt't find transitions_table in data \nRegenerating...")
         return generate_transitions_table()
 
-def generate_LSP_RPV_decay_table(RPVcoupling): 
+def generate_LSP_RPV_decay_table(rpv_coup): 
 # @TODO generate from single to multiple possibilities
     index_name_cat = ['Category', 'LSP', 'decays via', 'Signatures', 'Chain','NV_cascade']
-    XSTATE = rdef.STATE_DICT[RPVcoupling.upper()]
+    XSTATE = rdef.STATE_DICT[rpv_coup.upper()]
     lsp_dec_dat = []
     # j = LSP
     # k = STATE of CAT
@@ -455,25 +467,25 @@ def generate_LSP_RPV_decay_table(RPVcoupling):
                             lsp_dec_dat.append([k[-1],j,k[l],rmisc.signature_ordering(i.join(list(map(rmisc.sparticles_to_sig, rpvdecayed)))),str(chain),nv])
     lsp_dec_df = pd.DataFrame(lsp_dec_dat,columns=index_name_cat)
     lsp_dec_df["Signatures (ER)"] = lsp_dec_df["Signatures"].apply(rmisc.easy_read)
-    lsp_dec_df.to_csv(os.path.join(abcrpv_package_path,"data/"+RPVcoupling+'_1LSP_RPV_DECAY.csv'),index=False)
+    lsp_dec_df.to_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_1LSP_RPV_DECAY.csv'),index=False)
     print()
     return lsp_dec_df
 
-def one_LSP_RPV_decay_table(RPVcoupling): 
+def one_LSP_RPV_decay_table(rpv_coup): 
     try:
-        return pd.read_csv(os.path.join(abcrpv_package_path,"data/"+RPVcoupling+'_1LSP_RPV_DECAY.csv'))
+        return pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_1LSP_RPV_DECAY.csv'))
     except:
-        print("Couldnt't find "+RPVcoupling+"_1LSP_RPV_DECAY.csv in data \nRegenerating",end="")
-        return generate_LSP_RPV_decay_table(RPVcoupling)
+        print("Couldnt't find "+rpv_coup+"_1LSP_RPV_DECAY.csv in data \nRegenerating",end="")
+        return generate_LSP_RPV_decay_table(rpv_coup)
 
-def generate_LSP_sig_cat_table(RPVcoupling):
-    if RPVcoupling.upper() == "LLE":
+def generate_LSP_sig_cat_table(rpv_coup):
+    if rpv_coup.upper() == "LLE":
         LSP_dec_RPV_df = LLE_1LSP_RPV_DECAY_TABLE
         rpv_cat = rdef.LLE_CAT
-    if RPVcoupling.upper() == "LQD":
+    if rpv_coup.upper() == "LQD":
         LSP_dec_RPV_df = LQD_1LSP_RPV_DECAY_TABLE
         rpv_cat = rdef.LQD_CAT
-    if RPVcoupling.upper() == "UDD":
+    if rpv_coup.upper() == "UDD":
         LSP_dec_RPV_df = UDD_1LSP_RPV_DECAY_TABLE
         rpv_cat = rdef.UDD_CAT
     onechain_df = pd.DataFrame()
@@ -485,19 +497,19 @@ def generate_LSP_sig_cat_table(RPVcoupling):
         for j in rdef.SPARTICLES:
             catdat.append(set(np.array(LSP_dec_RPV_df.loc[(LSP_dec_RPV_df['LSP'] == j)& (LSP_dec_RPV_df['Category'] == i)]['Signatures'])))
         onechain_df[i] = catdat
-        onechain_df.to_csv(os.path.join(abcrpv_package_path,"data/"+RPVcoupling+'_1LSP_SIG_CAT.csv'),index=False)
+        onechain_df.to_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_1LSP_SIG_CAT.csv'),index=False)
     print()
     return onechain_df 
 
-def LSP_sig_cat_table(RPVcoupling): 
+def LSP_sig_cat_table(rpv_coup): 
     try:
-        lsct = pd.read_csv(os.path.join(abcrpv_package_path,"data/"+RPVcoupling+'_1LSP_SIG_CAT.csv'))
-        for i in rdef.CAT_DICT[RPVcoupling]:
+        lsct = pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_1LSP_SIG_CAT.csv'))
+        for i in rdef.CAT_DICT[rpv_coup]:
             lsct[i] = lsct[i].map(eval) 
         return lsct
     except:
-        print("Couldnt't find "+RPVcoupling+"_1LSP_SIG_CAT.csv in data \nRegenerating",end="")
-        return generate_LSP_sig_cat_table(RPVcoupling)
+        print("Couldnt't find "+rpv_coup+"_1LSP_SIG_CAT.csv in data \nRegenerating",end="")
+        return generate_LSP_sig_cat_table(rpv_coup)
 
 def generate_2LSP_RPV_decay_table(rpv_coup):
     warnings.filterwarnings("ignore") #ignore panda.append deprecate warning, @TODO update this, do this without append
@@ -556,12 +568,12 @@ def generate_2LSP_RPV_decay_table(rpv_coup):
     warnings.filterwarnings("default")
     return output_df
 
-def two_LSP_RPV_decay_table(RPVcoupling): 
+def two_LSP_RPV_decay_table(rpv_coup): 
     try:
-        return pd.read_csv(os.path.join(abcrpv_package_path,"data/"+RPVcoupling+'_2LSP_RPV_DECAY.csv'))
+        return pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_2LSP_RPV_DECAY.csv'))
     except:
-        print("Couldnt't find "+RPVcoupling+"_2LSP_RPV_DECAY.csv in data \nRegenerating",end="")
-        return generate_2LSP_RPV_decay_table(RPVcoupling)
+        print("Couldnt't find "+rpv_coup+"_2LSP_RPV_DECAY.csv in data \nRegenerating",end="")
+        return generate_2LSP_RPV_decay_table(rpv_coup)
 
 def generate_2LSP_sig_complete(rpv_coup):
     rpv_coup        = rpv_coup.upper().replace(" ","")
@@ -621,15 +633,15 @@ def generate_2LSP_sig_complete(rpv_coup):
     #out_2chain_df.to_csv("CSV/"+rpv_coup.upper()+"_2LSP_sig_complete.csv",index=False)
     return out_2chain_df
 
-def two_LSP_sig_cat_table(RPVcoupling): 
+def two_LSP_sig_cat_table(rpv_coup): 
     try:
-        lsct = pd.read_csv(os.path.join(abcrpv_package_path,"data/"+RPVcoupling+'_2LSP_sig_complete.csv'))
-        #for i in rdef.CAT_DICT[RPVcoupling]:
+        lsct = pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_2LSP_sig_complete.csv'))
+        #for i in rdef.CAT_DICT[rpv_coup]:
         #    lsct[i] = lsct[i].map(eval) 
         #return lsct
     except:
-        print("Couldnt't find "+RPVcoupling+"_2LSP_sig_complete.csv in data \nRegenerating",end="")
-        return generate_2LSP_sig_complete(RPVcoupling)
+        print("Couldnt't find "+rpv_coup+"_2LSP_sig_complete.csv in data \nRegenerating",end="")
+        return generate_2LSP_sig_complete(rpv_coup)
 
 def minimal_set_greedy(tempsigset,doublecheck=False):
     #start_time = time.time()
@@ -747,7 +759,7 @@ def find_one_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))
             if category.count("U") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying UDD. Try:\n{x}".format(x=rdef.CAT_DICT["UDD"]))
-        if category not in rdef.CAT_DICT[rpv_coup]:
+        if  rpv_coup != "ALL" and category not in rdef.CAT_DICT[rpv_coup]:
             raise NameError("\""+category+"\" not a category in "+rpv_coup)
     
     if filename == "":
@@ -813,7 +825,7 @@ def find_signatures_from_one_lsp(lsp,rpv_coup="ALL",category="ALL",filename="",s
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))
             if category.count("U") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying UDD. Try:\n{x}".format(x=rdef.CAT_DICT["UDD"]))
-        if category not in rdef.CAT_DICT[rpv_coup]:
+        if  rpv_coup != "ALL" and category not in rdef.CAT_DICT[rpv_coup]:
             raise NameError("\""+category+"\" not a category in "+rpv_coup)
 
     if filename == "":
@@ -867,7 +879,7 @@ def find_two_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))
             if category.count("U") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying UDD. Try:\n{x}".format(x=rdef.CAT_DICT["UDD"]))
-        if category not in rdef.CAT_DICT[rpv_coup]:
+        if rpv_coup != "ALL" and category not in rdef.CAT_DICT[rpv_coup]:
             raise NameError("\""+category+"\" not a category in "+rpv_coup)
 
     if category != "ALL" and rpv_coup == "ALL":
@@ -917,10 +929,13 @@ def find_two_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename
         output_pd.to_csv(results_path,index=False)      
     return output_pd
 
-def find_signatures_from_two_LSP(lspa,lspb,rpv_coup="ALL",category="ALL",filename="",save_results=True,verbose=True):
+def find_signatures_from_two_lsp(lspa,lspb="",rpv_coup="ALL",category="ALL",filename="",save_results=True,verbose=True):
     assert type(lspa) == str and type(lspb) == str, "input lspa and lspb needs to be str"
+    if lspb == "":
+        lspb = lspa
     assert lspa in rdef.SPARTICLES  , "Check lspa format, allowed syntax:{x}".format(x=rdef.SPARTICLES)
     assert lspb in rdef.SPARTICLES  , "Check lspb format, allowed syntax:{x}".format(x=rdef.SPARTICLES)
+
     rpv_coup = rpv_coup.upper()
     rpv_coup = rpv_coup.replace(" ","")
     category = category.upper()
@@ -932,7 +947,7 @@ def find_signatures_from_two_LSP(lspa,lspb,rpv_coup="ALL",category="ALL",filenam
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))
             if category.count("U") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying UDD. Try:\n{x}".format(x=rdef.CAT_DICT["UDD"]))
-        if category not in rdef.CAT_DICT[rpv_coup]:
+        if rpv_coup != "ALL" and category not in rdef.CAT_DICT[rpv_coup]:
             raise NameError("\""+category+"\" not a category in "+rpv_coup)
         
     
@@ -1022,7 +1037,7 @@ def sanity_checks():
             lspb= i[1]
         for j,k in rdef.CAT_DICT.items():
                 for l in k:
-                    if (len(find_signatures_from_two_LSP(lspa,lspb,j,l,save_results=False))) < 1:
+                    if (len(find_signatures_from_two_lsp(lspa,lspb,j,l,save_results=False))) < 1:
                         raise ValueError(lspa,lspb,j,l)
     print()                    
 

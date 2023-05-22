@@ -41,7 +41,7 @@ RPV_SPARTICLES = ["q","d","u","l","nu","e","b_L","t_L","t","b","tau_L","nu_tau",
 
 # sparticles SU2 degenracies
 SPARTICLES_DEGENERACY=[["B"],["W^+", "W^0"],["G"],["H^+","H^0"],["q"],["d"],["u"],["l","nu"],["e"],["b_L","t_L"],["t"],["b"],["tau_L","nu_tau"],["tau"]]
-
+SPARTICLES_SU2=[["W^+", "W^0"],["H^+","H^0"],["l","nu"],["b_L","t_L"],["tau_L","nu_tau"]]
 
 #Categories for each RPV couplings 
 LLE_CAT = ["L L E", "L_3 L E", "L L E_3", "L_3 L E_3"]

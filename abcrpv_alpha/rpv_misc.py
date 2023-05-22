@@ -1,5 +1,8 @@
 """Misc functions for user interaction."""
-import abcrpv_alpha.rpv_definitions as rdef
+try:
+    import abcrpv_alpha.rpv_definitions as rdef
+except:
+    import rpv_definitions as rdef
 import numpy as np
 import itertools
 

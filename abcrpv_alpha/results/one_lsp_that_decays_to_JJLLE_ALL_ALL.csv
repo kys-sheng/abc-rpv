@@ -1,0 +1,166 @@
+Category,LSP,decays via,Signatures,Chain,NV_cascade,Signatures (ER)
+L L E,W^+,e,jjllE,"W^+ -- (j) -- q -- (j) -- B -- (l) -- e -- [l,E]",3, 2j_l + 2l + MET
+L_3 L E,W^+,e,jjllE,"W^+ -- (j) -- q -- (j) -- B -- (l) -- e -- [l,E]",3, 2j_l + 2l + MET
+L L E,W^0,e,jjllE,"W^0 -- (j) -- q -- (j) -- B -- (l) -- e -- [l,E]",3, 2j_l + 2l + MET
+L_3 L E,W^0,e,jjllE,"W^0 -- (j) -- q -- (j) -- B -- (l) -- e -- [l,E]",3, 2j_l + 2l + MET
+L L E,G,l,jjllE,"G -- (j) -- q -- (j) -- B -- (l) -- l -- [E,l]",3, 2j_l + 2l + MET
+L L E,G,nu,jjllE,"G -- (j) -- q -- (j) -- B -- (E) -- nu -- [l,l]",3, 2j_l + 2l + MET
+L L E,G,e,jjllE,"G -- (j) -- q -- (j) -- B -- (l) -- e -- [l,E]",3, 2j_l + 2l + MET
+L_3 L E,G,l,jjllE,"G -- (j) -- q -- (j) -- B -- (l) -- l -- [E,l]",3, 2j_l + 2l + MET
+L_3 L E,G,nu_tau,jjllE,"G -- (j) -- q -- (j) -- B -- (E) -- nu_tau -- [l,l]",3, 2j_l + 2l + MET
+L_3 L E,G,e,jjllE,"G -- (j) -- q -- (j) -- B -- (l) -- e -- [l,E]",3, 2j_l + 2l + MET
+L_3 L E,W^+,e,jjTlE,"W^+ -- (j) -- q -- (j) -- B -- (l) -- e -- [T,E]",3, 2j_l + 1l + 1tau + MET
+L L E_3,W^+,tau,jjTlE,"W^+ -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E_3,W^+,tau,jjTlE,"W^+ -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E,W^0,e,jjTlE,"W^0 -- (j) -- q -- (j) -- B -- (l) -- e -- [T,E]",3, 2j_l + 1l + 1tau + MET
+L L E_3,W^0,tau,jjTlE,"W^0 -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E_3,W^0,tau,jjTlE,"W^0 -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E,G,tau_L,jjTlE,"G -- (j) -- q -- (j) -- B -- (T) -- tau_L -- [E,l]",3, 2j_l + 1l + 1tau + MET
+L_3 L E,G,nu,jjTlE,"G -- (j) -- q -- (j) -- B -- (E) -- nu -- [T,l]",3, 2j_l + 1l + 1tau + MET
+L_3 L E,G,e,jjTlE,"G -- (j) -- q -- (j) -- B -- (l) -- e -- [T,E]",3, 2j_l + 1l + 1tau + MET
+L L E_3,G,l,jjTlE,"G -- (j) -- q -- (j) -- B -- (l) -- l -- [E,T]",3, 2j_l + 1l + 1tau + MET
+L L E_3,G,nu,jjTlE,"G -- (j) -- q -- (j) -- B -- (E) -- nu -- [l,T]",3, 2j_l + 1l + 1tau + MET
+L L E_3,G,tau,jjTlE,"G -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E_3,G,l,jjTlE,"G -- (j) -- q -- (j) -- B -- (l) -- l -- [E,T]",3, 2j_l + 1l + 1tau + MET
+L_3 L E_3,G,nu_tau,jjTlE,"G -- (j) -- q -- (j) -- B -- (E) -- nu_tau -- [l,T]",3, 2j_l + 1l + 1tau + MET
+L_3 L E_3,G,tau,jjTlE,"G -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E,W^+,e,jjTlE,"W^+ -- (j) -- q -- (j) -- B -- (l) -- e -- [T,E]",3, 2j_l + 1l + 1tau + MET
+L L E_3,W^+,tau,jjTlE,"W^+ -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E_3,W^+,tau,jjTlE,"W^+ -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E,W^0,e,jjTlE,"W^0 -- (j) -- q -- (j) -- B -- (l) -- e -- [T,E]",3, 2j_l + 1l + 1tau + MET
+L L E_3,W^0,tau,jjTlE,"W^0 -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E_3,W^0,tau,jjTlE,"W^0 -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E,G,tau_L,jjTlE,"G -- (j) -- q -- (j) -- B -- (T) -- tau_L -- [E,l]",3, 2j_l + 1l + 1tau + MET
+L_3 L E,G,nu,jjTlE,"G -- (j) -- q -- (j) -- B -- (E) -- nu -- [T,l]",3, 2j_l + 1l + 1tau + MET
+L_3 L E,G,e,jjTlE,"G -- (j) -- q -- (j) -- B -- (l) -- e -- [T,E]",3, 2j_l + 1l + 1tau + MET
+L L E_3,G,l,jjTlE,"G -- (j) -- q -- (j) -- B -- (l) -- l -- [E,T]",3, 2j_l + 1l + 1tau + MET
+L L E_3,G,nu,jjTlE,"G -- (j) -- q -- (j) -- B -- (E) -- nu -- [l,T]",3, 2j_l + 1l + 1tau + MET
+L L E_3,G,tau,jjTlE,"G -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E_3,G,l,jjTlE,"G -- (j) -- q -- (j) -- B -- (l) -- l -- [E,T]",3, 2j_l + 1l + 1tau + MET
+L_3 L E_3,G,nu_tau,jjTlE,"G -- (j) -- q -- (j) -- B -- (E) -- nu_tau -- [l,T]",3, 2j_l + 1l + 1tau + MET
+L_3 L E_3,G,tau,jjTlE,"G -- (j) -- q -- (j) -- B -- (T) -- tau -- [l,E]",3, 2j_l + 1l + 1tau + MET
+L_3 L E_3,W^+,tau,jjTTE,"W^+ -- (j) -- q -- (j) -- B -- (T) -- tau -- [T,E]",3, 2j_l + 2tau + MET
+L_3 L E_3,W^0,tau,jjTTE,"W^0 -- (j) -- q -- (j) -- B -- (T) -- tau -- [T,E]",3, 2j_l + 2tau + MET
+L_3 L E_3,G,tau_L,jjTTE,"G -- (j) -- q -- (j) -- B -- (T) -- tau_L -- [E,T]",3, 2j_l + 2tau + MET
+L_3 L E_3,G,nu,jjTTE,"G -- (j) -- q -- (j) -- B -- (E) -- nu -- [T,T]",3, 2j_l + 2tau + MET
+L_3 L E_3,G,tau,jjTTE,"G -- (j) -- q -- (j) -- B -- (T) -- tau -- [T,E]",3, 2j_l + 2tau + MET
+L L E,W^0,e,ttllE,"W^0 -- (t) -- t_L -- (t) -- B -- (l) -- e -- [l,E]",3, 2t + 2l + MET
+L_3 L E,W^0,e,ttllE,"W^0 -- (t) -- t_L -- (t) -- B -- (l) -- e -- [l,E]",3, 2t + 2l + MET
+L L E,G,l,ttllE,"G -- (t) -- t_L -- (t) -- B -- (l) -- l -- [E,l]",3, 2t + 2l + MET
+L L E,G,nu,ttllE,"G -- (t) -- t_L -- (t) -- B -- (E) -- nu -- [l,l]",3, 2t + 2l + MET
+L L E,G,e,ttllE,"G -- (t) -- t_L -- (t) -- B -- (l) -- e -- [l,E]",3, 2t + 2l + MET
+L_3 L E,G,l,ttllE,"G -- (t) -- t_L -- (t) -- B -- (l) -- l -- [E,l]",3, 2t + 2l + MET
+L_3 L E,G,nu_tau,ttllE,"G -- (t) -- t_L -- (t) -- B -- (E) -- nu_tau -- [l,l]",3, 2t + 2l + MET
+L_3 L E,G,e,ttllE,"G -- (t) -- t_L -- (t) -- B -- (l) -- e -- [l,E]",3, 2t + 2l + MET
+L_3 L E,W^0,e,ttTlE,"W^0 -- (t) -- t_L -- (t) -- B -- (l) -- e -- [T,E]",3, 2t + 1l + 1tau + MET
+L L E_3,W^0,tau,ttTlE,"W^0 -- (t) -- t_L -- (t) -- B -- (T) -- tau -- [l,E]",3, 2t + 1l + 1tau + MET
+L_3 L E_3,W^0,tau,ttTlE,"W^0 -- (t) -- t_L -- (t) -- B -- (T) -- tau -- [l,E]",3, 2t + 1l + 1tau + MET
+L_3 L E,G,tau_L,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (T) -- tau_L -- [E,l]",3, 2t + 1l + 1tau + MET
+L_3 L E,G,nu,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (E) -- nu -- [T,l]",3, 2t + 1l + 1tau + MET
+L_3 L E,G,e,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (l) -- e -- [T,E]",3, 2t + 1l + 1tau + MET
+L L E_3,G,l,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (l) -- l -- [E,T]",3, 2t + 1l + 1tau + MET
+L L E_3,G,nu,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (E) -- nu -- [l,T]",3, 2t + 1l + 1tau + MET
+L L E_3,G,tau,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (T) -- tau -- [l,E]",3, 2t + 1l + 1tau + MET
+L_3 L E_3,G,l,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (l) -- l -- [E,T]",3, 2t + 1l + 1tau + MET
+L_3 L E_3,G,nu_tau,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (E) -- nu_tau -- [l,T]",3, 2t + 1l + 1tau + MET
+L_3 L E_3,G,tau,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (T) -- tau -- [l,E]",3, 2t + 1l + 1tau + MET
+L_3 L E,W^0,e,ttTlE,"W^0 -- (t) -- t_L -- (t) -- B -- (l) -- e -- [T,E]",3, 2t + 1l + 1tau + MET
+L L E_3,W^0,tau,ttTlE,"W^0 -- (t) -- t_L -- (t) -- B -- (T) -- tau -- [l,E]",3, 2t + 1l + 1tau + MET
+L_3 L E_3,W^0,tau,ttTlE,"W^0 -- (t) -- t_L -- (t) -- B -- (T) -- tau -- [l,E]",3, 2t + 1l + 1tau + MET
+L_3 L E,G,tau_L,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (T) -- tau_L -- [E,l]",3, 2t + 1l + 1tau + MET
+L_3 L E,G,nu,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (E) -- nu -- [T,l]",3, 2t + 1l + 1tau + MET
+L_3 L E,G,e,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (l) -- e -- [T,E]",3, 2t + 1l + 1tau + MET
+L L E_3,G,l,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (l) -- l -- [E,T]",3, 2t + 1l + 1tau + MET
+L L E_3,G,nu,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (E) -- nu -- [l,T]",3, 2t + 1l + 1tau + MET
+L L E_3,G,tau,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (T) -- tau -- [l,E]",3, 2t + 1l + 1tau + MET
+L_3 L E_3,G,l,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (l) -- l -- [E,T]",3, 2t + 1l + 1tau + MET
+L_3 L E_3,G,nu_tau,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (E) -- nu_tau -- [l,T]",3, 2t + 1l + 1tau + MET
+L_3 L E_3,G,tau,ttTlE,"G -- (t) -- t_L -- (t) -- B -- (T) -- tau -- [l,E]",3, 2t + 1l + 1tau + MET
+L_3 L E_3,W^0,tau,ttTTE,"W^0 -- (t) -- t_L -- (t) -- B -- (T) -- tau -- [T,E]",3, 2t + 2tau + MET
+L_3 L E_3,G,tau_L,ttTTE,"G -- (t) -- t_L -- (t) -- B -- (T) -- tau_L -- [E,T]",3, 2t + 2tau + MET
+L_3 L E_3,G,nu,ttTTE,"G -- (t) -- t_L -- (t) -- B -- (E) -- nu -- [T,T]",3, 2t + 2tau + MET
+L_3 L E_3,G,tau,ttTTE,"G -- (t) -- t_L -- (t) -- B -- (T) -- tau -- [T,E]",3, 2t + 2tau + MET
+L L E,W^+,e,tbllE,"W^+ -- (t) -- b_L -- (b) -- B -- (l) -- e -- [l,E]",3, 1t + 1b + 2l + MET
+L_3 L E,W^+,e,tbllE,"W^+ -- (t) -- b_L -- (b) -- B -- (l) -- e -- [l,E]",3, 1t + 1b + 2l + MET
+L_3 L E,W^+,e,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (l) -- e -- [T,E]",3, 1t + 1b + 1l + 1tau + MET
+L L E_3,W^+,tau,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 1t + 1b + 1l + 1tau + MET
+L_3 L E_3,W^+,tau,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 1t + 1b + 1l + 1tau + MET
+L_3 L E,W^+,e,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (l) -- e -- [T,E]",3, 1t + 1b + 1l + 1tau + MET
+L L E_3,W^+,tau,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 1t + 1b + 1l + 1tau + MET
+L_3 L E_3,W^+,tau,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 1t + 1b + 1l + 1tau + MET
+L_3 L E_3,W^+,tau,tbTTE,"W^+ -- (t) -- b_L -- (b) -- B -- (T) -- tau -- [T,E]",3, 1t + 1b + 2tau + MET
+L L E,W^+,e,tbllE,"W^+ -- (t) -- b_L -- (b) -- B -- (l) -- e -- [l,E]",3, 1t + 1b + 2l + MET
+L_3 L E,W^+,e,tbllE,"W^+ -- (t) -- b_L -- (b) -- B -- (l) -- e -- [l,E]",3, 1t + 1b + 2l + MET
+L_3 L E,W^+,e,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (l) -- e -- [T,E]",3, 1t + 1b + 1l + 1tau + MET
+L L E_3,W^+,tau,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 1t + 1b + 1l + 1tau + MET
+L_3 L E_3,W^+,tau,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 1t + 1b + 1l + 1tau + MET
+L_3 L E,W^+,e,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (l) -- e -- [T,E]",3, 1t + 1b + 1l + 1tau + MET
+L L E_3,W^+,tau,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 1t + 1b + 1l + 1tau + MET
+L_3 L E_3,W^+,tau,tbTlE,"W^+ -- (t) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 1t + 1b + 1l + 1tau + MET
+L_3 L E_3,W^+,tau,tbTTE,"W^+ -- (t) -- b_L -- (b) -- B -- (T) -- tau -- [T,E]",3, 1t + 1b + 2tau + MET
+L L E,W^0,e,bbllE,"W^0 -- (b) -- b_L -- (b) -- B -- (l) -- e -- [l,E]",3, 2b + 2l + MET
+L_3 L E,W^0,e,bbllE,"W^0 -- (b) -- b_L -- (b) -- B -- (l) -- e -- [l,E]",3, 2b + 2l + MET
+L L E,G,l,bbllE,"G -- (b) -- b_L -- (b) -- B -- (l) -- l -- [E,l]",3, 2b + 2l + MET
+L L E,G,nu,bbllE,"G -- (b) -- b_L -- (b) -- B -- (E) -- nu -- [l,l]",3, 2b + 2l + MET
+L L E,G,e,bbllE,"G -- (b) -- b_L -- (b) -- B -- (l) -- e -- [l,E]",3, 2b + 2l + MET
+L_3 L E,G,l,bbllE,"G -- (b) -- b_L -- (b) -- B -- (l) -- l -- [E,l]",3, 2b + 2l + MET
+L_3 L E,G,nu_tau,bbllE,"G -- (b) -- b_L -- (b) -- B -- (E) -- nu_tau -- [l,l]",3, 2b + 2l + MET
+L_3 L E,G,e,bbllE,"G -- (b) -- b_L -- (b) -- B -- (l) -- e -- [l,E]",3, 2b + 2l + MET
+L_3 L E,W^0,e,bbTlE,"W^0 -- (b) -- b_L -- (b) -- B -- (l) -- e -- [T,E]",3, 2b + 1l + 1tau + MET
+L L E_3,W^0,tau,bbTlE,"W^0 -- (b) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 2b + 1l + 1tau + MET
+L_3 L E_3,W^0,tau,bbTlE,"W^0 -- (b) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 2b + 1l + 1tau + MET
+L_3 L E,G,tau_L,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (T) -- tau_L -- [E,l]",3, 2b + 1l + 1tau + MET
+L_3 L E,G,nu,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (E) -- nu -- [T,l]",3, 2b + 1l + 1tau + MET
+L_3 L E,G,e,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (l) -- e -- [T,E]",3, 2b + 1l + 1tau + MET
+L L E_3,G,l,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (l) -- l -- [E,T]",3, 2b + 1l + 1tau + MET
+L L E_3,G,nu,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (E) -- nu -- [l,T]",3, 2b + 1l + 1tau + MET
+L L E_3,G,tau,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 2b + 1l + 1tau + MET
+L_3 L E_3,G,l,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (l) -- l -- [E,T]",3, 2b + 1l + 1tau + MET
+L_3 L E_3,G,nu_tau,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (E) -- nu_tau -- [l,T]",3, 2b + 1l + 1tau + MET
+L_3 L E_3,G,tau,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 2b + 1l + 1tau + MET
+L_3 L E,W^0,e,bbTlE,"W^0 -- (b) -- b_L -- (b) -- B -- (l) -- e -- [T,E]",3, 2b + 1l + 1tau + MET
+L L E_3,W^0,tau,bbTlE,"W^0 -- (b) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 2b + 1l + 1tau + MET
+L_3 L E_3,W^0,tau,bbTlE,"W^0 -- (b) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 2b + 1l + 1tau + MET
+L_3 L E,G,tau_L,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (T) -- tau_L -- [E,l]",3, 2b + 1l + 1tau + MET
+L_3 L E,G,nu,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (E) -- nu -- [T,l]",3, 2b + 1l + 1tau + MET
+L_3 L E,G,e,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (l) -- e -- [T,E]",3, 2b + 1l + 1tau + MET
+L L E_3,G,l,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (l) -- l -- [E,T]",3, 2b + 1l + 1tau + MET
+L L E_3,G,nu,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (E) -- nu -- [l,T]",3, 2b + 1l + 1tau + MET
+L L E_3,G,tau,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 2b + 1l + 1tau + MET
+L_3 L E_3,G,l,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (l) -- l -- [E,T]",3, 2b + 1l + 1tau + MET
+L_3 L E_3,G,nu_tau,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (E) -- nu_tau -- [l,T]",3, 2b + 1l + 1tau + MET
+L_3 L E_3,G,tau,bbTlE,"G -- (b) -- b_L -- (b) -- B -- (T) -- tau -- [l,E]",3, 2b + 1l + 1tau + MET
+L_3 L E_3,W^0,tau,bbTTE,"W^0 -- (b) -- b_L -- (b) -- B -- (T) -- tau -- [T,E]",3, 2b + 2tau + MET
+L_3 L E_3,G,tau_L,bbTTE,"G -- (b) -- b_L -- (b) -- B -- (T) -- tau_L -- [E,T]",3, 2b + 2tau + MET
+L_3 L E_3,G,nu,bbTTE,"G -- (b) -- b_L -- (b) -- B -- (E) -- nu -- [T,T]",3, 2b + 2tau + MET
+L_3 L E_3,G,tau,bbTTE,"G -- (b) -- b_L -- (b) -- B -- (T) -- tau -- [T,E]",3, 2b + 2tau + MET
+L Q D,W^+,d,jjllE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [l,j]",3, 2j_l + 2l + MET
+L Q D,W^0,d,jjllE,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [E,j]",3, 2j_l + 2l + MET
+L_3 Q D,W^0,d,jjllE,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [E,j]",3, 2j_l + 2l + MET
+L Q D,W^+,d,jjTlE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [l,j]",3, 2j_l + 1l + 1tau + MET
+L_3 Q D,W^+,d,jjTlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [T,j]",3, 2j_l + 1l + 1tau + MET
+L Q D,W^+,d,jjTlE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [l,j]",3, 2j_l + 1l + 1tau + MET
+L_3 Q D,W^+,d,jjTlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [T,j]",3, 2j_l + 1l + 1tau + MET
+L_3 Q D,W^+,d,jjTTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [T,j]",3, 2j_l + 2tau + MET
+L Q D,W^0,d,jjTTE,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [E,j]",3, 2j_l + 2tau + MET
+L_3 Q D,W^0,d,jjTTE,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [E,j]",3, 2j_l + 2tau + MET
+L Q_3 D,W^+,d,tjllE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [l,t]",3, 1j_l + 1t + 2l + MET
+L Q_3 D,W^+,d,tjTlE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [l,t]",3, 1j_l + 1t + 1l + 1tau + MET
+L_3 Q_3 D,W^+,d,tjTlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [T,t]",3, 1j_l + 1t + 1l + 1tau + MET
+L Q_3 D,W^+,d,tjTlE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [l,t]",3, 1j_l + 1t + 1l + 1tau + MET
+L_3 Q_3 D,W^+,d,tjTlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [T,t]",3, 1j_l + 1t + 1l + 1tau + MET
+L_3 Q_3 D,W^+,d,tjTTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [T,t]",3, 1j_l + 1t + 2tau + MET
+L Q_3 D,W^0,d,bjllE,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [E,b]",3, 1j_l + 1b + 2l + MET
+L_3 Q_3 D,W^0,d,bjllE,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [E,b]",3, 1j_l + 1b + 2l + MET
+L Q_3 D,W^0,d,bjTTE,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [E,b]",3, 1j_l + 1b + 2tau + MET
+L_3 Q_3 D,W^0,d,bjTTE,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [E,b]",3, 1j_l + 1b + 2tau + MET
+L Q_3 D,W^+,d,tjllE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [l,t]",3, 1j_l + 1t + 2l + MET
+L Q_3 D,W^+,d,tjTlE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [l,t]",3, 1j_l + 1t + 1l + 1tau + MET
+L_3 Q_3 D,W^+,d,tjTlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [T,t]",3, 1j_l + 1t + 1l + 1tau + MET
+L Q_3 D,W^+,d,tjTlE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [l,t]",3, 1j_l + 1t + 1l + 1tau + MET
+L_3 Q_3 D,W^+,d,tjTlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [T,t]",3, 1j_l + 1t + 1l + 1tau + MET
+L_3 Q_3 D,W^+,d,tjTTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [T,t]",3, 1j_l + 1t + 2tau + MET
+L Q_3 D,W^0,d,bjllE,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [E,b]",3, 1j_l + 1b + 2l + MET
+L_3 Q_3 D,W^0,d,bjllE,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [E,b]",3, 1j_l + 1b + 2l + MET
+L Q_3 D,W^0,d,bjTTE,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [E,b]",3, 1j_l + 1b + 2tau + MET
+L_3 Q_3 D,W^0,d,bjTTE,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [E,b]",3, 1j_l + 1b + 2tau + MET

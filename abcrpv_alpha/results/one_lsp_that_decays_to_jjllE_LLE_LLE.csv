@@ -1,0 +1,6 @@
+Category,LSP,decays via,Signatures,Chain,NV_cascade,Signatures (ER)
+L L E,W^+,e,jjllE,"W^+ -- (j) -- q -- (j) -- B -- (l) -- e -- [l,E]",3, 2j_l + 2l + MET
+L L E,W^0,e,jjllE,"W^0 -- (j) -- q -- (j) -- B -- (l) -- e -- [l,E]",3, 2j_l + 2l + MET
+L L E,G,l,jjllE,"G -- (j) -- q -- (j) -- B -- (l) -- l -- [E,l]",3, 2j_l + 2l + MET
+L L E,G,nu,jjllE,"G -- (j) -- q -- (j) -- B -- (E) -- nu -- [l,l]",3, 2j_l + 2l + MET
+L L E,G,e,jjllE,"G -- (j) -- q -- (j) -- B -- (l) -- e -- [l,E]",3, 2j_l + 2l + MET
