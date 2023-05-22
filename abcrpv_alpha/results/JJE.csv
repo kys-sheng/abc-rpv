@@ -1,0 +1,24 @@
+Category,LSP,decays via,Signatures,Chain,NV_cascade,Signatures (ER)
+L Q D,B,nu,jjE,"B -- (E) -- nu -- [j,j]",1, 2j_l + MET
+L Q D,B,q,jjE,"B -- (j) -- q -- [E,j]",1, 2j_l + MET
+L Q D,B,d,jjE,"B -- (j) -- d -- [E,j]",1, 2j_l + MET
+L Q D,W^+,l,jjE,"W^+ -- (E) -- l -- [j,j]",1, 2j_l + MET
+L Q D,W^+,q,jjE,"W^+ -- (j) -- q -- [E,j]",1, 2j_l + MET
+L Q D,W^0,nu,jjE,"W^0 -- (E) -- nu -- [j,j]",1, 2j_l + MET
+L Q D,W^0,q,jjE,"W^0 -- (j) -- q -- [E,j]",1, 2j_l + MET
+L Q D,W^0,d,jjE,"W^0 -- (E) -- nu -- (E) -- B -- (j) -- d -- [E,j]",3, 2j_l + MET
+L Q D,G,q,jjE,"G -- (j) -- q -- [E,j]",1, 2j_l + MET
+L Q D,G,d,jjE,"G -- (j) -- d -- [E,j]",1, 2j_l + MET
+L Q D,H^+,l,jjE,"H^+ -- (E) -- l -- [j,j]",1, 2j_l + MET
+L Q D,H^+,q,jjE,"H^+ -- (j) -- q -- [E,j]",1, 2j_l + MET
+L Q D,H^+,d,jjE,"H^+ -- (j) -- d -- [E,j]",1, 2j_l + MET
+L Q D,H^0,q,jjE,"H^0 -- (j) -- q -- [E,j]",1, 2j_l + MET
+L Q D,H^0,d,jjE,"H^0 -- (j) -- d -- [E,j]",1, 2j_l + MET
+L Q D,l,q,jjE,"l -- (E) -- W^+ -- (j) -- q -- [E,j]",2, 2j_l + MET
+L Q D,nu,q,jjE,"nu -- (E) -- B -- (j) -- q -- [E,j]",2, 2j_l + MET
+L Q D,nu,d,jjE,"nu -- (E) -- B -- (j) -- d -- [E,j]",2, 2j_l + MET
+L Q D,tau_L,l,jjE,"tau_L -- (E) -- W^+ -- (E) -- l -- [j,j]",2, 2j_l + MET
+L Q D,tau_L,q,jjE,"tau_L -- (E) -- W^+ -- (j) -- q -- [E,j]",2, 2j_l + MET
+L Q D,nu_tau,nu,jjE,"nu_tau -- (E) -- B -- (E) -- nu -- [j,j]",2, 2j_l + MET
+L Q D,nu_tau,q,jjE,"nu_tau -- (E) -- B -- (j) -- q -- [E,j]",2, 2j_l + MET
+L Q D,nu_tau,d,jjE,"nu_tau -- (E) -- B -- (j) -- d -- [E,j]",2, 2j_l + MET

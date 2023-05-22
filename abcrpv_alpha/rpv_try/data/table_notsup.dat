@@ -1,0 +1,104 @@
+ G d & not sup. & j
+ G q & not sup. & j
+ G u & not sup. & j 
+ G t & not sup. & t
+ G b & not sup. & b
+ G t_L & not sup. & t
+ G b_L & not sup. & b
+ d G & not sup. & j
+ d B & not sup. & j
+ q G & not sup. & j
+ q W^0 & not sup. & j
+ q W^pm & not sup. & j
+ q B & not sup. & j 
+ u G & not sup. & j
+ u B & not sup. & j 
+ t G & not sup. & t
+ t H^0 & not sup. & t
+ t H^pm & not sup. & b
+ t B & not sup. & t
+ b G & not sup. & b
+ b H^0 & not sup. & b
+ b H^pm & not sup. & t
+ b B & not sup. & b
+ t_L G & not sup. & t
+ t_L W^0 & not sup. & t
+ t_L W^pm & not sup. & b
+ t_L H^0 & not sup. & t
+ t_L H^pm & not sup. & b
+ t_L B & not sup. & t
+ b_L G & not sup. & b
+ b_L W^0 & not sup. & b
+ b_L W^pm & not sup. & t 
+ b_L H^0 & not sup. & b
+ b_L H^pm & not sup. & t 
+ b_L B & not sup. & b
+ B d & not sup. & j
+ B q & not sup. & j 
+ B u & not sup. & j
+ B e & not sup. & l
+ B H^0 & not sup. & v tt bb 
+ B H^pm & not sup. & v tb
+ B l & not sup. & l 
+ B nu & not sup. & E
+ B t & not sup. & t 
+ B b & not sup. & b
+ B t_L & not sup. & t
+ B b_L & not sup. & b
+ B tau & not sup. & T 
+ B tau_L & not sup. & T
+ B nu_tau & not sup. & E 
+ W^0 q & not sup. & j 
+ W^0 H^0 & not sup. & v tt bb
+ W^0 H^pm & not sup. & v tb
+ W^0 l & not sup. & l 
+ W^0 nu & not sup. & E 
+ W^0 t_L & not sup. & t
+ W^0 b_L & not sup. & b
+ W^0 tau_L & not sup. & T
+ W^0 nu_tau & not sup. & E 
+ H^0 W^0 & not sup. & v tt bb
+ H^0 W^pm & not sup. & v tb
+ H^0 t & not sup. & t
+ H^0 b & not sup. & b
+ H^0 t_L & not sup. & t 
+ H^0 b_L & not sup. & b 
+ H^0 tau & not sup. & T
+ H^0 tau_L & not sup. & T
+ H^0 B & not sup. & v tt bb 
+ W^pm q & not sup. & j 
+ W^pm H^0 & not sup. & v tb 
+ W^pm H^pm & not sup. & v tt bb 
+ W^pm l & not sup. & E 
+ W^pm nu & not sup. & l 
+ W^pm t_L & not sup. & b
+ W^pm b_L & not sup. & t 
+ W^pm tau_L & not sup. & E
+ W^pm nu_tau & not sup. & T 
+ H^pm W^0 & not sup. & v tb 
+ H^pm W^pm & not sup. & v tt bb 
+ H^pm t & not sup. & b
+ H^pm b & not sup. & t
+ H^pm t_L & not sup. & b 
+ H^pm b_L & not sup. & t 
+ H^pm tau & not sup. & E
+ H^pm B & not sup. & v tb 
+ e B & not sup. & l 
+ l W^0 & not sup. & l
+ l W^pm & not sup. & E 
+ l B & not sup. & l  
+ nu W^0 & not sup. & E
+ nu W^pm & not sup. & l 
+ nu B & not sup. & E  
+ tau H^0 & not sup. & T
+ tau H^pm & not sup. & T 
+ tau B & not sup. & T 
+ tau_L W^0 & not sup. & T
+ tau_L W^pm & not sup. & E 
+ tau_L H^0 & not sup. & T
+ tau_L H^pm & not sup. & T
+ tau_L B & not sup. & T  
+ nu_tau W^0 & not sup. & E
+ nu_tau W^pm & not sup. & T 
+ nu_tau H^pm & not sup. & T 
+ nu_tau B & not sup. & E   
