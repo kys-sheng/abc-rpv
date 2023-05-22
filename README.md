@@ -1,5 +1,5 @@
 # abctestrun
-1. Download this git repository either via download as a zip or git clone.
+1. Go to green color button (Code): Download this git repository either via download as a zip or git clone.
 2. Try Tutorial.ipynb and give me some feedback
 
 Used Python libraries:<br>
