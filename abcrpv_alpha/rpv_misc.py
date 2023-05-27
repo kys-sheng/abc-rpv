@@ -53,7 +53,7 @@ def signature_ordering(instr):
     fixedinstr = instr
     nstr = len(instr)
     outstr = ""
-    #rdef.sig_order = ["v","J","3","t","b","j","L","T","l","E"]
+    #rdef.sig_order = ["v","J","3","t","b","j","L","T","l","X"]
     
     
     # If () in string, take it out and put it in front
@@ -90,8 +90,8 @@ def signature_ordering(instr):
         print("String length changed!",fixedinstr,instr,outstr)
     
     #Two MET is just MET
-    while outstr.count("E") > 1 :
-        outstr = outstr.replace("EE", "E",100)
+    while outstr.count("X") > 1 :
+        outstr = outstr.replace("XX", "X",100)
         outstr = signature_ordering(outstr)
     
     return outstr
@@ -164,7 +164,7 @@ def easy_read(instr):
     
     """
     output = ""
-    orderdat = [instr.count("J"),"J"],[instr.count("j"),"j_l"],[instr.count("3"),"j_3"],[instr.count("t"),"t"],[instr.count("b"),"b"],[instr.count("l"),"l"],[instr.count("L"),"L"],[instr.count("T"),"tau"],[instr.count("v"),"v"],[instr.count("E"),"MET"]
+    orderdat = [instr.count("J"),"J"],[instr.count("j"),"j_l"],[instr.count("3"),"j_3"],[instr.count("t"),"t"],[instr.count("b"),"b"],[instr.count("l"),"l"],[instr.count("L"),"L"],[instr.count("T"),"tau"],[instr.count("v"),"v"],[instr.count("X"),"MET"]
     for i in orderdat:
         if i[1] == "MET" and i[0] == 0:
             output = output[:-2]
@@ -272,7 +272,7 @@ def sparticles_to_sig(instr):
     if instr == "l" or instr == "e" :
         instr = "l"
     if instr == "nu" or instr == "nu_tau":
-        instr = "E"
+        instr = "X"
     if instr == "tau_L" or instr == "tau":
         instr = "T"
     return instr 

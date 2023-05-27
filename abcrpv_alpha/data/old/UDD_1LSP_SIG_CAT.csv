@@ -1,0 +1,20 @@
+LSP,U D D,U D_3 D,U D_3 D_3,U_3 D D,U_3 D_3 D,U_3 D_3 D_3
+B,{'jjj'},{'bjj'},{'bbj'},{'tjj'},{'tbj'},{'tbb'}
+W^+,"{'jjjlE', 'vvjjj', 'jjjjj', 'tbjjj', 'jjjTE'}","{'bjjjj', 'vtjj', 'bjjTE', 'bjjlE', 'vbjj', 'vvbjj', 'tbbjj'}","{'bbjjj', 'tbbbj', 'vtbj', 'bbjlE', 'vbbj', 'bbjTE', 'vvbbj'}","{'vvtjj', 'ttbjj', 'tjjTE', 'tjjlE', 'vtjj', 'vbjj', 'tjjjj'}","{'vtbj', 'tbjTE', 'vbbj', 'tbjjj', 'vvtbj', 'vttj', 'tbjlE', 'ttbbj'}","{'vtbb', 'vbbb', 'vttb'}"
+W^0,"{'bbjjj', 'jjjE', 'jjjTT', 'jjjll', 'vvjjj', 'jjjjj', 'ttjjj'}","{'ttbjj', 'bbbjj', 'bjjjj', 'vtjj', 'bjjll', 'bjjTT', 'vbjj', 'bjjE', 'vvbjj'}","{'bbjTT', 'bbjjj', 'bbjll', 'vtbj', 'bbbbj', 'vvbbj', 'vbbj', 'bbjE', 'ttbbj'}","{'vvtjj', 'tjjTT', 'vtjj', 'tttjj', 'tjjE', 'vbjj', 'tjjjj', 'tjjll', 'tbbjj'}","{'tbjll', 'tttbj', 'tbbbj', 'vtbj', 'vbbj', 'tbjjj', 'vvtbj', 'tbjTT', 'vttj', 'tbjE'}","{'vtbb', 'vbbb', 'vttb'}"
+G,{'jjj'},{'bjj'},{'bbj'},{'tjj'},{'tbj'},{'tbb'}
+H^+,{'vjjj'},"{'tjj', 'vbjj'}","{'tbj', 'vbbj'}","{'vtjj', 'bjj'}","{'bbj', 'ttj', 'vtbj'}","{'ttb', 'bbb'}"
+H^0,{'vjjj'},"{'bjj', 'vbjj'}","{'bbj', 'vbbj'}","{'tjj', 'vtjj'}","{'vtbj', 'tbj'}",{'tbb'}
+q,{'jjjj'},{'bjjj'},{'bbjj'},{'tjjj'},{'tbjj'},{'tbbj'}
+d,"{'jj', 'jjjj'}","{'bj', 'bjjj'}",{'bbjj'},"{'tjjj', 'tj'}","{'tb', 'tbjj'}",{'tbbj'}
+u,"{'jj', 'jjjj'}","{'bj', 'bjjj'}","{'bbjj', 'bb'}",{'tjjj'},{'tbjj'},{'tbbj'}
+l,{'jjjl'},{'bjjl'},{'bbjl'},{'tjjl'},{'tbjl'},{'tbbl'}
+nu,{'jjjE'},{'bjjE'},{'bbjE'},{'tjjE'},{'tbjE'},{'tbbE'}
+e,{'jjjl'},{'bjjl'},{'bbjl'},{'tjjl'},{'tbjl'},{'tbbl'}
+b_L,{'bjjj'},"{'bbjj', 'ttjj'}","{'ttbj', 'bbbj'}",{'tbjj'},"{'tbbj', 'tttj'}","{'tbbb', 'tttb'}"
+t_L,{'tjjj'},{'tbjj'},{'tbbj'},"{'bbjj', 'ttjj'}","{'ttbj', 'bbbj'}","{'ttbb', 'bbbb'}"
+t,{'tjjj'},{'tbjj'},{'tbbj'},"{'jj', 'ttjj'}","{'bj', 'ttbj'}","{'ttbb', 'bb'}"
+b,{'bjjj'},"{'bbjj', 'jj'}","{'bj', 'bbbj'}",{'tbjj'},"{'tbbj', 'tj'}","{'tbbb', 'tb'}"
+tau_L,{'jjjT'},{'bjjT'},{'bbjT'},{'tjjT'},{'tbjT'},{'tbbT'}
+nu_tau,{'jjjE'},{'bjjE'},{'bbjE'},{'tjjE'},{'tbjE'},{'tbbE'}
+tau,{'jjjT'},{'bjjT'},{'bbjT'},{'tjjT'},{'tbjT'},{'tbbT'}

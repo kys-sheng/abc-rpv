@@ -3,24 +3,24 @@ G,e,JJl
 G,H^0,tt bb
 G,H^pm,tb
 G,l,JJl
-G,nu,JJE
+G,nu,JJX
 G,tau,JJT
 G,tau_L,JJT
-G,nu_tau,JJE
+G,nu_tau,JJX
 e,G,JJl
 l,G,JJl
 l,H^pm,l
 nu,G,JJl
 tau,G,JJT
 tau_L,G,JJT
-nu_tau,G,JJE
+nu_tau,G,JJX
 H^0,G,tt bb
-H^0,nu,E
-H^0,nu_tau,E
+H^0,nu,X
+H^0,nu_tau,X
 H^pm,G,tb
-H^pm,nu,E
-H^pm,nu_tau,E
-nu,H^0,E
-nu,H^pm,E 
-nu_tau,H^pm,E
-nu_tau,H^0,E
+H^pm,nu,X
+H^pm,nu_tau,X
+nu,H^0,X
+nu,H^pm,X 
+nu_tau,H^pm,X
+nu_tau,H^0,X

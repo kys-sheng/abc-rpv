@@ -807,7 +807,7 @@ def find_one_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename
     category = category.upper()
     if category != "ALL":
         if category.count(" ") < 2:
-            if category.count("E") > 0:
+            if category.count("X") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LLE. Try:\n{x}".format(x=rdef.CAT_DICT["LLE"]))
             if category.count("Q") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))
@@ -873,7 +873,7 @@ def find_signatures_from_one_lsp(lsp,rpv_coup="ALL",category="ALL",filename="",s
     category = category.upper()
     if category != "ALL":
         if category.count(" ") < 2:
-            if category.count("E") > 0:
+            if category.count("X") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LLE. Try:\n{x}".format(x=rdef.CAT_DICT["LLE"]))
             if category.count("Q") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))
@@ -927,7 +927,7 @@ def find_two_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename
 
     if category != "ALL":
         if category.count(" ") < 2:
-            if category.count("E") > 0:
+            if category.count("X") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LLE. Try:\n{x}".format(x=rdef.CAT_DICT["LLE"]))
             if category.count("Q") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))
@@ -998,7 +998,7 @@ def find_signatures_from_two_lsp(lspa,lspb="",rpv_coup="ALL",category="ALL",file
     category = category.upper()
     if category != "ALL":
         if category.count(" ") < 2:
-            if category.count("E") > 0:
+            if category.count("X") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LLE. Try:\n{x}".format(x=rdef.CAT_DICT["LLE"]))
             if category.count("Q") > 0:
                 raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))

@@ -1,0 +1,460 @@
+Category,LSP,decays via,Signatures,Chain,NV_cascade,Signatures (ER)
+U D D,B,u,jjj,"B -- (j) -- u -- [j,j]",1, 3j_l
+U D D,B,d,jjj,"B -- (j) -- d -- [j,j]",1, 3j_l
+U D D,B,d,jjj,"B -- (j) -- d -- [j,j]",1, 3j_l
+U D_3 D,B,u,bjj,"B -- (j) -- u -- [j,b]",1, 2j_l + 1b
+U D_3 D,B,d,bjj,"B -- (j) -- d -- [j,b]",1, 2j_l + 1b
+U D_3 D,B,b,bjj,"B -- (b) -- b -- [j,j]",1, 2j_l + 1b
+U D_3 D_3,B,u,bbj,"B -- (j) -- u -- [b,b]",1, 1j_l + 2b
+U D_3 D_3,B,b,bbj,"B -- (b) -- b -- [j,b]",1, 1j_l + 2b
+U D_3 D_3,B,b,bbj,"B -- (b) -- b -- [j,b]",1, 1j_l + 2b
+U_3 D D,B,t,tjj,"B -- (t) -- t -- [j,j]",1, 2j_l + 1t
+U_3 D D,B,d,tjj,"B -- (j) -- d -- [t,j]",1, 2j_l + 1t
+U_3 D D,B,d,tjj,"B -- (j) -- d -- [t,j]",1, 2j_l + 1t
+U_3 D_3 D,B,t,tbj,"B -- (t) -- t -- [j,b]",1, 1j_l + 1t + 1b
+U_3 D_3 D,B,d,tbj,"B -- (j) -- d -- [t,b]",1, 1j_l + 1t + 1b
+U_3 D_3 D,B,b,tbj,"B -- (b) -- b -- [t,j]",1, 1j_l + 1t + 1b
+U_3 D_3 D_3,B,t,tbb,"B -- (t) -- t -- [b,b]",1, 1t + 2b
+U_3 D_3 D_3,B,b,tbb,"B -- (b) -- b -- [t,b]",1, 1t + 2b
+U_3 D_3 D_3,B,b,tbb,"B -- (b) -- b -- [t,b]",1, 1t + 2b
+U D D,W^+,u,jjjTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- u -- [j,j]",3, 3j_l + 1tau + MET
+U D D,W^+,u,vvjjj,"W^+ -- (v) -- H^+ -- (v) -- B -- (j) -- u -- [j,j]",3, 3j_l + 2v
+U D D,W^+,u,jjjjj,"W^+ -- (j) -- q -- (j) -- B -- (j) -- u -- [j,j]",3, 5j_l
+U D D,W^+,u,tbjjj,"W^+ -- (t) -- b_L -- (b) -- B -- (j) -- u -- [j,j]",3, 3j_l + 1t + 1b
+U D D,W^+,u,jjjlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- u -- [j,j]",3, 3j_l + 1l + MET
+U D D,W^+,d,jjjTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [j,j]",3, 3j_l + 1tau + MET
+U D D,W^+,d,vvjjj,"W^+ -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2v
+U D D,W^+,d,jjjjj,"W^+ -- (j) -- q -- (j) -- B -- (j) -- d -- [j,j]",3, 5j_l
+U D D,W^+,d,tbjjj,"W^+ -- (t) -- b_L -- (b) -- B -- (j) -- d -- [j,j]",3, 3j_l + 1t + 1b
+U D D,W^+,d,jjjlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [j,j]",3, 3j_l + 1l + MET
+U D D,W^+,d,jjjTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [j,j]",3, 3j_l + 1tau + MET
+U D D,W^+,d,vvjjj,"W^+ -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2v
+U D D,W^+,d,jjjjj,"W^+ -- (j) -- q -- (j) -- B -- (j) -- d -- [j,j]",3, 5j_l
+U D D,W^+,d,tbjjj,"W^+ -- (t) -- b_L -- (b) -- B -- (j) -- d -- [j,j]",3, 3j_l + 1t + 1b
+U D D,W^+,d,jjjlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [j,j]",3, 3j_l + 1l + MET
+U D_3 D,W^+,u,bjjTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- u -- [j,b]",3, 2j_l + 1b + 1tau + MET
+U D_3 D,W^+,u,vvbjj,"W^+ -- (v) -- H^+ -- (v) -- B -- (j) -- u -- [j,b]",3, 2j_l + 1b + 2v
+U D_3 D,W^+,u,bjjjj,"W^+ -- (j) -- q -- (j) -- B -- (j) -- u -- [j,b]",3, 4j_l + 1b
+U D_3 D,W^+,u,tbbjj,"W^+ -- (t) -- b_L -- (b) -- B -- (j) -- u -- [j,b]",3, 2j_l + 1t + 2b
+U D_3 D,W^+,u,bjjlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- u -- [j,b]",3, 2j_l + 1b + 1l + MET
+U D_3 D,W^+,d,bjjTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [j,b]",3, 2j_l + 1b + 1tau + MET
+U D_3 D,W^+,d,vvbjj,"W^+ -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [j,b]",3, 2j_l + 1b + 2v
+U D_3 D,W^+,d,bjjjj,"W^+ -- (j) -- q -- (j) -- B -- (j) -- d -- [j,b]",3, 4j_l + 1b
+U D_3 D,W^+,d,tbbjj,"W^+ -- (t) -- b_L -- (b) -- B -- (j) -- d -- [j,b]",3, 2j_l + 1t + 2b
+U D_3 D,W^+,d,bjjlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [j,b]",3, 2j_l + 1b + 1l + MET
+U D_3 D,W^+,b,vtjj,"W^+ -- (v) -- H^+ -- (t) -- b -- [j,j]",2, 2j_l + 1t + 1v
+U D_3 D,W^+,b,vbjj,"W^+ -- (v) -- H^0 -- (b) -- b -- [j,j]",2, 2j_l + 1b + 1v
+U D_3 D_3,W^+,u,bbjTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- u -- [b,b]",3, 1j_l + 2b + 1tau + MET
+U D_3 D_3,W^+,u,vvbbj,"W^+ -- (v) -- H^+ -- (v) -- B -- (j) -- u -- [b,b]",3, 1j_l + 2b + 2v
+U D_3 D_3,W^+,u,bbjjj,"W^+ -- (j) -- q -- (j) -- B -- (j) -- u -- [b,b]",3, 3j_l + 2b
+U D_3 D_3,W^+,u,tbbbj,"W^+ -- (t) -- b_L -- (b) -- B -- (j) -- u -- [b,b]",3, 1j_l + 1t + 3b
+U D_3 D_3,W^+,u,bbjlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- u -- [b,b]",3, 1j_l + 2b + 1l + MET
+U D_3 D_3,W^+,b,vtbj,"W^+ -- (v) -- H^+ -- (t) -- b -- [j,b]",2, 1j_l + 1t + 1b + 1v
+U D_3 D_3,W^+,b,vbbj,"W^+ -- (v) -- H^0 -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1v
+U D_3 D_3,W^+,b,vtbj,"W^+ -- (v) -- H^+ -- (t) -- b -- [j,b]",2, 1j_l + 1t + 1b + 1v
+U D_3 D_3,W^+,b,vbbj,"W^+ -- (v) -- H^0 -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1v
+U_3 D D,W^+,t,vtjj,"W^+ -- (v) -- H^0 -- (t) -- t -- [j,j]",2, 2j_l + 1t + 1v
+U_3 D D,W^+,t,vbjj,"W^+ -- (v) -- H^+ -- (b) -- t -- [j,j]",2, 2j_l + 1b + 1v
+U_3 D D,W^+,d,tjjTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 1tau + MET
+U_3 D D,W^+,d,vvtjj,"W^+ -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 2v
+U_3 D D,W^+,d,tjjjj,"W^+ -- (j) -- q -- (j) -- B -- (j) -- d -- [t,j]",3, 4j_l + 1t
+U_3 D D,W^+,d,ttbjj,"W^+ -- (t) -- b_L -- (b) -- B -- (j) -- d -- [t,j]",3, 2j_l + 2t + 1b
+U_3 D D,W^+,d,tjjlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 1l + MET
+U_3 D D,W^+,d,tjjTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 1tau + MET
+U_3 D D,W^+,d,vvtjj,"W^+ -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 2v
+U_3 D D,W^+,d,tjjjj,"W^+ -- (j) -- q -- (j) -- B -- (j) -- d -- [t,j]",3, 4j_l + 1t
+U_3 D D,W^+,d,ttbjj,"W^+ -- (t) -- b_L -- (b) -- B -- (j) -- d -- [t,j]",3, 2j_l + 2t + 1b
+U_3 D D,W^+,d,tjjlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 1l + MET
+U_3 D_3 D,W^+,t,vtbj,"W^+ -- (v) -- H^0 -- (t) -- t -- [j,b]",2, 1j_l + 1t + 1b + 1v
+U_3 D_3 D,W^+,t,vbbj,"W^+ -- (v) -- H^+ -- (b) -- t -- [j,b]",2, 1j_l + 2b + 1v
+U_3 D_3 D,W^+,d,tbjTE,"W^+ -- (E) -- tau_L -- (T) -- B -- (j) -- d -- [t,b]",3, 1j_l + 1t + 1b + 1tau + MET
+U_3 D_3 D,W^+,d,vvtbj,"W^+ -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [t,b]",3, 1j_l + 1t + 1b + 2v
+U_3 D_3 D,W^+,d,tbjjj,"W^+ -- (j) -- q -- (j) -- B -- (j) -- d -- [t,b]",3, 3j_l + 1t + 1b
+U_3 D_3 D,W^+,d,ttbbj,"W^+ -- (t) -- b_L -- (b) -- B -- (j) -- d -- [t,b]",3, 1j_l + 2t + 2b
+U_3 D_3 D,W^+,d,tbjlE,"W^+ -- (E) -- l -- (l) -- B -- (j) -- d -- [t,b]",3, 1j_l + 1t + 1b + 1l + MET
+U_3 D_3 D,W^+,b,vttj,"W^+ -- (v) -- H^+ -- (t) -- b -- [t,j]",2, 1j_l + 2t + 1v
+U_3 D_3 D,W^+,b,vtbj,"W^+ -- (v) -- H^0 -- (b) -- b -- [t,j]",2, 1j_l + 1t + 1b + 1v
+U_3 D_3 D_3,W^+,t,vtbb,"W^+ -- (v) -- H^0 -- (t) -- t -- [b,b]",2, 1t + 2b + 1v
+U_3 D_3 D_3,W^+,t,vbbb,"W^+ -- (v) -- H^+ -- (b) -- t -- [b,b]",2, 3b + 1v
+U_3 D_3 D_3,W^+,b,vttb,"W^+ -- (v) -- H^+ -- (t) -- b -- [t,b]",2, 2t + 1b + 1v
+U_3 D_3 D_3,W^+,b,vtbb,"W^+ -- (v) -- H^0 -- (b) -- b -- [t,b]",2, 1t + 2b + 1v
+U_3 D_3 D_3,W^+,b,vttb,"W^+ -- (v) -- H^+ -- (t) -- b -- [t,b]",2, 2t + 1b + 1v
+U_3 D_3 D_3,W^+,b,vtbb,"W^+ -- (v) -- H^0 -- (b) -- b -- [t,b]",2, 1t + 2b + 1v
+U D D,W^0,u,vvjjj,"W^0 -- (v) -- H^+ -- (v) -- B -- (j) -- u -- [j,j]",3, 3j_l + 2v
+U D D,W^0,u,bbjjj,"W^0 -- (b) -- b_L -- (b) -- B -- (j) -- u -- [j,j]",3, 3j_l + 2b
+U D D,W^0,u,ttjjj,"W^0 -- (t) -- t_L -- (t) -- B -- (j) -- u -- [j,j]",3, 3j_l + 2t
+U D D,W^0,u,jjjjj,"W^0 -- (j) -- q -- (j) -- B -- (j) -- u -- [j,j]",3, 5j_l
+U D D,W^0,u,jjjTT,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- u -- [j,j]",3, 3j_l + 2tau
+U D D,W^0,u,jjjE,"W^0 -- (E) -- nu -- (E) -- B -- (j) -- u -- [j,j]",3, 3j_l + MET
+U D D,W^0,u,jjjll,"W^0 -- (l) -- l -- (l) -- B -- (j) -- u -- [j,j]",3, 3j_l + 2l
+U D D,W^0,d,vvjjj,"W^0 -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2v
+U D D,W^0,d,bbjjj,"W^0 -- (b) -- b_L -- (b) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2b
+U D D,W^0,d,ttjjj,"W^0 -- (t) -- t_L -- (t) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2t
+U D D,W^0,d,jjjjj,"W^0 -- (j) -- q -- (j) -- B -- (j) -- d -- [j,j]",3, 5j_l
+U D D,W^0,d,jjjTT,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2tau
+U D D,W^0,d,jjjE,"W^0 -- (E) -- nu -- (E) -- B -- (j) -- d -- [j,j]",3, 3j_l + MET
+U D D,W^0,d,jjjll,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2l
+U D D,W^0,d,vvjjj,"W^0 -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2v
+U D D,W^0,d,bbjjj,"W^0 -- (b) -- b_L -- (b) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2b
+U D D,W^0,d,ttjjj,"W^0 -- (t) -- t_L -- (t) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2t
+U D D,W^0,d,jjjjj,"W^0 -- (j) -- q -- (j) -- B -- (j) -- d -- [j,j]",3, 5j_l
+U D D,W^0,d,jjjTT,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2tau
+U D D,W^0,d,jjjE,"W^0 -- (E) -- nu -- (E) -- B -- (j) -- d -- [j,j]",3, 3j_l + MET
+U D D,W^0,d,jjjll,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [j,j]",3, 3j_l + 2l
+U D_3 D,W^0,u,vvbjj,"W^0 -- (v) -- H^+ -- (v) -- B -- (j) -- u -- [j,b]",3, 2j_l + 1b + 2v
+U D_3 D,W^0,u,bbbjj,"W^0 -- (b) -- b_L -- (b) -- B -- (j) -- u -- [j,b]",3, 2j_l + 3b
+U D_3 D,W^0,u,ttbjj,"W^0 -- (t) -- t_L -- (t) -- B -- (j) -- u -- [j,b]",3, 2j_l + 2t + 1b
+U D_3 D,W^0,u,bjjjj,"W^0 -- (j) -- q -- (j) -- B -- (j) -- u -- [j,b]",3, 4j_l + 1b
+U D_3 D,W^0,u,bjjTT,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- u -- [j,b]",3, 2j_l + 1b + 2tau
+U D_3 D,W^0,u,bjjE,"W^0 -- (E) -- nu -- (E) -- B -- (j) -- u -- [j,b]",3, 2j_l + 1b + MET
+U D_3 D,W^0,u,bjjll,"W^0 -- (l) -- l -- (l) -- B -- (j) -- u -- [j,b]",3, 2j_l + 1b + 2l
+U D_3 D,W^0,d,vvbjj,"W^0 -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [j,b]",3, 2j_l + 1b + 2v
+U D_3 D,W^0,d,bbbjj,"W^0 -- (b) -- b_L -- (b) -- B -- (j) -- d -- [j,b]",3, 2j_l + 3b
+U D_3 D,W^0,d,ttbjj,"W^0 -- (t) -- t_L -- (t) -- B -- (j) -- d -- [j,b]",3, 2j_l + 2t + 1b
+U D_3 D,W^0,d,bjjjj,"W^0 -- (j) -- q -- (j) -- B -- (j) -- d -- [j,b]",3, 4j_l + 1b
+U D_3 D,W^0,d,bjjTT,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [j,b]",3, 2j_l + 1b + 2tau
+U D_3 D,W^0,d,bjjE,"W^0 -- (E) -- nu -- (E) -- B -- (j) -- d -- [j,b]",3, 2j_l + 1b + MET
+U D_3 D,W^0,d,bjjll,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [j,b]",3, 2j_l + 1b + 2l
+U D_3 D,W^0,b,vtjj,"W^0 -- (v) -- H^+ -- (t) -- b -- [j,j]",2, 2j_l + 1t + 1v
+U D_3 D,W^0,b,vbjj,"W^0 -- (v) -- H^0 -- (b) -- b -- [j,j]",2, 2j_l + 1b + 1v
+U D_3 D_3,W^0,u,vvbbj,"W^0 -- (v) -- H^+ -- (v) -- B -- (j) -- u -- [b,b]",3, 1j_l + 2b + 2v
+U D_3 D_3,W^0,u,bbbbj,"W^0 -- (b) -- b_L -- (b) -- B -- (j) -- u -- [b,b]",3, 1j_l + 4b
+U D_3 D_3,W^0,u,ttbbj,"W^0 -- (t) -- t_L -- (t) -- B -- (j) -- u -- [b,b]",3, 1j_l + 2t + 2b
+U D_3 D_3,W^0,u,bbjjj,"W^0 -- (j) -- q -- (j) -- B -- (j) -- u -- [b,b]",3, 3j_l + 2b
+U D_3 D_3,W^0,u,bbjTT,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- u -- [b,b]",3, 1j_l + 2b + 2tau
+U D_3 D_3,W^0,u,bbjE,"W^0 -- (E) -- nu -- (E) -- B -- (j) -- u -- [b,b]",3, 1j_l + 2b + MET
+U D_3 D_3,W^0,u,bbjll,"W^0 -- (l) -- l -- (l) -- B -- (j) -- u -- [b,b]",3, 1j_l + 2b + 2l
+U D_3 D_3,W^0,b,vtbj,"W^0 -- (v) -- H^+ -- (t) -- b -- [j,b]",2, 1j_l + 1t + 1b + 1v
+U D_3 D_3,W^0,b,vbbj,"W^0 -- (v) -- H^0 -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1v
+U D_3 D_3,W^0,b,vtbj,"W^0 -- (v) -- H^+ -- (t) -- b -- [j,b]",2, 1j_l + 1t + 1b + 1v
+U D_3 D_3,W^0,b,vbbj,"W^0 -- (v) -- H^0 -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1v
+U_3 D D,W^0,t,vtjj,"W^0 -- (v) -- H^0 -- (t) -- t -- [j,j]",2, 2j_l + 1t + 1v
+U_3 D D,W^0,t,vbjj,"W^0 -- (v) -- H^+ -- (b) -- t -- [j,j]",2, 2j_l + 1b + 1v
+U_3 D D,W^0,d,vvtjj,"W^0 -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 2v
+U_3 D D,W^0,d,tbbjj,"W^0 -- (b) -- b_L -- (b) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 2b
+U_3 D D,W^0,d,tttjj,"W^0 -- (t) -- t_L -- (t) -- B -- (j) -- d -- [t,j]",3, 2j_l + 3t
+U_3 D D,W^0,d,tjjjj,"W^0 -- (j) -- q -- (j) -- B -- (j) -- d -- [t,j]",3, 4j_l + 1t
+U_3 D D,W^0,d,tjjTT,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 2tau
+U_3 D D,W^0,d,tjjE,"W^0 -- (E) -- nu -- (E) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + MET
+U_3 D D,W^0,d,tjjll,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 2l
+U_3 D D,W^0,d,vvtjj,"W^0 -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 2v
+U_3 D D,W^0,d,tbbjj,"W^0 -- (b) -- b_L -- (b) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 2b
+U_3 D D,W^0,d,tttjj,"W^0 -- (t) -- t_L -- (t) -- B -- (j) -- d -- [t,j]",3, 2j_l + 3t
+U_3 D D,W^0,d,tjjjj,"W^0 -- (j) -- q -- (j) -- B -- (j) -- d -- [t,j]",3, 4j_l + 1t
+U_3 D D,W^0,d,tjjTT,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 2tau
+U_3 D D,W^0,d,tjjE,"W^0 -- (E) -- nu -- (E) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + MET
+U_3 D D,W^0,d,tjjll,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [t,j]",3, 2j_l + 1t + 2l
+U_3 D_3 D,W^0,t,vtbj,"W^0 -- (v) -- H^0 -- (t) -- t -- [j,b]",2, 1j_l + 1t + 1b + 1v
+U_3 D_3 D,W^0,t,vbbj,"W^0 -- (v) -- H^+ -- (b) -- t -- [j,b]",2, 1j_l + 2b + 1v
+U_3 D_3 D,W^0,d,vvtbj,"W^0 -- (v) -- H^+ -- (v) -- B -- (j) -- d -- [t,b]",3, 1j_l + 1t + 1b + 2v
+U_3 D_3 D,W^0,d,tbbbj,"W^0 -- (b) -- b_L -- (b) -- B -- (j) -- d -- [t,b]",3, 1j_l + 1t + 3b
+U_3 D_3 D,W^0,d,tttbj,"W^0 -- (t) -- t_L -- (t) -- B -- (j) -- d -- [t,b]",3, 1j_l + 3t + 1b
+U_3 D_3 D,W^0,d,tbjjj,"W^0 -- (j) -- q -- (j) -- B -- (j) -- d -- [t,b]",3, 3j_l + 1t + 1b
+U_3 D_3 D,W^0,d,tbjTT,"W^0 -- (T) -- tau_L -- (T) -- B -- (j) -- d -- [t,b]",3, 1j_l + 1t + 1b + 2tau
+U_3 D_3 D,W^0,d,tbjE,"W^0 -- (E) -- nu -- (E) -- B -- (j) -- d -- [t,b]",3, 1j_l + 1t + 1b + MET
+U_3 D_3 D,W^0,d,tbjll,"W^0 -- (l) -- l -- (l) -- B -- (j) -- d -- [t,b]",3, 1j_l + 1t + 1b + 2l
+U_3 D_3 D,W^0,b,vttj,"W^0 -- (v) -- H^+ -- (t) -- b -- [t,j]",2, 1j_l + 2t + 1v
+U_3 D_3 D,W^0,b,vtbj,"W^0 -- (v) -- H^0 -- (b) -- b -- [t,j]",2, 1j_l + 1t + 1b + 1v
+U_3 D_3 D_3,W^0,t,vtbb,"W^0 -- (v) -- H^0 -- (t) -- t -- [b,b]",2, 1t + 2b + 1v
+U_3 D_3 D_3,W^0,t,vbbb,"W^0 -- (v) -- H^+ -- (b) -- t -- [b,b]",2, 3b + 1v
+U_3 D_3 D_3,W^0,b,vttb,"W^0 -- (v) -- H^+ -- (t) -- b -- [t,b]",2, 2t + 1b + 1v
+U_3 D_3 D_3,W^0,b,vtbb,"W^0 -- (v) -- H^0 -- (b) -- b -- [t,b]",2, 1t + 2b + 1v
+U_3 D_3 D_3,W^0,b,vttb,"W^0 -- (v) -- H^+ -- (t) -- b -- [t,b]",2, 2t + 1b + 1v
+U_3 D_3 D_3,W^0,b,vtbb,"W^0 -- (v) -- H^0 -- (b) -- b -- [t,b]",2, 1t + 2b + 1v
+U D D,G,u,jjj,"G -- (j) -- u -- [j,j]",1, 3j_l
+U D D,G,d,jjj,"G -- (j) -- d -- [j,j]",1, 3j_l
+U D D,G,d,jjj,"G -- (j) -- d -- [j,j]",1, 3j_l
+U D_3 D,G,u,bjj,"G -- (j) -- u -- [j,b]",1, 2j_l + 1b
+U D_3 D,G,d,bjj,"G -- (j) -- d -- [j,b]",1, 2j_l + 1b
+U D_3 D,G,b,bjj,"G -- (b) -- b -- [j,j]",1, 2j_l + 1b
+U D_3 D_3,G,u,bbj,"G -- (j) -- u -- [b,b]",1, 1j_l + 2b
+U D_3 D_3,G,b,bbj,"G -- (b) -- b -- [j,b]",1, 1j_l + 2b
+U D_3 D_3,G,b,bbj,"G -- (b) -- b -- [j,b]",1, 1j_l + 2b
+U_3 D D,G,t,tjj,"G -- (t) -- t -- [j,j]",1, 2j_l + 1t
+U_3 D D,G,d,tjj,"G -- (j) -- d -- [t,j]",1, 2j_l + 1t
+U_3 D D,G,d,tjj,"G -- (j) -- d -- [t,j]",1, 2j_l + 1t
+U_3 D_3 D,G,t,tbj,"G -- (t) -- t -- [j,b]",1, 1j_l + 1t + 1b
+U_3 D_3 D,G,d,tbj,"G -- (j) -- d -- [t,b]",1, 1j_l + 1t + 1b
+U_3 D_3 D,G,b,tbj,"G -- (b) -- b -- [t,j]",1, 1j_l + 1t + 1b
+U_3 D_3 D_3,G,t,tbb,"G -- (t) -- t -- [b,b]",1, 1t + 2b
+U_3 D_3 D_3,G,b,tbb,"G -- (b) -- b -- [t,b]",1, 1t + 2b
+U_3 D_3 D_3,G,b,tbb,"G -- (b) -- b -- [t,b]",1, 1t + 2b
+U D D,H^+,u,vjjj,"H^+ -- (v) -- B -- (j) -- u -- [j,j]",2, 3j_l + 1v
+U D D,H^+,d,vjjj,"H^+ -- (v) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1v
+U D D,H^+,d,vjjj,"H^+ -- (v) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1v
+U D_3 D,H^+,u,vbjj,"H^+ -- (v) -- B -- (j) -- u -- [j,b]",2, 2j_l + 1b + 1v
+U D_3 D,H^+,d,vbjj,"H^+ -- (v) -- B -- (j) -- d -- [j,b]",2, 2j_l + 1b + 1v
+U D_3 D,H^+,b,tjj,"H^+ -- (t) -- b -- [j,j]",1, 2j_l + 1t
+U D_3 D_3,H^+,u,vbbj,"H^+ -- (v) -- B -- (j) -- u -- [b,b]",2, 1j_l + 2b + 1v
+U D_3 D_3,H^+,b,tbj,"H^+ -- (t) -- b -- [j,b]",1, 1j_l + 1t + 1b
+U D_3 D_3,H^+,b,tbj,"H^+ -- (t) -- b -- [j,b]",1, 1j_l + 1t + 1b
+U_3 D D,H^+,t,bjj,"H^+ -- (b) -- t -- [j,j]",1, 2j_l + 1b
+U_3 D D,H^+,d,vtjj,"H^+ -- (v) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1v
+U_3 D D,H^+,d,vtjj,"H^+ -- (v) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1v
+U_3 D_3 D,H^+,t,bbj,"H^+ -- (b) -- t -- [j,b]",1, 1j_l + 2b
+U_3 D_3 D,H^+,d,vtbj,"H^+ -- (v) -- B -- (j) -- d -- [t,b]",2, 1j_l + 1t + 1b + 1v
+U_3 D_3 D,H^+,b,ttj,"H^+ -- (t) -- b -- [t,j]",1, 1j_l + 2t
+U_3 D_3 D_3,H^+,t,bbb,"H^+ -- (b) -- t -- [b,b]",1, 3b
+U_3 D_3 D_3,H^+,b,ttb,"H^+ -- (t) -- b -- [t,b]",1, 2t + 1b
+U_3 D_3 D_3,H^+,b,ttb,"H^+ -- (t) -- b -- [t,b]",1, 2t + 1b
+U D D,H^0,u,vjjj,"H^0 -- (v) -- B -- (j) -- u -- [j,j]",2, 3j_l + 1v
+U D D,H^0,d,vjjj,"H^0 -- (v) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1v
+U D D,H^0,d,vjjj,"H^0 -- (v) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1v
+U D_3 D,H^0,u,vbjj,"H^0 -- (v) -- B -- (j) -- u -- [j,b]",2, 2j_l + 1b + 1v
+U D_3 D,H^0,d,vbjj,"H^0 -- (v) -- B -- (j) -- d -- [j,b]",2, 2j_l + 1b + 1v
+U D_3 D,H^0,b,bjj,"H^0 -- (b) -- b -- [j,j]",1, 2j_l + 1b
+U D_3 D_3,H^0,u,vbbj,"H^0 -- (v) -- B -- (j) -- u -- [b,b]",2, 1j_l + 2b + 1v
+U D_3 D_3,H^0,b,bbj,"H^0 -- (b) -- b -- [j,b]",1, 1j_l + 2b
+U D_3 D_3,H^0,b,bbj,"H^0 -- (b) -- b -- [j,b]",1, 1j_l + 2b
+U_3 D D,H^0,t,tjj,"H^0 -- (t) -- t -- [j,j]",1, 2j_l + 1t
+U_3 D D,H^0,d,vtjj,"H^0 -- (v) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1v
+U_3 D D,H^0,d,vtjj,"H^0 -- (v) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1v
+U_3 D_3 D,H^0,t,tbj,"H^0 -- (t) -- t -- [j,b]",1, 1j_l + 1t + 1b
+U_3 D_3 D,H^0,d,vtbj,"H^0 -- (v) -- B -- (j) -- d -- [t,b]",2, 1j_l + 1t + 1b + 1v
+U_3 D_3 D,H^0,b,tbj,"H^0 -- (b) -- b -- [t,j]",1, 1j_l + 1t + 1b
+U_3 D_3 D_3,H^0,t,tbb,"H^0 -- (t) -- t -- [b,b]",1, 1t + 2b
+U_3 D_3 D_3,H^0,b,tbb,"H^0 -- (b) -- b -- [t,b]",1, 1t + 2b
+U_3 D_3 D_3,H^0,b,tbb,"H^0 -- (b) -- b -- [t,b]",1, 1t + 2b
+U D D,q,u,jjjj,"q -- (j) -- B -- (j) -- u -- [j,j]",2, 4j_l
+U D D,q,d,jjjj,"q -- (j) -- B -- (j) -- d -- [j,j]",2, 4j_l
+U D D,q,d,jjjj,"q -- (j) -- B -- (j) -- d -- [j,j]",2, 4j_l
+U D_3 D,q,u,bjjj,"q -- (j) -- B -- (j) -- u -- [j,b]",2, 3j_l + 1b
+U D_3 D,q,d,bjjj,"q -- (j) -- B -- (j) -- d -- [j,b]",2, 3j_l + 1b
+U D_3 D,q,b,bjjj,"q -- (j) -- B -- (b) -- b -- [j,j]",2, 3j_l + 1b
+U D_3 D_3,q,u,bbjj,"q -- (j) -- B -- (j) -- u -- [b,b]",2, 2j_l + 2b
+U D_3 D_3,q,b,bbjj,"q -- (j) -- B -- (b) -- b -- [j,b]",2, 2j_l + 2b
+U D_3 D_3,q,b,bbjj,"q -- (j) -- B -- (b) -- b -- [j,b]",2, 2j_l + 2b
+U_3 D D,q,t,tjjj,"q -- (j) -- B -- (t) -- t -- [j,j]",2, 3j_l + 1t
+U_3 D D,q,d,tjjj,"q -- (j) -- B -- (j) -- d -- [t,j]",2, 3j_l + 1t
+U_3 D D,q,d,tjjj,"q -- (j) -- B -- (j) -- d -- [t,j]",2, 3j_l + 1t
+U_3 D_3 D,q,t,tbjj,"q -- (j) -- B -- (t) -- t -- [j,b]",2, 2j_l + 1t + 1b
+U_3 D_3 D,q,d,tbjj,"q -- (j) -- B -- (j) -- d -- [t,b]",2, 2j_l + 1t + 1b
+U_3 D_3 D,q,b,tbjj,"q -- (j) -- B -- (b) -- b -- [t,j]",2, 2j_l + 1t + 1b
+U_3 D_3 D_3,q,t,tbbj,"q -- (j) -- B -- (t) -- t -- [b,b]",2, 1j_l + 1t + 2b
+U_3 D_3 D_3,q,b,tbbj,"q -- (j) -- B -- (b) -- b -- [t,b]",2, 1j_l + 1t + 2b
+U_3 D_3 D_3,q,b,tbbj,"q -- (j) -- B -- (b) -- b -- [t,b]",2, 1j_l + 1t + 2b
+U D D,d,u,jjjj,"d -- (j) -- B -- (j) -- u -- [j,j]",2, 4j_l
+U D D,d,d,jj,"d -- [j,j]",0, 2j_l
+U D D,d,d,jj,"d -- [j,j]",0, 2j_l
+U D_3 D,d,u,bjjj,"d -- (j) -- B -- (j) -- u -- [j,b]",2, 3j_l + 1b
+U D_3 D,d,d,bj,"d -- [j,b]",0, 1j_l + 1b
+U D_3 D,d,b,bjjj,"d -- (j) -- B -- (b) -- b -- [j,j]",2, 3j_l + 1b
+U D_3 D_3,d,u,bbjj,"d -- (j) -- B -- (j) -- u -- [b,b]",2, 2j_l + 2b
+U D_3 D_3,d,b,bbjj,"d -- (j) -- B -- (b) -- b -- [j,b]",2, 2j_l + 2b
+U D_3 D_3,d,b,bbjj,"d -- (j) -- B -- (b) -- b -- [j,b]",2, 2j_l + 2b
+U_3 D D,d,t,tjjj,"d -- (j) -- B -- (t) -- t -- [j,j]",2, 3j_l + 1t
+U_3 D D,d,d,tj,"d -- [t,j]",0, 1j_l + 1t
+U_3 D D,d,d,tj,"d -- [t,j]",0, 1j_l + 1t
+U_3 D_3 D,d,t,tbjj,"d -- (j) -- B -- (t) -- t -- [j,b]",2, 2j_l + 1t + 1b
+U_3 D_3 D,d,d,tb,"d -- [t,b]",0, 1t + 1b
+U_3 D_3 D,d,b,tbjj,"d -- (j) -- B -- (b) -- b -- [t,j]",2, 2j_l + 1t + 1b
+U_3 D_3 D_3,d,t,tbbj,"d -- (j) -- B -- (t) -- t -- [b,b]",2, 1j_l + 1t + 2b
+U_3 D_3 D_3,d,b,tbbj,"d -- (j) -- B -- (b) -- b -- [t,b]",2, 1j_l + 1t + 2b
+U_3 D_3 D_3,d,b,tbbj,"d -- (j) -- B -- (b) -- b -- [t,b]",2, 1j_l + 1t + 2b
+U D D,u,u,jj,"u -- [j,j]",0, 2j_l
+U D D,u,d,jjjj,"u -- (j) -- B -- (j) -- d -- [j,j]",2, 4j_l
+U D D,u,d,jjjj,"u -- (j) -- B -- (j) -- d -- [j,j]",2, 4j_l
+U D_3 D,u,u,bj,"u -- [j,b]",0, 1j_l + 1b
+U D_3 D,u,d,bjjj,"u -- (j) -- B -- (j) -- d -- [j,b]",2, 3j_l + 1b
+U D_3 D,u,b,bjjj,"u -- (j) -- B -- (b) -- b -- [j,j]",2, 3j_l + 1b
+U D_3 D_3,u,u,bb,"u -- [b,b]",0, 2b
+U D_3 D_3,u,b,bbjj,"u -- (j) -- B -- (b) -- b -- [j,b]",2, 2j_l + 2b
+U D_3 D_3,u,b,bbjj,"u -- (j) -- B -- (b) -- b -- [j,b]",2, 2j_l + 2b
+U_3 D D,u,t,tjjj,"u -- (j) -- B -- (t) -- t -- [j,j]",2, 3j_l + 1t
+U_3 D D,u,d,tjjj,"u -- (j) -- B -- (j) -- d -- [t,j]",2, 3j_l + 1t
+U_3 D D,u,d,tjjj,"u -- (j) -- B -- (j) -- d -- [t,j]",2, 3j_l + 1t
+U_3 D_3 D,u,t,tbjj,"u -- (j) -- B -- (t) -- t -- [j,b]",2, 2j_l + 1t + 1b
+U_3 D_3 D,u,d,tbjj,"u -- (j) -- B -- (j) -- d -- [t,b]",2, 2j_l + 1t + 1b
+U_3 D_3 D,u,b,tbjj,"u -- (j) -- B -- (b) -- b -- [t,j]",2, 2j_l + 1t + 1b
+U_3 D_3 D_3,u,t,tbbj,"u -- (j) -- B -- (t) -- t -- [b,b]",2, 1j_l + 1t + 2b
+U_3 D_3 D_3,u,b,tbbj,"u -- (j) -- B -- (b) -- b -- [t,b]",2, 1j_l + 1t + 2b
+U_3 D_3 D_3,u,b,tbbj,"u -- (j) -- B -- (b) -- b -- [t,b]",2, 1j_l + 1t + 2b
+U D D,l,u,jjjl,"l -- (l) -- B -- (j) -- u -- [j,j]",2, 3j_l + 1l
+U D D,l,d,jjjl,"l -- (l) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1l
+U D D,l,d,jjjl,"l -- (l) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1l
+U D_3 D,l,u,bjjl,"l -- (l) -- B -- (j) -- u -- [j,b]",2, 2j_l + 1b + 1l
+U D_3 D,l,d,bjjl,"l -- (l) -- B -- (j) -- d -- [j,b]",2, 2j_l + 1b + 1l
+U D_3 D,l,b,bjjl,"l -- (l) -- B -- (b) -- b -- [j,j]",2, 2j_l + 1b + 1l
+U D_3 D_3,l,u,bbjl,"l -- (l) -- B -- (j) -- u -- [b,b]",2, 1j_l + 2b + 1l
+U D_3 D_3,l,b,bbjl,"l -- (l) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1l
+U D_3 D_3,l,b,bbjl,"l -- (l) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1l
+U_3 D D,l,t,tjjl,"l -- (l) -- B -- (t) -- t -- [j,j]",2, 2j_l + 1t + 1l
+U_3 D D,l,d,tjjl,"l -- (l) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1l
+U_3 D D,l,d,tjjl,"l -- (l) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1l
+U_3 D_3 D,l,t,tbjl,"l -- (l) -- B -- (t) -- t -- [j,b]",2, 1j_l + 1t + 1b + 1l
+U_3 D_3 D,l,d,tbjl,"l -- (l) -- B -- (j) -- d -- [t,b]",2, 1j_l + 1t + 1b + 1l
+U_3 D_3 D,l,b,tbjl,"l -- (l) -- B -- (b) -- b -- [t,j]",2, 1j_l + 1t + 1b + 1l
+U_3 D_3 D_3,l,t,tbbl,"l -- (l) -- B -- (t) -- t -- [b,b]",2, 1t + 2b + 1l
+U_3 D_3 D_3,l,b,tbbl,"l -- (l) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + 1l
+U_3 D_3 D_3,l,b,tbbl,"l -- (l) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + 1l
+U D D,nu,u,jjjE,"nu -- (E) -- B -- (j) -- u -- [j,j]",2, 3j_l + MET
+U D D,nu,d,jjjE,"nu -- (E) -- B -- (j) -- d -- [j,j]",2, 3j_l + MET
+U D D,nu,d,jjjE,"nu -- (E) -- B -- (j) -- d -- [j,j]",2, 3j_l + MET
+U D_3 D,nu,u,bjjE,"nu -- (E) -- B -- (j) -- u -- [j,b]",2, 2j_l + 1b + MET
+U D_3 D,nu,d,bjjE,"nu -- (E) -- B -- (j) -- d -- [j,b]",2, 2j_l + 1b + MET
+U D_3 D,nu,b,bjjE,"nu -- (E) -- B -- (b) -- b -- [j,j]",2, 2j_l + 1b + MET
+U D_3 D_3,nu,u,bbjE,"nu -- (E) -- B -- (j) -- u -- [b,b]",2, 1j_l + 2b + MET
+U D_3 D_3,nu,b,bbjE,"nu -- (E) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + MET
+U D_3 D_3,nu,b,bbjE,"nu -- (E) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + MET
+U_3 D D,nu,t,tjjE,"nu -- (E) -- B -- (t) -- t -- [j,j]",2, 2j_l + 1t + MET
+U_3 D D,nu,d,tjjE,"nu -- (E) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + MET
+U_3 D D,nu,d,tjjE,"nu -- (E) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + MET
+U_3 D_3 D,nu,t,tbjE,"nu -- (E) -- B -- (t) -- t -- [j,b]",2, 1j_l + 1t + 1b + MET
+U_3 D_3 D,nu,d,tbjE,"nu -- (E) -- B -- (j) -- d -- [t,b]",2, 1j_l + 1t + 1b + MET
+U_3 D_3 D,nu,b,tbjE,"nu -- (E) -- B -- (b) -- b -- [t,j]",2, 1j_l + 1t + 1b + MET
+U_3 D_3 D_3,nu,t,tbbE,"nu -- (E) -- B -- (t) -- t -- [b,b]",2, 1t + 2b + MET
+U_3 D_3 D_3,nu,b,tbbE,"nu -- (E) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + MET
+U_3 D_3 D_3,nu,b,tbbE,"nu -- (E) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + MET
+U D D,e,u,jjjl,"e -- (l) -- B -- (j) -- u -- [j,j]",2, 3j_l + 1l
+U D D,e,d,jjjl,"e -- (l) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1l
+U D D,e,d,jjjl,"e -- (l) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1l
+U D_3 D,e,u,bjjl,"e -- (l) -- B -- (j) -- u -- [j,b]",2, 2j_l + 1b + 1l
+U D_3 D,e,d,bjjl,"e -- (l) -- B -- (j) -- d -- [j,b]",2, 2j_l + 1b + 1l
+U D_3 D,e,b,bjjl,"e -- (l) -- B -- (b) -- b -- [j,j]",2, 2j_l + 1b + 1l
+U D_3 D_3,e,u,bbjl,"e -- (l) -- B -- (j) -- u -- [b,b]",2, 1j_l + 2b + 1l
+U D_3 D_3,e,b,bbjl,"e -- (l) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1l
+U D_3 D_3,e,b,bbjl,"e -- (l) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1l
+U_3 D D,e,t,tjjl,"e -- (l) -- B -- (t) -- t -- [j,j]",2, 2j_l + 1t + 1l
+U_3 D D,e,d,tjjl,"e -- (l) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1l
+U_3 D D,e,d,tjjl,"e -- (l) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1l
+U_3 D_3 D,e,t,tbjl,"e -- (l) -- B -- (t) -- t -- [j,b]",2, 1j_l + 1t + 1b + 1l
+U_3 D_3 D,e,d,tbjl,"e -- (l) -- B -- (j) -- d -- [t,b]",2, 1j_l + 1t + 1b + 1l
+U_3 D_3 D,e,b,tbjl,"e -- (l) -- B -- (b) -- b -- [t,j]",2, 1j_l + 1t + 1b + 1l
+U_3 D_3 D_3,e,t,tbbl,"e -- (l) -- B -- (t) -- t -- [b,b]",2, 1t + 2b + 1l
+U_3 D_3 D_3,e,b,tbbl,"e -- (l) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + 1l
+U_3 D_3 D_3,e,b,tbbl,"e -- (l) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + 1l
+U D D,b_L,u,bjjj,"b_L -- (b) -- B -- (j) -- u -- [j,j]",2, 3j_l + 1b
+U D D,b_L,d,bjjj,"b_L -- (b) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1b
+U D D,b_L,d,bjjj,"b_L -- (b) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1b
+U D_3 D,b_L,u,bbjj,"b_L -- (b) -- B -- (j) -- u -- [j,b]",2, 2j_l + 2b
+U D_3 D,b_L,d,bbjj,"b_L -- (b) -- B -- (j) -- d -- [j,b]",2, 2j_l + 2b
+U D_3 D,b_L,b,ttjj,"b_L -- (t) -- H^+ -- (t) -- b -- [j,j]",2, 2j_l + 2t
+U D_3 D,b_L,b,bbjj,"b_L -- (b) -- B -- (b) -- b -- [j,j]",2, 2j_l + 2b
+U D_3 D_3,b_L,u,bbbj,"b_L -- (b) -- B -- (j) -- u -- [b,b]",2, 1j_l + 3b
+U D_3 D_3,b_L,b,ttbj,"b_L -- (t) -- H^+ -- (t) -- b -- [j,b]",2, 1j_l + 2t + 1b
+U D_3 D_3,b_L,b,bbbj,"b_L -- (b) -- B -- (b) -- b -- [j,b]",2, 1j_l + 3b
+U D_3 D_3,b_L,b,ttbj,"b_L -- (t) -- H^+ -- (t) -- b -- [j,b]",2, 1j_l + 2t + 1b
+U D_3 D_3,b_L,b,bbbj,"b_L -- (b) -- B -- (b) -- b -- [j,b]",2, 1j_l + 3b
+U_3 D D,b_L,t,tbjj,"b_L -- (b) -- B -- (t) -- t -- [j,j]",2, 2j_l + 1t + 1b
+U_3 D D,b_L,d,tbjj,"b_L -- (b) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1b
+U_3 D D,b_L,d,tbjj,"b_L -- (b) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1b
+U_3 D_3 D,b_L,t,tbbj,"b_L -- (b) -- B -- (t) -- t -- [j,b]",2, 1j_l + 1t + 2b
+U_3 D_3 D,b_L,d,tbbj,"b_L -- (b) -- B -- (j) -- d -- [t,b]",2, 1j_l + 1t + 2b
+U_3 D_3 D,b_L,b,tttj,"b_L -- (t) -- H^+ -- (t) -- b -- [t,j]",2, 1j_l + 3t
+U_3 D_3 D,b_L,b,tbbj,"b_L -- (b) -- B -- (b) -- b -- [t,j]",2, 1j_l + 1t + 2b
+U_3 D_3 D_3,b_L,t,tbbb,"b_L -- (b) -- B -- (t) -- t -- [b,b]",2, 1t + 3b
+U_3 D_3 D_3,b_L,b,tttb,"b_L -- (t) -- H^+ -- (t) -- b -- [t,b]",2, 3t + 1b
+U_3 D_3 D_3,b_L,b,tbbb,"b_L -- (b) -- B -- (b) -- b -- [t,b]",2, 1t + 3b
+U_3 D_3 D_3,b_L,b,tttb,"b_L -- (t) -- H^+ -- (t) -- b -- [t,b]",2, 3t + 1b
+U_3 D_3 D_3,b_L,b,tbbb,"b_L -- (b) -- B -- (b) -- b -- [t,b]",2, 1t + 3b
+U D D,t_L,u,tjjj,"t_L -- (t) -- B -- (j) -- u -- [j,j]",2, 3j_l + 1t
+U D D,t_L,d,tjjj,"t_L -- (t) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1t
+U D D,t_L,d,tjjj,"t_L -- (t) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1t
+U D_3 D,t_L,u,tbjj,"t_L -- (t) -- B -- (j) -- u -- [j,b]",2, 2j_l + 1t + 1b
+U D_3 D,t_L,d,tbjj,"t_L -- (t) -- B -- (j) -- d -- [j,b]",2, 2j_l + 1t + 1b
+U D_3 D,t_L,b,tbjj,"t_L -- (t) -- B -- (b) -- b -- [j,j]",2, 2j_l + 1t + 1b
+U D_3 D_3,t_L,u,tbbj,"t_L -- (t) -- B -- (j) -- u -- [b,b]",2, 1j_l + 1t + 2b
+U D_3 D_3,t_L,b,tbbj,"t_L -- (t) -- B -- (b) -- b -- [j,b]",2, 1j_l + 1t + 2b
+U D_3 D_3,t_L,b,tbbj,"t_L -- (t) -- B -- (b) -- b -- [j,b]",2, 1j_l + 1t + 2b
+U_3 D D,t_L,t,ttjj,"t_L -- (t) -- B -- (t) -- t -- [j,j]",2, 2j_l + 2t
+U_3 D D,t_L,t,bbjj,"t_L -- (b) -- H^+ -- (b) -- t -- [j,j]",2, 2j_l + 2b
+U_3 D D,t_L,d,ttjj,"t_L -- (t) -- B -- (j) -- d -- [t,j]",2, 2j_l + 2t
+U_3 D D,t_L,d,ttjj,"t_L -- (t) -- B -- (j) -- d -- [t,j]",2, 2j_l + 2t
+U_3 D_3 D,t_L,t,ttbj,"t_L -- (t) -- B -- (t) -- t -- [j,b]",2, 1j_l + 2t + 1b
+U_3 D_3 D,t_L,t,bbbj,"t_L -- (b) -- H^+ -- (b) -- t -- [j,b]",2, 1j_l + 3b
+U_3 D_3 D,t_L,d,ttbj,"t_L -- (t) -- B -- (j) -- d -- [t,b]",2, 1j_l + 2t + 1b
+U_3 D_3 D,t_L,b,ttbj,"t_L -- (t) -- B -- (b) -- b -- [t,j]",2, 1j_l + 2t + 1b
+U_3 D_3 D_3,t_L,t,ttbb,"t_L -- (t) -- B -- (t) -- t -- [b,b]",2, 2t + 2b
+U_3 D_3 D_3,t_L,t,bbbb,"t_L -- (b) -- H^+ -- (b) -- t -- [b,b]",2, 4b
+U_3 D_3 D_3,t_L,b,ttbb,"t_L -- (t) -- B -- (b) -- b -- [t,b]",2, 2t + 2b
+U_3 D_3 D_3,t_L,b,ttbb,"t_L -- (t) -- B -- (b) -- b -- [t,b]",2, 2t + 2b
+U D D,t,u,tjjj,"t -- (t) -- B -- (j) -- u -- [j,j]",2, 3j_l + 1t
+U D D,t,d,tjjj,"t -- (t) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1t
+U D D,t,d,tjjj,"t -- (t) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1t
+U D_3 D,t,u,tbjj,"t -- (t) -- B -- (j) -- u -- [j,b]",2, 2j_l + 1t + 1b
+U D_3 D,t,d,tbjj,"t -- (t) -- B -- (j) -- d -- [j,b]",2, 2j_l + 1t + 1b
+U D_3 D,t,b,tbjj,"t -- (t) -- B -- (b) -- b -- [j,j]",2, 2j_l + 1t + 1b
+U D_3 D_3,t,u,tbbj,"t -- (t) -- B -- (j) -- u -- [b,b]",2, 1j_l + 1t + 2b
+U D_3 D_3,t,b,tbbj,"t -- (t) -- B -- (b) -- b -- [j,b]",2, 1j_l + 1t + 2b
+U D_3 D_3,t,b,tbbj,"t -- (t) -- B -- (b) -- b -- [j,b]",2, 1j_l + 1t + 2b
+U_3 D D,t,t,jj,"t -- [j,j]",0, 2j_l
+U_3 D D,t,d,ttjj,"t -- (t) -- B -- (j) -- d -- [t,j]",2, 2j_l + 2t
+U_3 D D,t,d,ttjj,"t -- (t) -- B -- (j) -- d -- [t,j]",2, 2j_l + 2t
+U_3 D_3 D,t,t,bj,"t -- [j,b]",0, 1j_l + 1b
+U_3 D_3 D,t,d,ttbj,"t -- (t) -- B -- (j) -- d -- [t,b]",2, 1j_l + 2t + 1b
+U_3 D_3 D,t,b,ttbj,"t -- (t) -- B -- (b) -- b -- [t,j]",2, 1j_l + 2t + 1b
+U_3 D_3 D_3,t,t,bb,"t -- [b,b]",0, 2b
+U_3 D_3 D_3,t,b,ttbb,"t -- (t) -- B -- (b) -- b -- [t,b]",2, 2t + 2b
+U_3 D_3 D_3,t,b,ttbb,"t -- (t) -- B -- (b) -- b -- [t,b]",2, 2t + 2b
+U D D,b,u,bjjj,"b -- (b) -- B -- (j) -- u -- [j,j]",2, 3j_l + 1b
+U D D,b,d,bjjj,"b -- (b) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1b
+U D D,b,d,bjjj,"b -- (b) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1b
+U D_3 D,b,u,bbjj,"b -- (b) -- B -- (j) -- u -- [j,b]",2, 2j_l + 2b
+U D_3 D,b,d,bbjj,"b -- (b) -- B -- (j) -- d -- [j,b]",2, 2j_l + 2b
+U D_3 D,b,b,jj,"b -- [j,j]",0, 2j_l
+U D_3 D_3,b,u,bbbj,"b -- (b) -- B -- (j) -- u -- [b,b]",2, 1j_l + 3b
+U D_3 D_3,b,b,bj,"b -- [j,b]",0, 1j_l + 1b
+U D_3 D_3,b,b,bj,"b -- [j,b]",0, 1j_l + 1b
+U_3 D D,b,t,tbjj,"b -- (b) -- B -- (t) -- t -- [j,j]",2, 2j_l + 1t + 1b
+U_3 D D,b,d,tbjj,"b -- (b) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1b
+U_3 D D,b,d,tbjj,"b -- (b) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1b
+U_3 D_3 D,b,t,tbbj,"b -- (b) -- B -- (t) -- t -- [j,b]",2, 1j_l + 1t + 2b
+U_3 D_3 D,b,d,tbbj,"b -- (b) -- B -- (j) -- d -- [t,b]",2, 1j_l + 1t + 2b
+U_3 D_3 D,b,b,tj,"b -- [t,j]",0, 1j_l + 1t
+U_3 D_3 D_3,b,t,tbbb,"b -- (b) -- B -- (t) -- t -- [b,b]",2, 1t + 3b
+U_3 D_3 D_3,b,b,tb,"b -- [t,b]",0, 1t + 1b
+U_3 D_3 D_3,b,b,tb,"b -- [t,b]",0, 1t + 1b
+U D D,tau_L,u,jjjT,"tau_L -- (T) -- B -- (j) -- u -- [j,j]",2, 3j_l + 1tau
+U D D,tau_L,d,jjjT,"tau_L -- (T) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1tau
+U D D,tau_L,d,jjjT,"tau_L -- (T) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1tau
+U D_3 D,tau_L,u,bjjT,"tau_L -- (T) -- B -- (j) -- u -- [j,b]",2, 2j_l + 1b + 1tau
+U D_3 D,tau_L,d,bjjT,"tau_L -- (T) -- B -- (j) -- d -- [j,b]",2, 2j_l + 1b + 1tau
+U D_3 D,tau_L,b,bjjT,"tau_L -- (T) -- B -- (b) -- b -- [j,j]",2, 2j_l + 1b + 1tau
+U D_3 D_3,tau_L,u,bbjT,"tau_L -- (T) -- B -- (j) -- u -- [b,b]",2, 1j_l + 2b + 1tau
+U D_3 D_3,tau_L,b,bbjT,"tau_L -- (T) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1tau
+U D_3 D_3,tau_L,b,bbjT,"tau_L -- (T) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1tau
+U_3 D D,tau_L,t,tjjT,"tau_L -- (T) -- B -- (t) -- t -- [j,j]",2, 2j_l + 1t + 1tau
+U_3 D D,tau_L,d,tjjT,"tau_L -- (T) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1tau
+U_3 D D,tau_L,d,tjjT,"tau_L -- (T) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1tau
+U_3 D_3 D,tau_L,t,tbjT,"tau_L -- (T) -- B -- (t) -- t -- [j,b]",2, 1j_l + 1t + 1b + 1tau
+U_3 D_3 D,tau_L,d,tbjT,"tau_L -- (T) -- B -- (j) -- d -- [t,b]",2, 1j_l + 1t + 1b + 1tau
+U_3 D_3 D,tau_L,b,tbjT,"tau_L -- (T) -- B -- (b) -- b -- [t,j]",2, 1j_l + 1t + 1b + 1tau
+U_3 D_3 D_3,tau_L,t,tbbT,"tau_L -- (T) -- B -- (t) -- t -- [b,b]",2, 1t + 2b + 1tau
+U_3 D_3 D_3,tau_L,b,tbbT,"tau_L -- (T) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + 1tau
+U_3 D_3 D_3,tau_L,b,tbbT,"tau_L -- (T) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + 1tau
+U D D,nu_tau,u,jjjE,"nu_tau -- (E) -- B -- (j) -- u -- [j,j]",2, 3j_l + MET
+U D D,nu_tau,d,jjjE,"nu_tau -- (E) -- B -- (j) -- d -- [j,j]",2, 3j_l + MET
+U D D,nu_tau,d,jjjE,"nu_tau -- (E) -- B -- (j) -- d -- [j,j]",2, 3j_l + MET
+U D_3 D,nu_tau,u,bjjE,"nu_tau -- (E) -- B -- (j) -- u -- [j,b]",2, 2j_l + 1b + MET
+U D_3 D,nu_tau,d,bjjE,"nu_tau -- (E) -- B -- (j) -- d -- [j,b]",2, 2j_l + 1b + MET
+U D_3 D,nu_tau,b,bjjE,"nu_tau -- (E) -- B -- (b) -- b -- [j,j]",2, 2j_l + 1b + MET
+U D_3 D_3,nu_tau,u,bbjE,"nu_tau -- (E) -- B -- (j) -- u -- [b,b]",2, 1j_l + 2b + MET
+U D_3 D_3,nu_tau,b,bbjE,"nu_tau -- (E) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + MET
+U D_3 D_3,nu_tau,b,bbjE,"nu_tau -- (E) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + MET
+U_3 D D,nu_tau,t,tjjE,"nu_tau -- (E) -- B -- (t) -- t -- [j,j]",2, 2j_l + 1t + MET
+U_3 D D,nu_tau,d,tjjE,"nu_tau -- (E) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + MET
+U_3 D D,nu_tau,d,tjjE,"nu_tau -- (E) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + MET
+U_3 D_3 D,nu_tau,t,tbjE,"nu_tau -- (E) -- B -- (t) -- t -- [j,b]",2, 1j_l + 1t + 1b + MET
+U_3 D_3 D,nu_tau,d,tbjE,"nu_tau -- (E) -- B -- (j) -- d -- [t,b]",2, 1j_l + 1t + 1b + MET
+U_3 D_3 D,nu_tau,b,tbjE,"nu_tau -- (E) -- B -- (b) -- b -- [t,j]",2, 1j_l + 1t + 1b + MET
+U_3 D_3 D_3,nu_tau,t,tbbE,"nu_tau -- (E) -- B -- (t) -- t -- [b,b]",2, 1t + 2b + MET
+U_3 D_3 D_3,nu_tau,b,tbbE,"nu_tau -- (E) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + MET
+U_3 D_3 D_3,nu_tau,b,tbbE,"nu_tau -- (E) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + MET
+U D D,tau,u,jjjT,"tau -- (T) -- B -- (j) -- u -- [j,j]",2, 3j_l + 1tau
+U D D,tau,d,jjjT,"tau -- (T) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1tau
+U D D,tau,d,jjjT,"tau -- (T) -- B -- (j) -- d -- [j,j]",2, 3j_l + 1tau
+U D_3 D,tau,u,bjjT,"tau -- (T) -- B -- (j) -- u -- [j,b]",2, 2j_l + 1b + 1tau
+U D_3 D,tau,d,bjjT,"tau -- (T) -- B -- (j) -- d -- [j,b]",2, 2j_l + 1b + 1tau
+U D_3 D,tau,b,bjjT,"tau -- (T) -- B -- (b) -- b -- [j,j]",2, 2j_l + 1b + 1tau
+U D_3 D_3,tau,u,bbjT,"tau -- (T) -- B -- (j) -- u -- [b,b]",2, 1j_l + 2b + 1tau
+U D_3 D_3,tau,b,bbjT,"tau -- (T) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1tau
+U D_3 D_3,tau,b,bbjT,"tau -- (T) -- B -- (b) -- b -- [j,b]",2, 1j_l + 2b + 1tau
+U_3 D D,tau,t,tjjT,"tau -- (T) -- B -- (t) -- t -- [j,j]",2, 2j_l + 1t + 1tau
+U_3 D D,tau,d,tjjT,"tau -- (T) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1tau
+U_3 D D,tau,d,tjjT,"tau -- (T) -- B -- (j) -- d -- [t,j]",2, 2j_l + 1t + 1tau
+U_3 D_3 D,tau,t,tbjT,"tau -- (T) -- B -- (t) -- t -- [j,b]",2, 1j_l + 1t + 1b + 1tau
+U_3 D_3 D,tau,d,tbjT,"tau -- (T) -- B -- (j) -- d -- [t,b]",2, 1j_l + 1t + 1b + 1tau
+U_3 D_3 D,tau,b,tbjT,"tau -- (T) -- B -- (b) -- b -- [t,j]",2, 1j_l + 1t + 1b + 1tau
+U_3 D_3 D_3,tau,t,tbbT,"tau -- (T) -- B -- (t) -- t -- [b,b]",2, 1t + 2b + 1tau
+U_3 D_3 D_3,tau,b,tbbT,"tau -- (T) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + 1tau
+U_3 D_3 D_3,tau,b,tbbT,"tau -- (T) -- B -- (b) -- b -- [t,b]",2, 1t + 2b + 1tau

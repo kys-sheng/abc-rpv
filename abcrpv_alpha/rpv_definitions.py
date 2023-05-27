@@ -22,7 +22,7 @@ SPARTICLES=["B","W^+", "W^0","G","H^+","H^0","q","d","u","l","nu","e","b_L","t_L
 # "nu_tau", = nu_tau     
 
 # Final State Object
-FINAL_STATE=["v","J","3","t","b","j","L","T","l","E"]
+FINAL_STATE=["v","J","3","t","b","j","L","T","l","X"]
 # Notation used in for fiinal state object in code (one-char syntax):
 # "v" = Massive Bosons  (W,Z,H)  
 # "J" = jet             (u, d, c, s, t, b )         
@@ -33,7 +33,10 @@ FINAL_STATE=["v","J","3","t","b","j","L","T","l","E"]
 # "L" = charged leptons (e, mu, tau )                     
 # "l" = light lepton    (e, mu )                     
 # "T" = tau             (tau)         
-# "E" = MET             (nu)         
+# "X" = MET             (nu)         
+
+# Order of signatures in code
+SIG_ORDER = ["v","J","3","t","b","j","L","T","l","X"]
 
 # sparticles that are relevant to RPV decays
 RPV_SPARTICLES = ["q","d","u","l","nu","e","b_L","t_L","t","b","tau_L","nu_tau","tau"]
@@ -87,5 +90,4 @@ STATE_DICT = {
     "UDD" : UDD_STATES,
 }
 
-SIG_ORDER = ["v","J","3","t","b","j","L","T","l","E"]
 
