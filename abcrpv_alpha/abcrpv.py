@@ -573,7 +573,10 @@ def generate_2LSP_RPV_decay_table(rpv_coup):
 
 def two_LSP_RPV_decay_table(rpv_coup): 
     try:
-        return pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_2LSP_RPV_DECAY.csv'))
+        out_pd = pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_2LSP_RPV_DECAY.csv'))
+        out_pd["Chain A"] = out_pd["Chain A"].map(eval)
+        out_pd["Chain B"] = out_pd["Chain B"].map(eval)
+        return out_pd
     except:
         print("Couldnt't find "+rpv_coup+"_2LSP_RPV_DECAY.csv in data \nRegenerating",end="")
         return generate_2LSP_RPV_decay_table(rpv_coup)
@@ -1035,6 +1038,9 @@ def find_signatures_from_two_lsp(lspa,lspb="",rpv_coup="ALL",category="ALL",file
             if lspa != lspb:
                 output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspb) & (two_LSP_table['LSP B'] == lspa)& (two_LSP_table['CAT'] == category)])
     
+    output_pd["Chain A"] = output_pd["Chain A"].map(np.unique)
+    output_pd["Chain B"] = output_pd["Chain B"].map(np.unique)
+
     if save_results==True:
         if ".csv" not in filename:
             filename=filename+".csv"
