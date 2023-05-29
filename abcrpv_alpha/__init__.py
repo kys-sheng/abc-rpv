@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 abcrpv_package_path = Path(__file__).parent.absolute()
+AUTOSAVE = True
+VERBOSE_MODE = True
 
 
 if not os.path.isfile(os.path.join(abcrpv_package_path,"input/table_notsup.csv")):
@@ -105,7 +107,7 @@ def set_elements_simplified(instr):
             expand_list.append(["l","T"])
         else:
             expand_list.append(i)
-    return [rmisc.signature_ordering("".join(x)) for x in list(itertools.product(*expand_list))]
+    return set([rmisc.signature_ordering("".join(x)) for x in list(itertools.product(*expand_list))])
 
 def get_all_superset(instr,optJ,opt3,optL):
     """
@@ -420,7 +422,6 @@ def transitions_table():
         return generate_transitions_table()
 
 def generate_LSP_RPV_decay_table(rpv_coup): 
-# @TODO generate from single to multiple possibilities
     index_name_cat = ['Category', 'LSP', 'decays via', 'Signatures', 'Chain','NV_cascade']
     XSTATE = rdef.STATE_DICT[rpv_coup.upper()]
     lsp_dec_dat = []
@@ -467,6 +468,7 @@ def generate_LSP_RPV_decay_table(rpv_coup):
                             lsp_dec_dat.append([k[-1],j,k[l],rmisc.signature_ordering(i.join(list(map(rmisc.sparticles_to_sig, rpvdecayed)))),str(chain),nv])
     lsp_dec_df = pd.DataFrame(lsp_dec_dat,columns=index_name_cat)
     lsp_dec_df["Signatures (ER)"] = lsp_dec_df["Signatures"].apply(rmisc.easy_read)
+    lsp_dec_df = lsp_dec_df.drop_duplicates()
     lsp_dec_df.to_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_1LSP_RPV_DECAY.csv'),index=False)
     print()
     return lsp_dec_df
@@ -577,6 +579,89 @@ def two_LSP_RPV_decay_table(rpv_coup):
     except:
         print("Couldnt't find "+rpv_coup+"_2LSP_RPV_DECAY.csv in data \nRegenerating",end="")
         return generate_2LSP_RPV_decay_table(rpv_coup)
+
+def generate_2LSP_mixed_RPV_decay_table(rpv_coup1,rpv_coup2):
+    warnings.filterwarnings("ignore") #ignore panda.append deprecate warning, @TODO update this, do this without append
+    lsp_dec_df1      = ONE_LSP_RPV_DECAY_DICT[rpv_coup1.upper()]
+    lsp_onechain_df1 = ONE_LSP_SIG_CAT_DICT[rpv_coup1.upper()]
+    rpv_cat1         = rdef.CAT_DICT[rpv_coup1.upper()]
+    
+    lsp_dec_df2      = ONE_LSP_RPV_DECAY_DICT[rpv_coup2.upper()]
+    lsp_onechain_df2 = ONE_LSP_SIG_CAT_DICT[rpv_coup2.upper()]
+    rpv_cat2         = rdef.CAT_DICT[rpv_coup2.upper()]
+ 
+    output_index = ["CAT A","CAT B","LSP A","LSP B","Signature A","Signature B","Chain A","Chain B","Signatures"]
+    output_df = pd.DataFrame(columns=output_index)
+    cat12 = list(itertools.product(rpv_cat1,rpv_cat2))
+        
+    for i in rdef.SPARTICLES_DEGENERACY:       
+        print(".",end="") 
+        for j1,j2 in cat12:
+            if j1 != j2:
+                sigseta1    = lsp_onechain_df1[lsp_onechain_df1["LSP"] == i[0]][j1].values[0]
+                sigseta2    = lsp_onechain_df2[lsp_onechain_df2["LSP"] == i[0]][j2].values[0]
+                pairAA12    = list(itertools.product(sigseta1, sigseta2))
+                datAA12 = [ [j1,j2,i[0],i[0],s[0],s[1],
+                         list( lsp_dec_df1.loc[(lsp_dec_df1['LSP'] == i[0] )  & (lsp_dec_df1['Category'] == j1) & (lsp_dec_df1['Signatures'] == s[0])]["Chain"] ),
+                         list( lsp_dec_df2.loc[(lsp_dec_df2['LSP'] == i[0] )  & (lsp_dec_df2['Category'] == j2) & (lsp_dec_df2['Signatures'] == s[1])]["Chain"] ),
+                         rmisc.signature_ordering("".join(s))] for s in pairAA12]
+                entryAA12 = pd.DataFrame(datAA12, columns=output_index)
+                output_df = output_df.append(entryAA12, ignore_index = True)    
+            
+                if len(i) > 1:       
+                    #all possible signatures from one LSP B decay (SU(2) degenerate partner of LSP A)
+                    sigsetb1        = lsp_onechain_df1[lsp_onechain_df1["LSP"] == i[1]][j1].values[0]
+                    sigsetb2        = lsp_onechain_df2[lsp_onechain_df2["LSP"] == i[1]][j2].values[0]
+
+                    #all possible signatures from (LSP A,LSP B) and  (LSP B,LSP B)decay 
+                    pairAB12    = list(itertools.product(sigseta1, sigsetb2))
+                    pairBA12    = list(itertools.product(sigsetb1, sigseta2))
+                    pairBB12    = list(itertools.product(sigsetb1, sigsetb2))
+                    
+                    #Get all relevant data
+                    datAB12 = [ [j1,j2,i[0],i[1],s[0],s[1],
+                             list( lsp_dec_df1.loc[(lsp_dec_df1['LSP'] == i[0] )  & (lsp_dec_df1['Category'] == j1) & (lsp_dec_df1['Signatures'] == s[0])]["Chain"] ),
+                             list( lsp_dec_df2.loc[(lsp_dec_df2['LSP'] == i[1] )  & (lsp_dec_df2['Category'] == j2) & (lsp_dec_df2['Signatures'] == s[1])]["Chain"] ),
+                             rmisc.signature_ordering("".join(s))] for s in pairAB12]
+                    datBA12 = [ [j1,j2,i[1],i[0],s[0],s[1],
+                             list( lsp_dec_df1.loc[(lsp_dec_df1['LSP'] == i[1] )  & (lsp_dec_df1['Category'] == j1) & (lsp_dec_df1['Signatures'] == s[0])]["Chain"] ),
+                             list( lsp_dec_df2.loc[(lsp_dec_df2['LSP'] == i[0] )  & (lsp_dec_df2['Category'] == j2) & (lsp_dec_df2['Signatures'] == s[1])]["Chain"] ),
+                             rmisc.signature_ordering("".join(s))] for s in pairBA12]
+                    datBB12 = [ [j1,j2,i[1],i[1],s[0],s[1],
+                             list( lsp_dec_df1.loc[(lsp_dec_df1['LSP'] == i[1] )  & (lsp_dec_df1['Category'] == j1) & (lsp_dec_df1['Signatures'] == s[0])]["Chain"] ),
+                             list( lsp_dec_df2.loc[(lsp_dec_df2['LSP'] == i[1] )  & (lsp_dec_df2['Category'] == j2) & (lsp_dec_df2['Signatures'] == s[1])]["Chain"] ),
+                             rmisc.signature_ordering("".join(s))] for s in pairBB12]
+
+                    entryAB12 = pd.DataFrame(datAB12, columns=output_index)
+                    entryBA12 = pd.DataFrame(datBA12, columns=output_index)
+                    entryBB12 = pd.DataFrame(datBB12, columns=output_index)
+                    output_df = output_df.append(entryAB12, ignore_index = True)        
+                    output_df = output_df.append(entryBA12, ignore_index = True)        
+                    output_df = output_df.append(entryBB12, ignore_index = True)    
+        print(".",end="") 
+    print()
+    output_df["Signature A (ER)"] = output_df["Signature A"].apply(rmisc.easy_read)
+    output_df["Signature B (ER)"] = output_df["Signature B"].apply(rmisc.easy_read)
+    output_df["Signatures (ER)"] = output_df["Signatures"].apply(rmisc.easy_read)
+    #output_df.to_csv("CSV/"+rpv_coup1.upper()+"_2LSP_table.csv",index=False)
+    output_df.to_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup1+"_"+rpv_coup2+'_2LSP_MIXED_RPV_DECAY.csv'),index=False)
+
+    warnings.filterwarnings("default")
+    return output_df    
+
+
+def two_LSP_mixed_RPV_decay_table(rpv_coup1,rpv_coup2): 
+    try:
+        out_pd = pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup1+"_"+rpv_coup2+'_2LSP_MIXED_RPV_DECAY.csv'))
+        out_pd["Chain A"] = out_pd["Chain A"].map(eval)
+        out_pd["Chain B"] = out_pd["Chain B"].map(eval)
+        return out_pd
+    except:
+        print("Couldnt't find "+rpv_coup1+"_"+rpv_coup2+"_2LSP_MIXED_RPV_DECAY.csv in data \nRegenerating",end="")
+        return generate_2LSP_mixed_RPV_decay_table(rpv_coup1,rpv_coup2)
+
+
+
 
 def generate_2LSP_sig_complete(rpv_coup):
     rpv_coup        = rpv_coup.upper().replace(" ","")
@@ -776,6 +861,17 @@ LLE_2LSP_RPV_DECAY_TABLE = two_LSP_RPV_decay_table("LLE")
 LQD_2LSP_RPV_DECAY_TABLE = two_LSP_RPV_decay_table("LQD")
 UDD_2LSP_RPV_DECAY_TABLE = two_LSP_RPV_decay_table("UDD")
 
+
+LLE_LLE_2LSP_MIXED_RPV_DECAY_TABLE  = two_LSP_mixed_RPV_decay_table('LLE', 'LLE')
+LLE_LQD_2LSP_MIXED_RPV_DECAY_TABLE  = two_LSP_mixed_RPV_decay_table('LLE', 'LQD')
+LLE_UDD_2LSP_MIXED_RPV_DECAY_TABLE  = two_LSP_mixed_RPV_decay_table('LLE', 'UDD')
+LQD_LLE_2LSP_MIXED_RPV_DECAY_TABLE  = two_LSP_mixed_RPV_decay_table('LQD', 'LLE')
+LQD_LQD_2LSP_MIXED_RPV_DECAY_TABLE  = two_LSP_mixed_RPV_decay_table('LQD', 'LQD')
+LQD_UDD_2LSP_MIXED_RPV_DECAY_TABLE  = two_LSP_mixed_RPV_decay_table('LQD', 'UDD')
+UDD_LLE_2LSP_MIXED_RPV_DECAY_TABLE  = two_LSP_mixed_RPV_decay_table('UDD', 'LLE')
+UDD_LQD_2LSP_MIXED_RPV_DECAY_TABLE  = two_LSP_mixed_RPV_decay_table('UDD', 'LQD')
+UDD_UDD_2LSP_MIXED_RPV_DECAY_TABLE  = two_LSP_mixed_RPV_decay_table('UDD', 'UDD')
+
 LLE_2LSP_SIG_CAT_COMPLETE = two_LSP_sig_cat_complete("LLE")
 LQD_2LSP_SIG_CAT_COMPLETE = two_LSP_sig_cat_complete("LQD")
 UDD_2LSP_SIG_CAT_COMPLETE = two_LSP_sig_cat_complete("UDD")
@@ -784,11 +880,20 @@ LLE_2LSP_SIG_CAT_TABLE = two_LSP_sig_cat_table("LLE")
 LQD_2LSP_SIG_CAT_TABLE = two_LSP_sig_cat_table("LQD")
 UDD_2LSP_SIG_CAT_TABLE = two_LSP_sig_cat_table("UDD")
 
-
-
 TWO_LSP_RPV_DECAY_DICT = { "LLE":LLE_2LSP_RPV_DECAY_TABLE,
                            "LQD":LQD_2LSP_RPV_DECAY_TABLE,
                            "UDD":UDD_2LSP_RPV_DECAY_TABLE,}
+
+TWO_LSP_MIXED_RPV_DECAY_DICT = { "LLE_LLE":LLE_LLE_2LSP_MIXED_RPV_DECAY_TABLE,
+                                 "LLE_LQD":LLE_LQD_2LSP_MIXED_RPV_DECAY_TABLE,
+                                 "LLE_UDD":LLE_UDD_2LSP_MIXED_RPV_DECAY_TABLE,
+                                 "LQD_LLE":LQD_LLE_2LSP_MIXED_RPV_DECAY_TABLE,
+                                 "LQD_LQD":LQD_LQD_2LSP_MIXED_RPV_DECAY_TABLE,
+                                 "LQD_UDD":LQD_UDD_2LSP_MIXED_RPV_DECAY_TABLE,
+                                 "UDD_LLE":UDD_LLE_2LSP_MIXED_RPV_DECAY_TABLE,
+                                 "UDD_LQD":UDD_LQD_2LSP_MIXED_RPV_DECAY_TABLE,
+                                 "UDD_UDD":UDD_UDD_2LSP_MIXED_RPV_DECAY_TABLE,}
+
 TWO_LSP_SIG_CAT_COMPLETE_DICT ={
     "LLE":LLE_2LSP_SIG_CAT_COMPLETE,
     "LQD":LQD_2LSP_SIG_CAT_COMPLETE,
@@ -800,7 +905,17 @@ TWO_LSP_SIG_CAT_DICT = {
     "UDD":UDD_2LSP_SIG_CAT_TABLE,
 }
 
-def find_one_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename="",save_results=True,verbose=True):
+ONERPVMAXNUM      = max([max([len(k) for k in j["Signatures"].values]) for i,j in ONE_LSP_RPV_DECAY_DICT.items()])  
+TWORPVMAXNUM      = max([max([len(k) for k in j["Signatures"].values]) for i,j in TWO_LSP_RPV_DECAY_DICT.items()])  
+TWORPVMIXEDMAXNUM = max([max([len(k) for k in j["Signatures"].values]) for i,j in TWO_LSP_MIXED_RPV_DECAY_DICT.items()])      
+
+##### ONE LSP FUNCTIONS ##### 
+
+def find_one_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename="",save_results=None,verbose=None):
+    if verbose==None:
+        verbose=VERBOSE_MODE
+    if save_results == None:
+       save_results = AUTOSAVE 
     assert type(signature) == str, "input signature needs to be str, only taking one signature at a time"
     assert rmisc.check_signature_format(signature), "Check signature format, allowed syntax:{x}".format(x=rdef.FINAL_STATE)
     rpv_coup = rpv_coup.upper()
@@ -817,7 +932,7 @@ def find_one_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename
             raise NameError("\""+category+"\" not a category in "+rpv_coup)
     
     if filename == "":
-        filename = "one_lsp_that_decays_to_"+signature+"_"+rpv_coup+"_"+category.replace(" ","")+".csv"
+        filename = "one_lsp_from_"+signature+"_"+rpv_coup+"_"+category.replace(" ","")+".csv"
 
     if save_results ==True:
         if ".csv" not in filename:
@@ -835,9 +950,10 @@ def find_one_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename
     signature = rmisc.signature_ordering(signature)
     output_pd = pd.DataFrame()
     if "L" in signature or "J"in signature or "3"in signature  :
+        insig = signature
         signature = (set_elements_simplified(signature))
         if verbose == True:
-            print("More than one signature in input :\n",filename)
+            print("More than one signature in input :\n",insig)
             print("Will be looking up               :\n",signature)
     else:
         signature = [signature]
@@ -864,7 +980,11 @@ def find_one_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename
         output_pd.to_csv(results_path,index=False)     
     return  output_pd  
 
-def find_signatures_from_one_lsp(lsp,rpv_coup="ALL",category="ALL",filename="",save_results=True,verbose=True):
+def find_signatures_from_one_lsp(lsp,rpv_coup="ALL",category="ALL",filename="",save_results=None,verbose=None):
+    if verbose==None:
+        verbose=VERBOSE_MODE
+    if save_results == None:
+       save_results = AUTOSAVE 
     assert type(lsp) == str        , "input lsp needs to be str, only taking one lsp at a time"
     assert lsp in rdef.SPARTICLES  , "Check LSP format, allowed syntax:{x}".format(x=rdef.SPARTICLES)
     #lsp = rmisc.check_format(lsp)
@@ -916,7 +1036,84 @@ def find_signatures_from_one_lsp(lsp,rpv_coup="ALL",category="ALL",filename="",s
         output_pd.to_csv(results_path,index=False)     
     return  output_pd              
 
-def find_two_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename="",save_results=True,verbose=True):
+def find_one_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL",category="ALL",filename="",save_results=None,verbose=None):
+    if verbose==None:
+        verbose=VERBOSE_MODE
+    if save_results == None:
+       save_results = AUTOSAVE 
+    assert type(inclusive_obj)== str 
+
+    if filename == "":
+        filename = "one_lsp_from_"+signature+"_inclusive_"+inclusive_obj+"_"+rpv_coup+"_"+category.replace(" ","")+".csv"
+
+    if inclusive_obj =="MAX" or inclusive_obj.upper() =="MAX":
+        if verbose==True:
+            print("Getting maximum inclusive!")
+            print("From our dataset, we noticed that we only have up to {x} objects in the final state".format(x=ONERPVMAXNUM))
+
+        n = ONERPVMAXNUM - len(signature)
+        x = ["J","L","X"]
+        nx = x*ONERPVMAXNUM
+        all_signature = np.unique([rmisc.signature_ordering(signature+"".join(i)) for i in list(itertools.combinations(nx, n))])
+    else:
+        assert len(signature) + len(inclusive_obj) <= ONERPVMAXNUM , "Exceed maximum number of object (n>{x}) in a signature possible in data set. To double check, please lookup ONE_LSP_RPV_DECAY_DICT and check maxmimum length of all signature strings".format(x=ONERPVMAXNUM)
+        inclusive_obj = list(rmisc.signature_ordering(inclusive_obj))
+        all_signature = []
+        for L in range(len(inclusive_obj) + 1):
+            all_signature = np.unique([*all_signature , *np.unique([rmisc.signature_ordering(signature+"".join(subset)) for subset in itertools.combinations(inclusive_obj, L)])])
+    
+    all_signature = list(all_signature)
+    all_signature.sort(key=len)
+
+
+    output_dat = []
+    if verbose==True:
+        print("All possibilities:")
+        print(all_signature)
+        print()
+    
+    for sig in all_signature:
+        outsig = find_one_lsp_from_signature(str(sig),rpv_coup,category,"",False,False)
+        if verbose==True:
+            print("Looking at:",str(sig))
+            if "L" in sig or "J"in sig or "3"in sig  :
+                print("Looking up:",(set_elements_simplified(str(sig))))
+            print("FOUND:",len(outsig))
+            print()
+        output_dat.append(outsig)
+
+    output_pd = pd.concat(output_dat, ignore_index=True, sort=False)
+    nfull = len(output_pd)
+    output_pd = output_pd.drop_duplicates()
+    output_pd["Chain"] = output_pd["Chain"].map(np.array)
+    nunique = len(output_pd)
+    
+    if verbose==True:
+        print("FOUND:")
+        print("Total        :",nfull)
+        print("Repeating    :",nfull-nunique)
+        print("Unique       :",nunique)
+    
+    if save_results==True:
+
+        if ".csv" not in filename:
+            filename=filename+".csv"
+
+        results_path = os.path.join(abcrpv_package_path,"results/"+filename)
+
+        if verbose == True:
+            print("Results saved in ",results_path)
+        output_pd.to_csv(results_path,index=False)   
+    
+    return output_pd
+
+##### TWO LSP FUNCTIONS ONE CAT ##### 
+
+def find_two_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename="",save_results=None,verbose=None):
+    if verbose==None:
+        verbose=VERBOSE_MODE
+    if save_results == None:
+       save_results = AUTOSAVE 
     assert type(signature) == str, "input signature needs to be str, only taking one signature at a time"
     rpv_coup = rpv_coup.upper()
     category = category.upper()
@@ -945,9 +1142,10 @@ def find_two_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename
     signature = rmisc.signature_ordering(signature)
     output_pd = pd.DataFrame()
     if "L" in signature or "J"in signature or "3"in signature  :
+        insig = signature
         signature = (set_elements_simplified(signature))
         if verbose == True:
-            print("More than one signature in input :\n",filename)
+            print("More than one signature in input :\n",insig)
             print("Will be looking up               :\n",signature)
     else:
         signature = [signature]
@@ -986,7 +1184,11 @@ def find_two_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename
         output_pd.to_csv(results_path,index=False)      
     return output_pd
 
-def find_signatures_from_two_lsp(lspa,lspb="",rpv_coup="ALL",category="ALL",filename="",save_results=True,verbose=True):
+def find_signatures_from_two_lsp(lspa,lspb="",rpv_coup="ALL",category="ALL",filename="",save_results=None,verbose=None):
+    if verbose==None:
+        verbose=VERBOSE_MODE
+    if save_results == None:
+       save_results = AUTOSAVE 
     assert type(lspa) == str and type(lspb) == str, "input lspa and lspb needs to be str"
     if lspb == "":
         lspb = lspa
@@ -1017,7 +1219,7 @@ def find_signatures_from_two_lsp(lspa,lspb="",rpv_coup="ALL",category="ALL",file
                 rpv_coup = i
 
     output_pd = pd.DataFrame()
-    #warnings.filterwarnings("ignore") #ignore panda.append deprecategorye warning, @TODO update this, do this without append
+    warnings.filterwarnings("ignore") #ignore panda.append deprecategorye warning, @TODO update this, do this without append
 
     if rpv_coup == "ALL":
         for _, two_LSP_table in TWO_LSP_RPV_DECAY_DICT.items():
@@ -1053,7 +1255,392 @@ def find_signatures_from_two_lsp(lspa,lspb="",rpv_coup="ALL",category="ALL",file
     #output_pd.to_csv("RESULTS/signatures_from_"+LSPNAME+".csv")     
     return output_pd
 
+def find_two_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL",category="ALL",filename="",save_results=None,verbose=None):
+    if verbose==None:
+        verbose=VERBOSE_MODE
+    if save_results == None:
+       save_results = AUTOSAVE 
+    assert type(inclusive_obj)== str 
+
+    if filename == "":
+        filename = "two_lsp_from_"+signature+"_inclusive_"+inclusive_obj+"_"+rpv_coup+"_"+category.replace(" ","")+".csv"
+
+
+    if inclusive_obj =="MAX" or inclusive_obj.upper() =="MAX":
+        if verbose==True:
+            print("Getting maximum inclusive!")
+            print("From our dataset, we noticed that we only have up to {x} objects in the final state".format(x=TWORPVMAXNUM))
+
+        n = TWORPVMAXNUM - len(signature)
+        x = ["J","L","X"]
+        nx = x*n
+        all_signature = np.unique([rmisc.signature_ordering(signature+"".join(i)) for i in list(itertools.combinations(nx, n))])
+    else:
+        assert len(signature) + len(inclusive_obj) <= TWORPVMAXNUM , "Exceed maximum number of object (n>{x}) in a signature possible in data set. To double check, please lookup TWO_LSP_RPV_DECAY_DICT and check maxmimum length of all signature strings".format(x=TWORPVMAXNUM)
+        inclusive_obj = list(rmisc.signature_ordering(inclusive_obj))
+        all_signature = []
+        for L in range(len(inclusive_obj) + 1):
+            all_signature = np.unique([*all_signature , *np.unique([rmisc.signature_ordering(signature+"".join(subset)) for subset in itertools.combinations(inclusive_obj, L)])])
+    
+    all_signature = list(all_signature)
+    all_signature.sort(key=len)
+
+    output_dat = []
+    if verbose==True:
+        print("All possibilities:")
+        print(all_signature)
+        print()
+    
+    for sig in all_signature:
+        outsig = find_two_lsp_from_signature(str(sig),rpv_coup,category,"",False,False)
+        if verbose==True:
+            print("Looking at:",str(sig))
+            if "L" in sig or "J"in sig or "3"in sig  :
+                print("Looking up:",(set_elements_simplified(str(sig))))
+            print("FOUND:",len(outsig))    
+            print()
+        output_dat.append(outsig)
+    
+    output_pd = pd.concat(output_dat, ignore_index=True, sort=False)
+    nfull = len(output_pd)
+    output_pd["Chain A"] = output_pd["Chain A"].map(tuple)
+    output_pd["Chain B"] = output_pd["Chain B"].map(tuple)
+    output_pd = output_pd.drop_duplicates()
+    output_pd["Chain A"] = output_pd["Chain A"].map(np.array)
+    output_pd["Chain B"] = output_pd["Chain B"].map(np.array)
+    nunique = len(output_pd)
+    
+    if verbose==True:
+        print("FOUND:")
+        print("Total        :",nfull)
+        print("Repeating    :",nfull-nunique)
+        print("Unique       :",nunique)
+
+    if save_results==True:
+
+        if ".csv" not in filename:
+            filename=filename+".csv"
+
+        results_path = os.path.join(abcrpv_package_path,"results/"+filename)
+
+        if verbose == True:
+            print("Results saved in ",results_path)
+        output_pd.to_csv(results_path,index=False)      
+
+    return output_pd
+
+##### TWO LSP FUNCTIONS TWO CAT ##### 
+
+def find_two_lsp_from_signature_mixed_couplings(signature,rpv_coup1="ALL",rpv_coup2="ALL",category1="ALL",category2="ALL",filename="",save_results=None,verbose=None):
+    if verbose==None:
+        verbose=VERBOSE_MODE
+    if save_results == None:
+       save_results = AUTOSAVE 
+    assert type(signature) == str, "input signature needs to be str, only taking one signature at a time"
+    rpv_coup1 = rpv_coup1.upper()
+    rpv_coup2 = rpv_coup2.upper()
+    category1 = category1.upper()
+    category2 = category2.upper()
+    rpv_coup1 = rpv_coup1.replace(" ","")
+    rpv_coup2 = rpv_coup2.replace(" ","")
+    if filename == "":
+        filename = "two_lsp_from_"+signature+"_"+rpv_coup1+"_"+rpv_coup2+"_"+category1.replace(" ","")+"_"+category2.replace(" ","")+".csv"
+
+
+    if category1 != "ALL":
+        if category1.count(" ") < 2:
+            if category1.count("X") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LLE. Try:\n{x}".format(x=rdef.CAT_DICT["LLE"]))
+            if category1.count("Q") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))
+            if category1.count("U") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying UDD. Try:\n{x}".format(x=rdef.CAT_DICT["UDD"]))
+        if rpv_coup1 != "ALL" and category1 not in rdef.CAT_DICT[rpv_coup1]:
+            raise NameError("\""+category1+"\" not a category in "+rpv_coup1)
+
+    if category2 != "ALL":
+        if category2.count(" ") < 2:
+            if category2.count("X") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LLE. Try:\n{x}".format(x=rdef.CAT_DICT["LLE"]))
+            if category2.count("Q") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))
+            if category2.count("U") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying UDD. Try:\n{x}".format(x=rdef.CAT_DICT["UDD"]))
+        if rpv_coup2 != "ALL" and category2 not in rdef.CAT_DICT[rpv_coup2]:
+            raise NameError("\""+category2+"\" not a category in "+rpv_coup2)
+
+    if category1 != "ALL" and rpv_coup1 == "ALL":
+        for i,j in rdef.CAT_DICT.items():
+            if category1 in j:        
+                rpv_coup1 = i
+    if category2 != "ALL" and rpv_coup2 == "ALL":
+        for i,j in rdef.CAT_DICT.items():
+            if category2 in j:        
+                rpv_coup2 = i
+
+
+    warnings.filterwarnings("ignore") #ignore panda.append deprecate warning, @TODO update this, do this without append
+    signature = rmisc.signature_ordering(signature)
+    output_pd = pd.DataFrame()
+    if "L" in signature or "J"in signature or "3"in signature  :
+        signature = (set_elements_simplified(signature))
+        if verbose == True:
+            print("More than one signature in input :\n",filename)
+            print("Will be looking up               :\n",signature)
+    else:
+        signature = [signature]
+
+    if rpv_coup1 == "ALL" and rpv_coup2 == "ALL" :
+        for _, two_LSP_table in TWO_LSP_MIXED_RPV_DECAY_DICT.items():
+        #for two_LSP_table in [LLE_2LSP_table,LQD_2LSP_table,UDD_2LSP_table]:
+            for k in signature:
+                output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['Signatures'] == k)])
+                #display(two_LSP_table.loc[(two_LSP_table['Signatures'] == k)])
+
+    elif rpv_coup1 == "ALL" and rpv_coup2 != "ALL" :
+
+        for mixed_rpv in ["LLE"+"_"+rpv_coup2,"LQD"+"_"+rpv_coup2,"UDD"+"_"+rpv_coup2]:
+            two_LSP_table = TWO_LSP_MIXED_RPV_DECAY_DICT[mixed_rpv] 
+            if category2 == "ALL":
+                for icat in rdef.CAT_DICT[rpv_coup2]:
+                    for k in signature:
+                        output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['Signatures'] == k) & (two_LSP_table['CAT B'] == icat)]) 
+
+            elif category2 != "ALL":
+                for k in signature:
+                    output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['Signatures'] == k) & (two_LSP_table['CAT B'] == category2)]) 
+
+
+
+    elif rpv_coup1 != "ALL" and rpv_coup2 == "ALL" :
+        for mixed_rpv in [rpv_coup1+"_"+"LLE",rpv_coup1+"_"+"LQD",rpv_coup1+"_"+"UDD"]:
+            two_LSP_table = TWO_LSP_MIXED_RPV_DECAY_DICT[mixed_rpv] 
+            if category1 == "ALL":
+                for icat in rdef.CAT_DICT[rpv_coup1]:
+                    for k in signature:
+                        output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['Signatures'] == k) & (two_LSP_table['CAT A'] == icat)]) 
+
+            elif category1 != "ALL":
+                for k in signature:
+                    output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['Signatures'] == k) & (two_LSP_table['CAT A'] == category1)]) 
+
+
+    elif rpv_coup1 != "ALL" and rpv_coup2 != "ALL" :
+        mixed_rpv = rpv_coup1+"_"+rpv_coup2
+        two_LSP_table = TWO_LSP_MIXED_RPV_DECAY_DICT[mixed_rpv]   
+        if category1 == "ALL" and category2 == "ALL" :
+            for k in signature:
+                output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['Signatures'] == k)])
+                #two_LSP_table.loc[(two_LSP_table['Signatures'] == k)]
+
+        elif  category1 == "ALL" and category2 != "ALL"  :
+                for k in signature:
+                    output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['Signatures'] == k) & (two_LSP_table['CAT B'] == category2)])
+        elif  category1 != "ALL" and category2 == "ALL"  :
+                for k in signature:
+                    output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['Signatures'] == k) & (two_LSP_table['CAT A'] == category1)])
+        elif  category1 != "ALL" and category2 != "ALL"  :
+            for k in signature:
+                output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['Signatures'] == k) & (two_LSP_table['CAT A'] == category1) & (two_LSP_table['CAT B'] == category2)])
+    
+    output_pd["Chain A"] = output_pd["Chain A"].map(np.unique)
+    output_pd["Chain B"] = output_pd["Chain B"].map(np.unique)
+
+    warnings.filterwarnings("default") 
+    if save_results==True:
+
+        if ".csv" not in filename:
+            filename=filename+".csv"
+
+        results_path = os.path.join(abcrpv_package_path,"results/"+filename)
+
+        if verbose == True:
+            print("Results saved in ",results_path)
+        output_pd.to_csv(results_path,index=False)      
+    return output_pd
+
+def find_signatures_from_two_lsp_mixed_couplings(lspa,lspb="",rpv_coup1="ALL",rpv_coup2="ALL",category1="ALL",category2="ALL",filename="",save_results=None,verbose=None):
+    if verbose==None:
+        verbose=VERBOSE_MODE
+    if save_results == None:
+       save_results = AUTOSAVE 
+    assert type(lspa) == str and type(lspb) == str, "input lspa and lspb needs to be str"
+    if lspb == "":
+        lspb = lspa
+    assert lspa in rdef.SPARTICLES  , "Check lspa format, allowed syntax:{x}".format(x=rdef.SPARTICLES)
+    assert lspb in rdef.SPARTICLES  , "Check lspb format, allowed syntax:{x}".format(x=rdef.SPARTICLES)
+
+    rpv_coup1 = rpv_coup1.upper()
+    rpv_coup1 = rpv_coup1.replace(" ","")
+    category1 = category1.upper()
+    if category1 != "ALL":
+        if category1.count(" ") < 2:
+            if category1.count("X") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LLE. Try:\n{x}".format(x=rdef.CAT_DICT["LLE"]))
+            if category1.count("Q") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))
+            if category1.count("U") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying UDD. Try:\n{x}".format(x=rdef.CAT_DICT["UDD"]))
+        if rpv_coup1 != "ALL" and category1 not in rdef.CAT_DICT[rpv_coup1]:
+            raise NameError("\""+category1+"\" not a category in "+rpv_coup1)
+        
+    rpv_coup2 = rpv_coup2.upper()
+    rpv_coup2 = rpv_coup2.replace(" ","")
+    category2 = category2.upper()
+    if category2 != "ALL":
+        if category2.count(" ") < 2:
+            if category2.count("X") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LLE. Try:\n{x}".format(x=rdef.CAT_DICT["LLE"]))
+            if category2.count("Q") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying LQD. Try:\n{x}".format(x=rdef.CAT_DICT["LQD"]))
+            if category2.count("U") > 0:
+                raise NameError("Look up rdef.CAT_DICT for categories' syntax, it seems like youre trying UDD. Try:\n{x}".format(x=rdef.CAT_DICT["UDD"]))
+        if rpv_coup2 != "ALL" and category2 not in rdef.CAT_DICT[rpv_coup2]:
+            raise NameError("\""+category2+"\" not a category in "+rpv_coup2)
+
+
+    if filename == "":
+        filename = "signatures_from_2LSP_"+lspa.replace("^","")+"_"+lspb.replace("^","")+"_decay_"+rpv_coup1+"_"+rpv_coup1+"_"+category1.replace(" ","")+category2.replace(" ","")+".csv"
+    
+    if category1 != "ALL" and rpv_coup1 == "ALL":
+        for i,j in rdef.CAT_DICT.items():
+            if category1 in j:        
+                rpv_coup1 = i
+
+    if category2 != "ALL" and rpv_coup2 == "ALL":
+        for i,j in rdef.CAT_DICT.items():
+            if category2 in j:        
+                rpv_coup2 = i
+
+    output_pd = pd.DataFrame()
+    warnings.filterwarnings("ignore") #ignore panda.append deprecategorye warning, @TODO update this, do this without append
+
+    if rpv_coup1 == "ALL" and rpv_coup2 == "ALL":
+        for _, two_LSP_table in TWO_LSP_MIXED_RPV_DECAY_DICT.items():
+        #for two_LSP_table in [LLE_2LSP_table,LQD_2LSP_table,UDD_2LSP_table]:
+            output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspa) & (two_LSP_table['LSP B'] == lspb)])
+            
+    elif rpv_coup1 != "ALL" and rpv_coup2 == "ALL":
+        for mixed_rpv in [rpv_coup1+"_"+"LLE",rpv_coup1+"_"+"LQD",rpv_coup1+"_"+"UDD"]:
+            two_LSP_table = TWO_LSP_MIXED_RPV_DECAY_DICT[mixed_rpv]
+            if category1 == "ALL" :
+                output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspa) & (two_LSP_table['LSP B'] == lspb)])
+
+            elif  category1 != "ALL" :
+                output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspa) & (two_LSP_table['LSP B'] == lspb)& (two_LSP_table['CAT A'] == category1)])
+                
+    elif rpv_coup1 == "ALL" and rpv_coup2 != "ALL":
+        for mixed_rpv in ["LLE"+"_"+rpv_coup2,"LQD"+"_"+rpv_coup2,"UDD"+"_"+rpv_coup2]:
+            two_LSP_table = TWO_LSP_MIXED_RPV_DECAY_DICT[mixed_rpv]
+            if category2 == "ALL" :
+                output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspa) & (two_LSP_table['LSP B'] == lspb)])
+
+            elif category2 != "ALL" :
+                output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspa) & (two_LSP_table['LSP B'] == lspb)& (two_LSP_table['CAT B'] == category2)])
+
+    elif rpv_coup1 != "ALL" and rpv_coup2 != "ALL":
+        mixed_rpv = rpv_coup1 + "_" + rpv_coup2
+        two_LSP_table = TWO_LSP_MIXED_RPV_DECAY_DICT[mixed_rpv]
+        if category1 == "ALL" and category2 == "ALL" :
+            output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspa) & (two_LSP_table['LSP B'] == lspb)])
+        elif category1 != "ALL" and category2 == "ALL" :
+            output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspa) & (two_LSP_table['LSP B'] == lspb) & (two_LSP_table['CAT A'] == category1)])
+        elif category1 == "ALL" and category2 != "ALL" :
+            output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspa) & (two_LSP_table['LSP B'] == lspb) & (two_LSP_table['CAT B'] == category2)])
+        elif category1 != "ALL" and category2 != "ALL" :
+            output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspa) & (two_LSP_table['LSP B'] == lspb)& (two_LSP_table['CAT A'] == category1) & (two_LSP_table['CAT B'] == category2)])
+    
+    output_pd["Chain A"] = output_pd["Chain A"].map(np.unique)
+    output_pd["Chain B"] = output_pd["Chain B"].map(np.unique)
+
+    if save_results==True:
+        if ".csv" not in filename:
+            filename=filename+".csv"
+        results_path = os.path.join(abcrpv_package_path,"results/"+filename)
+        if verbose == True:
+            print("Results saved in ",results_path)
+        output_pd.to_csv(results_path,index=False)     
+    warnings.filterwarnings("default") 
+
+    #output_pd.to_csv("RESULTS/signatures_from_"+LSPNAME+".csv")     
+    return output_pd
+
+def find_two_lsp_from_signature_mixed_couplings_inclusive(signature,inclusive_obj,rpv_coup1="ALL",rpv_coup2="ALL",category1="ALL",category2="ALL",filename="",save_results=None,verbose=None):
+    if verbose==None:
+        verbose=VERBOSE_MODE
+    if save_results == None:
+       save_results = AUTOSAVE 
+    assert type(inclusive_obj)== str 
+
+    if filename == "":
+        filename = "two_lsp_from_"+signature+"_inclusive_"+inclusive_obj+"_mixed_"+rpv_coup1+"_"+rpv_coup2+"_"+category1.replace(" ","")+"_"+category2.replace(" ","")+".csv"
+
+    if inclusive_obj == "MAX" or inclusive_obj.upper() =="MAX":
+        if verbose==True:
+            print("Getting maximum inclusive!")
+            print("From our dataset, we noticed that we only have up to {x} objects in the final state".format(x=TWORPVMIXEDMAXNUM))
+        n = TWORPVMIXEDMAXNUM - len(signature)
+        x = ["J","L","X"]
+        nx = x*n
+        all_signature = np.unique([rmisc.signature_ordering(signature+"".join(i)) for i in list(itertools.combinations(nx, n))])
+    else:
+        assert len(signature) + len(inclusive_obj) <= TWORPVMIXEDMAXNUM , "Exceed maximum number of object (n>{x}) in a signature possible in data set. To double check, please lookup TWO_LSP_MIXED_RPV_DECAY_DICT and check maxmimum length of all signature strings".format(x=TWORPVMIXEDMAXNUM)
+        inclusive_obj = list(rmisc.signature_ordering(inclusive_obj))
+        all_signature = []
+        for L in range(len(inclusive_obj) + 1):
+            all_signature = np.unique([*all_signature , *np.unique([rmisc.signature_ordering(signature+"".join(subset)) for subset in itertools.combinations(inclusive_obj, L)])])
+
+    
+    all_signature = list(all_signature)
+    all_signature.sort(key=len)
+
+    output_dat = []
+    if verbose==True:
+        print("All possibilities:")
+        print(all_signature)
+        print()
+    
+    for sig in all_signature:
+        outsig = find_two_lsp_from_signature_mixed_couplings(str(sig),rpv_coup1,rpv_coup2,category1,category2,"",False,False)
+        if verbose==True:
+            print("Looking at:",str(sig))
+            if "L" in sig or "J"in sig or "3"in sig  :
+                print("Looking up:",(set_elements_simplified(str(sig))))
+            print("FOUND:",len(outsig))
+            print()
+        output_dat.append(outsig)
+   
+    output_pd = pd.concat(output_dat, ignore_index=True, sort=False)
+    nfull = len(output_pd)
+    output_pd["Chain A"] = output_pd["Chain A"].map(tuple)
+    output_pd["Chain B"] = output_pd["Chain B"].map(tuple)
+    output_pd = output_pd.drop_duplicates()
+    output_pd["Chain A"] = output_pd["Chain A"].map(np.array)
+    output_pd["Chain B"] = output_pd["Chain B"].map(np.array)
+    nunique = len(output_pd)
+    
+    if verbose==True:
+        print("FOUND:")
+        print("Total        :",nfull)
+        print("Repeating    :",nfull-nunique)
+        print("Unique       :",nunique)
+
+    if save_results==True:
+
+        if ".csv" not in filename:
+            filename=filename+".csv"
+
+        results_path = os.path.join(abcrpv_package_path,"results/"+filename)
+
+        if verbose == True:
+            print("Results saved in ",results_path)
+        output_pd.to_csv(results_path,index=False)     
+    return output_pd
+
+
+#####
 def sanity_checks():
+    ##@TODO Include sanity checks for mixed couplings and inclusive functions
     print("Checking transitions",end="")
     for m in rdef.SPARTICLES:
         print(".",end="")
