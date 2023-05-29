@@ -1042,6 +1042,8 @@ def find_one_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL"
     if save_results == None:
        save_results = AUTOSAVE 
     assert type(inclusive_obj)== str 
+    rpv_coup = rpv_coup.upper()
+    category = category.upper()
 
     if filename == "":
         filename = "one_lsp_from_"+signature+"_inclusive_"+inclusive_obj+"_"+rpv_coup+"_"+category.replace(" ","")+".csv"
@@ -1261,6 +1263,8 @@ def find_two_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL"
     if save_results == None:
        save_results = AUTOSAVE 
     assert type(inclusive_obj)== str 
+    rpv_coup = rpv_coup.upper()
+    category = category.upper()
 
     if filename == "":
         filename = "two_lsp_from_"+signature+"_inclusive_"+inclusive_obj+"_"+rpv_coup+"_"+category.replace(" ","")+".csv"
@@ -1571,6 +1575,10 @@ def find_two_lsp_from_signature_mixed_couplings_inclusive(signature,inclusive_ob
     if save_results == None:
        save_results = AUTOSAVE 
     assert type(inclusive_obj)== str 
+    rpv_coup1 = rpv_coup1.upper()
+    category1 = category1.upper()
+    rpv_coup2 = rpv_coup2.upper()
+    category2 = category2.upper()
 
     if filename == "":
         filename = "two_lsp_from_"+signature+"_inclusive_"+inclusive_obj+"_mixed_"+rpv_coup1+"_"+rpv_coup2+"_"+category1.replace(" ","")+"_"+category2.replace(" ","")+".csv"
