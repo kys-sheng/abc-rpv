@@ -26,9 +26,15 @@ subprocess: <br>
 warnings: <br>
 `  pip3 install warnings or pip install warnings  `<br>
 
-## Future Updates:
-1. Include possibility of produced sparticles different from LSP (Next Update)
-2. Include charges of final state objects (Need to rewrite code base, in progress)
-3. Using all possible exact vertices instead of not_suppressed table (Need to rewrite code base, in progress)
-4. Generate Madgraph template param_card for parameter scans (Need to rewrite code base, in progress)
-5. Incorporate code with large RPV cases 
+## Future updates:
+### Near Future
+- Include the possibility of produced sparticles being different from LSP. Signatures from the cascade of produced sparticles to LSP will be included (Next Update)
+- Incorporate it into a pip-installable package
+
+### Future (Need to rewrite code base, in progress)
+- Include charges of final state objects 
+- Using all possible exact vertices instead of not_suppressed table 
+- Generate Madgraph template param_card for parameter scans 
+- Incorporate code with large RPV cases (Depends on how that project goes)
+
+Suggestions and feedbacks are welcomed!
