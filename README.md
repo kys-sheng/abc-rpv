@@ -9,6 +9,11 @@ To download library:
 To learn how to use:
 1. Try Tutorial.ipynb
 
+Directories:
+- `input`: directory where main input table (table_notsup.csv) are stored
+- `data`: directory where all the data sets generated from the input table are stored.
+- `results`: almost every use of the main function can be set to save the output tables as csv files which is stored here
+
 Feel free to provide feedback via the "Issues" section of the git repo.
 
 ## Requirements
