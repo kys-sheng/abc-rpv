@@ -1,35 +1,51 @@
-# abc-rpv
-`abc-rpv` is a Python library that provides a framework for analyzing the collider signatures of RPV-MSSM studied in this paper and beyond. Users are provided with various functionalities to explore the landscape of RPV-MSSM physics within the context of small RPV-couplings.
+# `abc-rpv` - the RPV Python Library
+`abc-rpv` is a Python library that provides a framework for analyzing the collider signatures of RPV-MSSM. Users are provided with various functionalities to explore the landscape of RPV-MSSM physics within the context of small RPV-couplings. 
 
-To download library:
-1. Go to green color button (Code): 
-2. Download this git repository either via download as a zip 
-3. or running `git clone https://github.com/kys-sheng/abc-rpv.git` 
+Feel free to ask questions, request features and report bugs via the [Github's issue system](https://github.com/kys-sheng/abc-rpv/issues).  <br>
+Suggestions and feedbacks are very much welcomed!
 
-To learn how to use:
-1. Try Tutorial.ipynb
+**!! [`Tutorial.ipynb`](https://github.com/kys-sheng/abc-rpv/blob/main/Tutorial.ipynb) contains everything relevant on how to use, more than the appendix in the original paper.** <br>
+**A full manual will be available in the near future.**
 
-Directories:
+
+## Installation / Download :
+A. Download: Go to green color button (Code) and download as a zip   <br>
+B. Installation: `git clone https://github.com/kys-sheng/abc-rpv.git`   <br>
+C. pip3: In future updates
+
+## Requirements
+Used Python libraries:<br>
+- itertools: `  pip3 install itertools or pip install itertools  `<br>
+- numpy: `  pip3 install numpy or pip install numpy  `<br>
+- os: `  pip3 install os or pip install os  `<br>
+- pandas: `  pip3 install pandas or pip install pandas  `<br>
+- subprocess: `  pip3 install subprocess or pip install subprocess  `<br>
+- warnings: `  pip3 install warnings or pip install warnings  `<br>
+
+## Manual
+- `Tutorial.ipynb` contains everything relevant on how to use.
+- An update on the advance usage will be available in future
+
+## Directories:
 - `input`: directory where main input table (table_notsup.csv) are stored
 - `data`: directory where all the data sets generated from the input table are stored.
 - `results`: almost every use of the main function can be set to save the output tables as csv files which is stored here
 
-Feel free to provide feedback via the "Issues" section of the git repo.
+## Citation
+If you use this software please cite the original publication on the framework used in this package: <br>
+> "The ABC of RPV: Classification of Signatures at the LHC for Small Couplings" [arXiv:230X:XXXX] <br>
+> Herbi K. Dreiner, Yong Sheng Koay, Dominik Köhler, Víctor Martín Lozano, Javier Montejo Berlingen, Saurabh Nangia and Nadja Strobbe.
 
-## Requirements
-Used Python libraries:<br>
-itertools: <br>
-`  pip3 install itertools or pip install itertools  `<br>
-numpy: <br>
-`  pip3 install numpy or pip install numpy  `<br>
-os: <br>
-`  pip3 install os or pip install os  `<br>
-pandas: <br>
-`  pip3 install pandas or pip install pandas  `<br>
-subprocess: <br>
-`  pip3 install subprocess or pip install subprocess  `<br>
-warnings: <br>
-`  pip3 install warnings or pip install warnings  `<br>
+and the full manual: <br>
+> TBP
+
+## Contributors:
+
+Original author (Code):
+- [Yong Sheng, Koay](https://www.katalog.uu.se/profile/?id=N23-470)
+
+Contributors:
+- Feel free to get involved! 
 
 ## Future updates:
 ### Near Future
@@ -40,6 +56,6 @@ warnings: <br>
 - Include charges of final state objects 
 - Using all possible exact vertices instead of not_suppressed table 
 - Generate Madgraph template param_card for parameter scans 
-- Incorporate code with large RPV cases (Depends on how that project goes)
+- Incorporate code with large RPV couplings 
 
-Suggestions and feedbacks are welcomed!
+
