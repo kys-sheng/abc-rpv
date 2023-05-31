@@ -48,14 +48,16 @@ Contributors:
 - Feel free to get involved! 
 
 ## Future updates:
-### Near Future
-- Include the possibility of produced sparticles being different from LSP. Signatures from the cascade of produced sparticles to LSP will be included (Next Update)
+### Near Future 
+- Include the possibility of any LSP pairing (non-SU(2) doublet). 
+- Include the possibility of produced sparticles being different from LSP. Signatures from the cascade of produced sparticles to LSP will be included 
 - Incorporate it into a pip-installable package
 
-### Future (Need to rewrite code base, in progress)
-- Include charges of final state objects 
-- Using all possible exact vertices instead of not_suppressed table 
-- Generate Madgraph template param_card for parameter scans 
+### Future 
+- Include charges of final state objects  (Need to rewrite code base, in progress)
+- Using all possible exact vertices instead of not_suppressed table (Need to rewrite code base, in progress)
+- Generate Madgraph template param_card for parameter scans (Need to rewrite code base, in progress)
+- Include the possibility of having intermediate 3-nonSM-field-vertex
 - Incorporate code with large RPV couplings 
 
 
