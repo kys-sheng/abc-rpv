@@ -1,0 +1,343 @@
+Mother,Daughter,All Possible Signature,Minimal Set (same flavour)
+B,W^+,"['jj', 'lX', 'TX', 'vv', 'tb']","['LX', 'jj', 'vv', 'tb']"
+B,W^0,"['jj', 'X', 'll', 'TT', 'vv', 'tt', 'bb']","['(LL)', 'X', '(JJ)', 'vv']"
+B,G,"['jj', 'tt', 'bb']",['(JJ)']
+B,H^+,['v'],['v']
+B,H^0,['v'],['v']
+B,q,['j'],['j']
+B,d,['j'],['j']
+B,u,['j'],['j']
+B,l,['l'],['l']
+B,nu,['X'],['X']
+B,e,['l'],['l']
+B,b_L,['b'],['b']
+B,t_L,['t'],['t']
+B,t,['t'],['t']
+B,b,['b'],['b']
+B,tau_L,['T'],['T']
+B,nu_tau,['X'],['X']
+B,tau,['T'],['T']
+W^+,B,"['jj', 'lX', 'TX', 'vv', 'tb']","['LX', 'jj', 'vv', 'tb']"
+W^+,W^0,"['jj', 'lX', 'TX', 'vv', 'tb']","['LX', 'jj', 'vv', 'tb']"
+W^+,G,"['jj', 'tb']","['jj', 'tb']"
+W^+,H^+,['v'],['v']
+W^+,H^0,['v'],['v']
+W^+,q,['j'],['j']
+W^+,d,"['jTX', 'jlX', 'jjj', 'vvj', 'tbj']","['jjj', 'vvj', 'tbj', 'jLX']"
+W^+,u,"['jTX', 'jlX', 'jjj', 'vvj', 'tbj']","['jjj', 'vvj', 'tbj', 'jLX']"
+W^+,l,['X'],['X']
+W^+,nu,['l'],['l']
+W^+,e,"['TlX', 'tbl', 'jjl', 'vvl', 'llX']","['LlX', 'jjl', 'vvl', 'tbl']"
+W^+,b_L,['t'],['t']
+W^+,t_L,['b'],['b']
+W^+,t,"['vt', 'vb']",['v3']
+W^+,b,"['vt', 'vb']",['v3']
+W^+,tau_L,['X'],['X']
+W^+,nu_tau,['T'],['T']
+W^+,tau,"['vvT', 'TTX', 'TlX', 'tbT', 'jjT']","['tbT', 'vvT', 'jjT', 'LTX']"
+W^0,B,"['jj', 'X', 'll', 'TT', 'vv', 'tt', 'bb']","['(LL)', 'X', '(JJ)', 'vv']"
+W^0,W^+,"['jj', 'lX', 'TX', 'vv', 'tb']","['LX', 'jj', 'vv', 'tb']"
+W^0,G,"['jj', 'tt', 'bb']",['(JJ)']
+W^0,H^+,['v'],['v']
+W^0,H^0,['v'],['v']
+W^0,q,['j'],['j']
+W^0,d,"['bbj', 'jjj', 'vvj', 'jTT', 'jll', 'jX', 'ttj']","['(LL)j', '(JJ)j', 'jX', 'vvj']"
+W^0,u,"['bbj', 'jjj', 'vvj', 'jTT', 'jll', 'jX', 'ttj']","['(LL)j', '(JJ)j', 'jX', 'vvj']"
+W^0,l,['l'],['l']
+W^0,nu,['X'],['X']
+W^0,e,"['lX', 'TTl', 'ttl', 'lll', 'vvl', 'jjl', 'bbl']","['vvl', 'lX', '(LL)l', '(JJ)l']"
+W^0,b_L,['b'],['b']
+W^0,t_L,['t'],['t']
+W^0,t,"['vt', 'vb']",['v3']
+W^0,b,"['vt', 'vb']",['v3']
+W^0,tau_L,['T'],['T']
+W^0,nu_tau,['X'],['X']
+W^0,tau,"['bbT', 'vvT', 'ttT', 'TX', 'TTT', 'Tll', 'jjT']","['(LL)T', 'vvT', 'TX', '(JJ)T']"
+G,B,"['jj', 'tt', 'bb']",['(JJ)']
+G,W^+,"['jj', 'tb']","['jj', 'tb']"
+G,W^0,"['jj', 'tt', 'bb']",['(JJ)']
+G,H^+,['tb'],['tb']
+G,H^0,"['tt', 'bb']","['tt', 'bb']"
+G,q,['j'],['j']
+G,d,['j'],['j']
+G,u,['j'],['j']
+G,l,"['tbX', 'jjX', 'ttl', 'jjl', 'bbl']","['tbX', 'jjX', '(JJ)l']"
+G,nu,"['bbX', 'jjX', 'tbl', 'ttX', 'jjl']","['jjl', '(JJ)X', 'tbl']"
+G,e,"['ttl', 'jjl', 'bbl']",['(JJ)l']
+G,b_L,['b'],['b']
+G,t_L,['t'],['t']
+G,t,['t'],['t']
+G,b,['b'],['b']
+G,tau_L,"['bbT', 'tbX', 'jjX', 'ttT', 'jjT']","['tbX', 'jjX', '(JJ)T']"
+G,nu_tau,"['bbX', 'jjX', 'tbT', 'ttX', 'jjT']","['(JJ)X', 'jjT', 'tbT']"
+G,tau,"['bbT', 'ttT', 'jjT']",['(JJ)T']
+H^+,B,['v'],['v']
+H^+,W^+,['v'],['v']
+H^+,W^0,['v'],['v']
+H^+,G,['tb'],['tb']
+H^+,H^0,"['vv', 'tb']","['vv', 'tb']"
+H^+,q,['vj'],['vj']
+H^+,d,['vj'],['vj']
+H^+,u,['vj'],['vj']
+H^+,l,"['vl', 'vX']","['vX', 'vl']"
+H^+,nu,"['vX', 'vl']","['vX', 'vl']"
+H^+,e,['vl'],['vl']
+H^+,b_L,['t'],['t']
+H^+,t_L,['b'],['b']
+H^+,t,['b'],['b']
+H^+,b,['t'],['t']
+H^+,tau_L,"['vT', 'vX']","['vT', 'vX']"
+H^+,nu_tau,"['vT', 'vX']","['vT', 'vX']"
+H^+,tau,['vT'],['vT']
+H^0,B,['v'],['v']
+H^0,W^+,['v'],['v']
+H^0,W^0,['v'],['v']
+H^0,G,"['tt', 'bb']","['tt', 'bb']"
+H^0,H^+,"['vv', 'tb']","['vv', 'tb']"
+H^0,q,['vj'],['vj']
+H^0,d,['vj'],['vj']
+H^0,u,['vj'],['vj']
+H^0,l,"['vl', 'vX']","['vX', 'vl']"
+H^0,nu,"['vX', 'vl']","['vX', 'vl']"
+H^0,e,['vl'],['vl']
+H^0,b_L,['b'],['b']
+H^0,t_L,['t'],['t']
+H^0,t,['t'],['t']
+H^0,b,['b'],['b']
+H^0,tau_L,"['vT', 'vX']","['vT', 'vX']"
+H^0,nu_tau,"['vT', 'vX']","['vT', 'vX']"
+H^0,tau,['vT'],['vT']
+q,B,['j'],['j']
+q,W^+,['j'],['j']
+q,W^0,['j'],['j']
+q,G,['j'],['j']
+q,H^+,['vj'],['vj']
+q,H^0,['vj'],['vj']
+q,d,['jj'],['jj']
+q,u,['jj'],['jj']
+q,l,"['jX', 'jl']","['jX', 'jl']"
+q,nu,"['jX', 'jl']","['jX', 'jl']"
+q,e,['jl'],['jl']
+q,b_L,"['bj', 'tj']",['3j']
+q,t_L,"['bj', 'tj']",['3j']
+q,t,['tj'],['tj']
+q,b,['bj'],['bj']
+q,tau_L,"['jT', 'jX']","['jT', 'jX']"
+q,nu_tau,"['jT', 'jX']","['jT', 'jX']"
+q,tau,['jT'],['jT']
+d,B,['j'],['j']
+d,W^+,"['jTX', 'jlX', 'jjj', 'vvj', 'tbj']","['jjj', 'vvj', 'tbj', 'jLX']"
+d,W^0,"['bbj', 'jjj', 'vvj', 'jTT', 'jll', 'jX', 'ttj']","['(LL)j', '(JJ)j', 'jX', 'vvj']"
+d,G,['j'],['j']
+d,H^+,['vj'],['vj']
+d,H^0,['vj'],['vj']
+d,q,['jj'],['jj']
+d,u,['jj'],['jj']
+d,l,['jl'],['jl']
+d,nu,['jX'],['jX']
+d,e,['jl'],['jl']
+d,b_L,['bj'],['bj']
+d,t_L,['tj'],['tj']
+d,t,['tj'],['tj']
+d,b,['bj'],['bj']
+d,tau_L,['jT'],['jT']
+d,nu_tau,['jX'],['jX']
+d,tau,['jT'],['jT']
+u,B,['j'],['j']
+u,W^+,"['jTX', 'jlX', 'jjj', 'vvj', 'tbj']","['jjj', 'vvj', 'tbj', 'jLX']"
+u,W^0,"['bbj', 'jjj', 'vvj', 'jTT', 'jll', 'jX', 'ttj']","['(LL)j', '(JJ)j', 'jX', 'vvj']"
+u,G,['j'],['j']
+u,H^+,['vj'],['vj']
+u,H^0,['vj'],['vj']
+u,q,['jj'],['jj']
+u,d,['jj'],['jj']
+u,l,['jl'],['jl']
+u,nu,['jX'],['jX']
+u,e,['jl'],['jl']
+u,b_L,['bj'],['bj']
+u,t_L,['tj'],['tj']
+u,t,['tj'],['tj']
+u,b,['bj'],['bj']
+u,tau_L,['jT'],['jT']
+u,nu_tau,['jX'],['jX']
+u,tau,['jT'],['jT']
+l,B,['l'],['l']
+l,W^+,['X'],['X']
+l,W^0,['l'],['l']
+l,G,"['tbX', 'jjX', 'ttl', 'jjl', 'bbl']","['tbX', 'jjX', '(JJ)l']"
+l,H^+,"['vl', 'vX']","['vX', 'vl']"
+l,H^0,"['vl', 'vX']","['vX', 'vl']"
+l,q,"['jX', 'jl']","['jX', 'jl']"
+l,d,['jl'],['jl']
+l,u,['jl'],['jl']
+l,nu,['lX'],['lX']
+l,e,['ll'],['ll']
+l,b_L,"['tX', 'bl']","['tX', 'bl']"
+l,t_L,"['bX', 'tl']","['bX', 'tl']"
+l,t,['tl'],['tl']
+l,b,['bl'],['bl']
+l,tau_L,"['X', 'Tl']","['X', 'Tl']"
+l,nu_tau,"['lX', 'TX']",['LX']
+l,tau,['Tl'],['Tl']
+nu,B,['X'],['X']
+nu,W^+,['l'],['l']
+nu,W^0,['X'],['X']
+nu,G,"['bbX', 'jjX', 'tbl', 'ttX', 'jjl']","['jjl', '(JJ)X', 'tbl']"
+nu,H^+,"['vX', 'vl']","['vX', 'vl']"
+nu,H^0,"['vX', 'vl']","['vX', 'vl']"
+nu,q,"['jX', 'jl']","['jX', 'jl']"
+nu,d,['jX'],['jX']
+nu,u,['jX'],['jX']
+nu,l,['lX'],['lX']
+nu,e,['lX'],['lX']
+nu,b_L,"['bX', 'tl']","['bX', 'tl']"
+nu,t_L,"['tX', 'bl']","['tX', 'bl']"
+nu,t,['tX'],['tX']
+nu,b,['bX'],['bX']
+nu,tau_L,"['lX', 'TX']",['LX']
+nu,nu_tau,"['X', 'Tl']","['X', 'Tl']"
+nu,tau,['TX'],['TX']
+e,B,['l'],['l']
+e,W^+,"['TlX', 'tbl', 'jjl', 'vvl', 'llX']","['LlX', 'jjl', 'vvl', 'tbl']"
+e,W^0,"['lX', 'TTl', 'ttl', 'lll', 'vvl', 'jjl', 'bbl']","['vvl', 'lX', '(LL)l', '(JJ)l']"
+e,G,"['ttl', 'jjl', 'bbl']",['(JJ)l']
+e,H^+,['vl'],['vl']
+e,H^0,['vl'],['vl']
+e,q,['jl'],['jl']
+e,d,['jl'],['jl']
+e,u,['jl'],['jl']
+e,l,['ll'],['ll']
+e,nu,['lX'],['lX']
+e,b_L,['bl'],['bl']
+e,t_L,['tl'],['tl']
+e,t,['tl'],['tl']
+e,b,['bl'],['bl']
+e,tau_L,['Tl'],['Tl']
+e,nu_tau,['lX'],['lX']
+e,tau,['Tl'],['Tl']
+b_L,B,['b'],['b']
+b_L,W^+,['t'],['t']
+b_L,W^0,['b'],['b']
+b_L,G,['b'],['b']
+b_L,H^+,['t'],['t']
+b_L,H^0,['b'],['b']
+b_L,q,"['bj', 'tj']",['3j']
+b_L,d,['bj'],['bj']
+b_L,u,['bj'],['bj']
+b_L,l,"['tX', 'bl']","['tX', 'bl']"
+b_L,nu,"['bX', 'tl']","['bX', 'tl']"
+b_L,e,['bl'],['bl']
+b_L,t_L,['tb'],['tb']
+b_L,t,['tb'],['tb']
+b_L,b,"['tt', 'bb']","['tt', 'bb']"
+b_L,tau_L,"['bT', 'tX']","['bT', 'tX']"
+b_L,nu_tau,"['bX', 'tT']","['bX', 'tT']"
+b_L,tau,['bT'],['bT']
+t_L,B,['t'],['t']
+t_L,W^+,['b'],['b']
+t_L,W^0,['t'],['t']
+t_L,G,['t'],['t']
+t_L,H^+,['b'],['b']
+t_L,H^0,['t'],['t']
+t_L,q,"['bj', 'tj']",['3j']
+t_L,d,['tj'],['tj']
+t_L,u,['tj'],['tj']
+t_L,l,"['bX', 'tl']","['bX', 'tl']"
+t_L,nu,"['tX', 'bl']","['tX', 'bl']"
+t_L,e,['tl'],['tl']
+t_L,b_L,['tb'],['tb']
+t_L,t,"['tt', 'bb']","['tt', 'bb']"
+t_L,b,['tb'],['tb']
+t_L,tau_L,"['bX', 'tT']","['bX', 'tT']"
+t_L,nu_tau,"['bT', 'tX']","['bT', 'tX']"
+t_L,tau,['tT'],['tT']
+t,B,['t'],['t']
+t,W^+,"['vt', 'vb']",['v3']
+t,W^0,"['vt', 'vb']",['v3']
+t,G,['t'],['t']
+t,H^+,['b'],['b']
+t,H^0,['t'],['t']
+t,q,['tj'],['tj']
+t,d,['tj'],['tj']
+t,u,['tj'],['tj']
+t,l,['tl'],['tl']
+t,nu,['tX'],['tX']
+t,e,['tl'],['tl']
+t,b_L,['tb'],['tb']
+t,t_L,"['tt', 'bb']","['tt', 'bb']"
+t,b,['tb'],['tb']
+t,tau_L,['tT'],['tT']
+t,nu_tau,['tX'],['tX']
+t,tau,['tT'],['tT']
+b,B,['b'],['b']
+b,W^+,"['vt', 'vb']",['v3']
+b,W^0,"['vt', 'vb']",['v3']
+b,G,['b'],['b']
+b,H^+,['t'],['t']
+b,H^0,['b'],['b']
+b,q,['bj'],['bj']
+b,d,['bj'],['bj']
+b,u,['bj'],['bj']
+b,l,['bl'],['bl']
+b,nu,['bX'],['bX']
+b,e,['bl'],['bl']
+b,b_L,"['tt', 'bb']","['tt', 'bb']"
+b,t_L,['tb'],['tb']
+b,t,['tb'],['tb']
+b,tau_L,['bT'],['bT']
+b,nu_tau,['bX'],['bX']
+b,tau,['bT'],['bT']
+tau_L,B,['T'],['T']
+tau_L,W^+,['X'],['X']
+tau_L,W^0,['T'],['T']
+tau_L,G,"['bbT', 'tbX', 'jjX', 'ttT', 'jjT']","['tbX', 'jjX', '(JJ)T']"
+tau_L,H^+,"['vT', 'vX']","['vT', 'vX']"
+tau_L,H^0,"['vT', 'vX']","['vT', 'vX']"
+tau_L,q,"['jT', 'jX']","['jT', 'jX']"
+tau_L,d,['jT'],['jT']
+tau_L,u,['jT'],['jT']
+tau_L,l,"['X', 'Tl']","['X', 'Tl']"
+tau_L,nu,"['lX', 'TX']",['LX']
+tau_L,e,['Tl'],['Tl']
+tau_L,b_L,"['bT', 'tX']","['bT', 'tX']"
+tau_L,t_L,"['bX', 'tT']","['bX', 'tT']"
+tau_L,t,['tT'],['tT']
+tau_L,b,['bT'],['bT']
+tau_L,nu_tau,['TX'],['TX']
+tau_L,tau,['TT'],['TT']
+nu_tau,B,['X'],['X']
+nu_tau,W^+,['T'],['T']
+nu_tau,W^0,['X'],['X']
+nu_tau,G,"['bbX', 'jjX', 'tbT', 'ttX', 'jjT']","['(JJ)X', 'jjT', 'tbT']"
+nu_tau,H^+,"['vT', 'vX']","['vT', 'vX']"
+nu_tau,H^0,"['vT', 'vX']","['vT', 'vX']"
+nu_tau,q,"['jT', 'jX']","['jT', 'jX']"
+nu_tau,d,['jX'],['jX']
+nu_tau,u,['jX'],['jX']
+nu_tau,l,"['lX', 'TX']",['LX']
+nu_tau,nu,"['X', 'Tl']","['X', 'Tl']"
+nu_tau,e,['lX'],['lX']
+nu_tau,b_L,"['bX', 'tT']","['bX', 'tT']"
+nu_tau,t_L,"['bT', 'tX']","['bT', 'tX']"
+nu_tau,t,['tX'],['tX']
+nu_tau,b,['bX'],['bX']
+nu_tau,tau_L,['TX'],['TX']
+nu_tau,tau,['TX'],['TX']
+tau,B,['T'],['T']
+tau,W^+,"['vvT', 'TTX', 'TlX', 'tbT', 'jjT']","['tbT', 'vvT', 'jjT', 'LTX']"
+tau,W^0,"['bbT', 'vvT', 'ttT', 'TX', 'TTT', 'Tll', 'jjT']","['(LL)T', 'vvT', 'TX', '(JJ)T']"
+tau,G,"['bbT', 'ttT', 'jjT']",['(JJ)T']
+tau,H^+,['vT'],['vT']
+tau,H^0,['vT'],['vT']
+tau,q,['jT'],['jT']
+tau,d,['jT'],['jT']
+tau,u,['jT'],['jT']
+tau,l,['Tl'],['Tl']
+tau,nu,['TX'],['TX']
+tau,e,['Tl'],['Tl']
+tau,b_L,['bT'],['bT']
+tau,t_L,['tT'],['tT']
+tau,t,['tT'],['tT']
+tau,b,['bT'],['bT']
+tau,tau_L,['TT'],['TT']
+tau,nu_tau,['TX'],['TX']
