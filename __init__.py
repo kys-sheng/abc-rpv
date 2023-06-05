@@ -15,6 +15,7 @@ from pathlib import Path
 abcrpv_package_path = Path(__file__).parent.absolute()
 AUTOSAVE = True
 VERBOSE_MODE = True
+NV = 1 
 
 
 if not os.path.isfile(os.path.join(abcrpv_package_path,"input/table_notsup.csv")):
@@ -234,82 +235,10 @@ def minimal_sets_simplified_signatures(insiglist):
         output.append([x[0] for x in outtemp if x[1] == j][0])
     return output,noutput
 
-"""
-def generate_transition_df(save_csv=False):
-    #Get transition tables
-    dat = []
-    for i in rdef.SPARTICLES:
-        print(".",end="")
-        for j in rdef.SPARTICLES:
-            if i == j :
-                continue
-            
-            #1vertex transition (i-j)   
-            if transition_sig(i,j,"notsup"):
-                dat.append([i,j,1,"-",rmisc.signature_ordering(transition_sig(i,j,"notsup")[0]),i+" -- ("+transition_sig(i,j,"notsup")[0]+") -- "+j])
-
-            #n-vertex chain    
-            else:
-                suptemp = []
-
-                #2-vertex transition (i-k-j)    
-                for k in rdef.SPARTICLES:
-                    if k != i and k != j and transition_sig(i,k,"notsup") and transition_sig(k,j,"notsup"):
-                        dat.append([i,j,2,k,rmisc.signature_ordering(transition_sig(i,k,"notsup")[0]+transition_sig(k,j,"notsup")[0]),i+" -- ("+transition_sig(i,k,"notsup")[0]+") -- "+k+" -- ("+transition_sig(k,j,"notsup")[0]+") -- "+j])
-                        suptemp.append([k,transition_sig(i,k,"notsup"),transition_sig(k,j,"notsup")])
-
-                #3-vertex transition (i-k-l-j)    
-                if len(suptemp) == 0:
-                    for k in rdef.SPARTICLES:
-                        for l in rdef.SPARTICLES:
-                            if i != k and k != l and l != j and  i != l and k != j and transition_sig(i,k,"notsup") and transition_sig(k,l,"notsup") and transition_sig(l,j,"notsup"):
-                                dat.append([i,j,3,k+" "+l,rmisc.signature_ordering(transition_sig(i,k,"notsup")[0]+transition_sig(k,l,"notsup")[0]+transition_sig(l,j,"notsup")[0]),i+" -- ("+transition_sig(i,k,"notsup")[0]+") -- "+k+" -- ("+transition_sig(k,l,"notsup")[0]+") -- "+l+" -- ("+transition_sig(l,j,"notsup")[0]+") -- "+j])
-                                suptemp.append([k,transition_sig(i,k,"notsup"),transition_sig(k,j,"notsup")])
-
-                if len(suptemp) == 0:    
-                    print(i,j,": More than a 3 vertex decay")
-
-            #some checks for one obj sup,strsup decay
-            #if i == "H^0" or j == "H^0" or i == "H^+" or j == "H^+":
-            #    if transition_sig(i,j,"H"):
-            #        if len(transition_sig(i,j,"H")[0]) == 1:
-            #            dat.append([i,j,1,"-",transition_sig(i,j,"H")[0],i+" -- ("+transition_sig(i,j,"H")[0]+") -- "+j])
+def generate_transition_df(nv=None,save_csv=False):
+    if nv == None:
+        nv = NV
     
-    index_name = ['Mother', 'Daughter', 'Nvertex', 'Intermediate', 'Signatures', 'Chain']
-    transition_df= pd.DataFrame(columns=index_name)
-    entry = pd.DataFrame(dat, columns=index_name)
-    transition_df = transition_df.append(entry)
-    #if intermediate_csv == True:
-    #    transition_df.to_csv('CSV/transition_df.csv',index=False)
-    
-    transition_df["Signatures (Easy-Read)"] = transition_df["Signatures"].apply(rmisc.easy_read)
-    #if intermediate_csv == True:
-    #    transition_df.to_csv('CSV/transition_df_EasyRead.csv',index=False)
-    
-    transition_df["All Possible Signature"] = ""
-    for i in rdef.SPARTICLES:
-        for j in rdef.SPARTICLES:
-            transition_df.loc[(transition_df['Mother'] == i) & (transition_df['Daughter'] == j), ['All Possible Signature']] = set(list(map(rmisc.signature_ordering, np.array(transition_df.loc[(transition_df['Mother'] == i) & (transition_df['Daughter'] == j) ]['Signatures']))))
-    #if intermediate_csv == True:
-    #    transition_df.to_csv('CSV/transition_df_All_Possible_Signature.csv',index=False)
-
-    transition_df["Minimal Set"] = transition_df["All Possible Signature"].apply(minimal_sets_simplified_signatures).str[0]
-    transition_df["Minimal Set (number of elements)"] = transition_df["All Possible Signature"].apply(minimal_sets_simplified_signatures).str[1]
-
-    #display(transition_df)
-    #if intermediate_csv == True:
-    #    transition_df.to_csv('CSV/transition_df_minimal_set.csv',index=False)
-    
-    transition_df["Minimal Set (same flavour)"] = transition_df["Minimal Set"].apply(rmisc.same_flavour)
-
-    if save_csv == True:
-        #transition_df.to_csv('CSV/transition_df_minimal_set_wf.csv',index=False)
-        transition_df.to_csv(os.path.join(abcrpv_package_path,"data/main.csv"),index=False)
-    print()
-    return transition_df
-"""
-
-def generate_transition_df(nv=1,save_csv=False):
     #Get transition tables
     dat = []
     for i in rdef.SPARTICLES:
@@ -420,58 +349,73 @@ def transitions_table():
     except:
         print("Couldnt't find transitions_table in data \nRegenerating...")
         return generate_transitions_table()
-
+    
 def generate_LSP_RPV_decay_table(rpv_coup): 
     index_name_cat = ['Category', 'LSP', 'decays via', 'Signatures', 'Chain','NV_cascade']
     XSTATE = rdef.STATE_DICT[rpv_coup.upper()]
     lsp_dec_dat = []
-    # j = LSP
-    # k = STATE of CAT
-    # k[m] = chosen particle.(STATE of CAT)
-
-    for j in rdef.SPARTICLES:
+    
+    for lsp in rdef.SPARTICLES:
         print(".",end="")
         for k in XSTATE:
                 for l in np.arange(0,3,1):
+                    #print(lsp,k,k[l])
                     rpvdecayed = []
                     rpvdecayed.append(k[0])
                     rpvdecayed.append(k[1])
                     rpvdecayed.append(k[2])
                     rpvdecayed.pop(l)
-                    #skip mass degenrate transitions
-                    if "W^0"     == j     and "W^+"     == k[l]   :
+                    #skip mass degenrate transitions 
+                    if "W^0"     == lsp   and "W^+"     == k[l]   :
                         continue
-                    if "W^0"     ==  k[l] and "W^+"     == j      :
+                    if "W^0"     ==  k[l] and "W^+"     == lsp      :
                         continue
-                    if "H^0"     == j     and "H^+"     == k[l]   :
+                    if "H^0"     == lsp   and "H^+"     == k[l]   :
                         continue
-                    if "H^0"     ==  k[l] and "H^+"     == j      :
+                    if "H^0"     ==  k[l] and "H^+"     == lsp      :
                         continue
-                    if "l"       == j     and "nu"      == k[l]   :
+                    if "l"       == lsp   and "nu"      == k[l]   :
                         continue
-                    if "l"       == k[l]  and "nu"      == j      :
+                    if "l"       == k[l]  and "nu"      == lsp      :
                         continue
-                    if "b_L"     == j     and "t_L"     == k[l]   :
+                    if "b_L"     == lsp   and "t_L"     == k[l]   :
                         continue
-                    if "b_L"     == k[l]  and "t_L"     == j      :
+                    if "b_L"     == k[l]  and "t_L"     == lsp      :
                         continue
-                    if "nu_tau"  == j     and "tau_L"   == k[l]   :
+                    if "nu_tau"  == lsp   and "tau_L"   == k[l]   :
                         continue
-                    if "nu_tau"  == k[l]  and "tau_L"   == j      :
+                    if "nu_tau"  == k[l]  and "tau_L"   == lsp      :
                         continue
-                    if j == k[l]:
-                        lsp_dec_dat.append([k[-1],j,k[l],rmisc.signature_ordering("".join(list(map(rmisc.sparticles_to_sig, rpvdecayed)))),j+" -- ["+rmisc.sparticles_to_sig(rpvdecayed[0])+","+rmisc.sparticles_to_sig(rpvdecayed[1])+"]"   ,0])
+                    if lsp == k[l]:
+                        lsp_dec_dat.append([k[-1], #CATEGORY
+                                            lsp,   #LSP 
+                                            k[l],  #DECAYING SPARTICLE 
+                                            rmisc.signature_ordering("".join(list(map(rmisc.sparticles_to_sig,rpvdecayed)))), #Signatures
+                                            [lsp+" -- ["+rmisc.sparticles_to_sig(rpvdecayed[0])+","+rmisc.sparticles_to_sig(rpvdecayed[1])+"]"], #Chain
+                                            0]) #NV cascade
                     else:
-                        for i in list(TRANSITIONS_TABLE.loc[(TRANSITIONS_TABLE['Mother'] == j ) & (TRANSITIONS_TABLE['Daughter'] == k[l]) ]["All Possible Signature"].values[0]):
-                            chain =(list(TRANSITION_DF.loc[(TRANSITION_DF['Mother'] == j ) & (TRANSITION_DF['Daughter'] == k[l]) & (TRANSITION_DF['Signatures'] == i) ]["Chain"])[0]+" -- ["+rmisc.sparticles_to_sig(rpvdecayed[0])+","+rmisc.sparticles_to_sig(rpvdecayed[1])+"]")
-                            nv = list(TRANSITION_DF.loc[(TRANSITION_DF['Mother'] == j ) & (TRANSITION_DF['Daughter'] == k[l]) & (TRANSITION_DF['Signatures'] == i) ]["Nvertex"])[0]
-                            lsp_dec_dat.append([k[-1],j,k[l],rmisc.signature_ordering(i.join(list(map(rmisc.sparticles_to_sig, rpvdecayed)))),str(chain),nv])
+                        for i in list(TRANSITIONS_TABLE.loc[(TRANSITIONS_TABLE['Mother'] == lsp ) & (TRANSITIONS_TABLE['Daughter'] == k[l]) ]["All Possible Signature"].values[0]):
+                            chain = []
+                            for c in list(TRANSITION_DF.loc[(TRANSITION_DF['Mother'] == lsp ) & (TRANSITION_DF['Daughter'] == k[l]) & (TRANSITION_DF['Signatures'] == i) ]["Chain"]):
+                                chain.append(c+" -- ["+rmisc.sparticles_to_sig(rpvdecayed[0])+","+rmisc.sparticles_to_sig(rpvdecayed[1])+"]")
+
+                            nv = list(TRANSITION_DF.loc[(TRANSITION_DF['Mother'] == lsp ) & (TRANSITION_DF['Daughter'] == k[l]) & (TRANSITION_DF['Signatures'] == i) ]["Nvertex"])[0]
+                            lsp_dec_dat.append([k[-1],  #CATEGORY        
+                                                lsp,    #LSP         
+                                                k[l],   #DECAYING SPARTICLE         
+                                                rmisc.signature_ordering(i.join(list(map(rmisc.sparticles_to_sig,rpvdecayed)))),    #Signatures        
+                                                chain,     #Chain        
+                                                nv])    #NV cascade        
+                            
     lsp_dec_df = pd.DataFrame(lsp_dec_dat,columns=index_name_cat)
     lsp_dec_df["Signatures (ER)"] = lsp_dec_df["Signatures"].apply(rmisc.easy_read)
+    lsp_dec_df["Chain"] =lsp_dec_df["Chain"].map(frozenset)
     lsp_dec_df = lsp_dec_df.drop_duplicates()
-    lsp_dec_df.to_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_1LSP_RPV_DECAY.csv'),index=False)
+    lsp_dec_df["Chain"] =lsp_dec_df["Chain"].map(list)
+    lsp_dec_df.to_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup.upper()+'_1LSP_RPV_DECAY.csv'),index=False)
     print()
     return lsp_dec_df
+
 
 def one_LSP_RPV_decay_table(rpv_coup): 
     try:
@@ -661,8 +605,6 @@ def two_LSP_mixed_RPV_decay_table(rpv_coup1,rpv_coup2):
         return generate_2LSP_mixed_RPV_decay_table(rpv_coup1,rpv_coup2)
 
 
-
-
 def generate_2LSP_sig_complete(rpv_coup):
     rpv_coup        = rpv_coup.upper().replace(" ","")
     lsp_onechain_df = ONE_LSP_SIG_CAT_DICT[rpv_coup]
@@ -837,6 +779,8 @@ def minimal_sets_simplified_signatures_greedy(insig):
 TRANSITION_DF = transition_df()
 TRANSITIONS_TABLE = transitions_table()
 try:
+    TRANSITIONS_TABLE['Minimal Set'] = TRANSITIONS_TABLE['Minimal Set'].map(eval)
+    TRANSITIONS_TABLE['Minimal Set (number of elements)'] = TRANSITIONS_TABLE['Minimal Set (number of elements)'].map(eval)
     TRANSITIONS_TABLE['Minimal Set (same flavour)'] = TRANSITIONS_TABLE['Minimal Set (same flavour)'].map(eval)
     TRANSITIONS_TABLE['All Possible Signature'] = TRANSITIONS_TABLE['All Possible Signature'].map(eval)
 except Exception:
@@ -860,6 +804,7 @@ ONE_LSP_SIG_CAT_DICT = { "LLE":LLE_1LSP_SIG_CAT_TABLE,
 LLE_2LSP_RPV_DECAY_TABLE = two_LSP_RPV_decay_table("LLE")
 LQD_2LSP_RPV_DECAY_TABLE = two_LSP_RPV_decay_table("LQD")
 UDD_2LSP_RPV_DECAY_TABLE = two_LSP_RPV_decay_table("UDD")
+
 TWO_LSP_RPV_DECAY_DICT = { "LLE":LLE_2LSP_RPV_DECAY_TABLE,
                            "LQD":LQD_2LSP_RPV_DECAY_TABLE,
                            "UDD":UDD_2LSP_RPV_DECAY_TABLE,}
@@ -887,11 +832,14 @@ TWO_LSP_MIXED_RPV_DECAY_DICT = { "LLE_LLE":LLE_LLE_2LSP_MIXED_RPV_DECAY_TABLE,
 LLE_2LSP_SIG_CAT_COMPLETE = two_LSP_sig_cat_complete("LLE")
 LQD_2LSP_SIG_CAT_COMPLETE = two_LSP_sig_cat_complete("LQD")
 UDD_2LSP_SIG_CAT_COMPLETE = two_LSP_sig_cat_complete("UDD")
+
+
 TWO_LSP_SIG_CAT_COMPLETE_DICT ={
     "LLE":LLE_2LSP_SIG_CAT_COMPLETE,
     "LQD":LQD_2LSP_SIG_CAT_COMPLETE,
     "UDD":UDD_2LSP_SIG_CAT_COMPLETE,
 }
+
 
 LLE_2LSP_SIG_CAT_TABLE = two_LSP_sig_cat_table("LLE")
 LQD_2LSP_SIG_CAT_TABLE = two_LSP_sig_cat_table("LQD")
