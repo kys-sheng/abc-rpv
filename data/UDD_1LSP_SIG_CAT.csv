@@ -1,20 +1,20 @@
 LSP,U D D,U D_3 D,U D_3 D_3,U_3 D D,U_3 D_3 D,U_3 D_3 D_3
 B,{'jjj'},{'bjj'},{'bbj'},{'tjj'},{'tbj'},{'tbb'}
-W^+,"{'tbjjj', 'vvjjj', 'jjjjj', 'jjjlX', 'jjjTX'}","{'tbbjj', 'bjjlX', 'bjjTX', 'vtjj', 'vbjj', 'vvbjj', 'bjjjj'}","{'bbjjj', 'bbjTX', 'vtbj', 'vbbj', 'vvbbj', 'bbjlX', 'tbbbj'}","{'tjjTX', 'ttbjj', 'vtjj', 'tjjlX', 'tjjjj', 'vvtjj', 'vbjj'}","{'ttbbj', 'tbjjj', 'vvtbj', 'vtbj', 'vbbj', 'tbjlX', 'tbjTX', 'vttj'}","{'vttb', 'vbbb', 'vtbb'}"
-W^0,"{'bbjjj', 'jjjX', 'ttjjj', 'jjjll', 'jjjTT', 'vvjjj', 'jjjjj'}","{'bjjll', 'ttbjj', 'bjjX', 'vtjj', 'vbjj', 'bbbjj', 'vvbjj', 'bjjTT', 'bjjjj'}","{'ttbbj', 'bbjjj', 'bbjTT', 'bbjll', 'bbjX', 'vtbj', 'vbbj', 'vvbbj', 'bbbbj'}","{'tbbjj', 'vtjj', 'tjjjj', 'vvtjj', 'tjjTT', 'tjjX', 'tttjj', 'tjjll', 'vbjj'}","{'tbjjj', 'vvtbj', 'vtbj', 'tbjTT', 'vbbj', 'tttbj', 'vttj', 'tbjX', 'tbbbj', 'tbjll'}","{'vttb', 'vbbb', 'vtbb'}"
+W^+,"{'jjjlX', 'vvjjj', 'jjjjj', 'jjjTX', 'tbjjj'}","{'tbbjj', 'bjjlX', 'bjjjj', 'vvbjj', 'bjjTX', 'vbjj', 'vtjj'}","{'vtbj', 'vvbbj', 'bbjjj', 'bbjTX', 'tbbbj', 'bbjlX', 'vbbj'}","{'ttbjj', 'tjjjj', 'tjjlX', 'tjjTX', 'vvtjj', 'vbjj', 'vtjj'}","{'vtbj', 'ttbbj', 'tbjTX', 'vvtbj', 'vttj', 'tbjlX', 'vbbj', 'tbjjj'}","{'vbbb', 'vttb', 'vtbb'}"
+W^0,"{'bbjjj', 'ttjjj', 'jjjTT', 'jjjll', 'vvjjj', 'jjjjj', 'jjjX'}","{'bjjX', 'ttbjj', 'bjjll', 'bjjjj', 'vvbjj', 'bbbjj', 'bjjTT', 'vbjj', 'vtjj'}","{'vtbj', 'ttbbj', 'vvbbj', 'bbbbj', 'bbjll', 'bbjjj', 'bbjTT', 'bbjX', 'vbbj'}","{'tjjX', 'tbbjj', 'tjjll', 'tjjjj', 'tttjj', 'tjjTT', 'vvtjj', 'vbjj', 'vtjj'}","{'vtbj', 'tbjll', 'vvtbj', 'tttbj', 'tbjTT', 'vttj', 'tbjX', 'tbbbj', 'vbbj', 'tbjjj'}","{'vbbb', 'vttb', 'vtbb'}"
 G,{'jjj'},{'bjj'},{'bbj'},{'tjj'},{'tbj'},{'tbb'}
-H^+,{'vjjj'},"{'vbjj', 'tjj'}","{'tbj', 'vbbj'}","{'vtjj', 'bjj'}","{'bbj', 'vtbj', 'ttj'}","{'bbb', 'ttb'}"
-H^0,{'vjjj'},"{'vbjj', 'bjj'}","{'bbj', 'vbbj'}","{'vtjj', 'tjj'}","{'tbj', 'vtbj'}",{'tbb'}
+H^+,{'vjjj'},"{'tjj', 'vbjj'}","{'tbj', 'vbbj'}","{'bjj', 'vtjj'}","{'vtbj', 'bbj', 'ttj'}","{'bbb', 'ttb'}"
+H^0,{'vjjj'},"{'bjj', 'vbjj'}","{'bbj', 'vbbj'}","{'tjj', 'vtjj'}","{'vtbj', 'tbj'}",{'tbb'}
 q,{'jjjj'},{'bjjj'},{'bbjj'},{'tjjj'},{'tbjj'},{'tbbj'}
-d,"{'jjjj', 'jj'}","{'bj', 'bjjj'}",{'bbjj'},"{'tjjj', 'tj'}","{'tbjj', 'tb'}",{'tbbj'}
-u,"{'jjjj', 'jj'}","{'bj', 'bjjj'}","{'bbjj', 'bb'}",{'tjjj'},{'tbjj'},{'tbbj'}
+d,"{'jj', 'jjjj'}","{'bj', 'bjjj'}",{'bbjj'},"{'tj', 'tjjj'}","{'tbjj', 'tb'}",{'tbbj'}
+u,"{'jj', 'jjjj'}","{'bj', 'bjjj'}","{'bb', 'bbjj'}",{'tjjj'},{'tbjj'},{'tbbj'}
 l,{'jjjl'},{'bjjl'},{'bbjl'},{'tjjl'},{'tbjl'},{'tbbl'}
 nu,{'jjjX'},{'bjjX'},{'bbjX'},{'tjjX'},{'tbjX'},{'tbbX'}
 e,{'jjjl'},{'bjjl'},{'bbjl'},{'tjjl'},{'tbjl'},{'tbbl'}
-b_L,{'bjjj'},"{'ttjj', 'bbjj'}","{'bbbj', 'ttbj'}",{'tbjj'},"{'tttj', 'tbbj'}","{'tttb', 'tbbb'}"
-t_L,{'tjjj'},{'tbjj'},{'tbbj'},"{'ttjj', 'bbjj'}","{'bbbj', 'ttbj'}","{'ttbb', 'bbbb'}"
-t,{'tjjj'},{'tbjj'},{'tbbj'},"{'ttjj', 'jj'}","{'bj', 'ttbj'}","{'ttbb', 'bb'}"
-b,{'bjjj'},"{'bbjj', 'jj'}","{'bj', 'bbbj'}",{'tbjj'},"{'tj', 'tbbj'}","{'tb', 'tbbb'}"
+b_L,{'bjjj'},"{'ttjj', 'bbjj'}","{'ttbj', 'bbbj'}",{'tbjj'},"{'tbbj', 'tttj'}","{'tbbb', 'tttb'}"
+t_L,{'tjjj'},{'tbjj'},{'tbbj'},"{'ttjj', 'bbjj'}","{'ttbj', 'bbbj'}","{'bbbb', 'ttbb'}"
+t,{'tjjj'},{'tbjj'},{'tbbj'},"{'jj', 'ttjj'}","{'bj', 'ttbj'}","{'bb', 'ttbb'}"
+b,{'bjjj'},"{'jj', 'bbjj'}","{'bj', 'bbbj'}",{'tbjj'},"{'tbbj', 'tj'}","{'tbbb', 'tb'}"
 tau_L,{'jjjT'},{'bjjT'},{'bbjT'},{'tjjT'},{'tbjT'},{'tbbT'}
 nu_tau,{'jjjX'},{'bjjX'},{'bbjX'},{'tjjX'},{'tbjX'},{'tbbX'}
 tau,{'jjjT'},{'bjjT'},{'bbjT'},{'tjjT'},{'tbjT'},{'tbbT'}

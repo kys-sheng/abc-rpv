@@ -1257,7 +1257,11 @@ def find_two_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL"
     
     output_pd = pd.concat(output_dat, ignore_index=True, sort=False)
     nfull = len(output_pd)
+    output_pd["Chain A"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain A"],level=False),axis=1)
+    output_pd["Chain B"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain B"],level=False),axis=1)
+    output_pd["Chain A"] = output_pd["Chain A"].map(np.unique)
     output_pd["Chain A"] = output_pd["Chain A"].map(tuple)
+    output_pd["Chain B"] = output_pd["Chain B"].map(np.unique)
     output_pd["Chain B"] = output_pd["Chain B"].map(tuple)
     output_pd = output_pd.drop_duplicates()
     output_pd["Chain A"] = output_pd["Chain A"].map(np.array)
@@ -1272,17 +1276,16 @@ def find_two_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL"
 
     if save_results==True:
 
-        if ".csv" not in filename:
-            filename=filename+".csv"
+       if ".csv" not in filename:
+           filename=filename+".csv"
 
-        results_path = os.path.join(abcrpv_package_path,"results/"+filename)
+       results_path = os.path.join(abcrpv_package_path,"results/"+filename)
 
-        if verbose == True:
-            print("Results saved in ",results_path)
-        output_pd.to_csv(results_path,index=False)      
+       if verbose == True:
+           print("Results saved in ",results_path)
+       output_pd.to_csv(results_path,index=False)      
 
     return output_pd
-
 ##### TWO LSP FUNCTIONS TWO CAT ##### 
 
 def find_two_lsp_from_signature_mixed_couplings(signature,rpv_coup1="ALL",rpv_coup2="ALL",category1="ALL",category2="ALL",filename="",save_results=None,verbose=None):

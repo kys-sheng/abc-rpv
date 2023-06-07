@@ -293,3 +293,13 @@ def set_cover_greedy(universe, subsets):
  
     return cover
 
+def flatten_list(list_of_lists,flat_list=None,level=False):
+    if level == False:
+         flat_list=[]
+    for item in list_of_lists:
+            if type(item) == list:
+                flatten_list(item, flat_list,True)
+            else:
+                flat_list.append(item)
+
+    return flat_list
