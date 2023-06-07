@@ -323,13 +323,23 @@ def generate_transition_df(nv=None,save_csv=False):
 
 def transition_df():
     try:
-        return pd.read_csv(os.path.join(abcrpv_package_path,"data/main.csv"))
+        output = pd.read_csv(os.path.join(abcrpv_package_path,"data/main.csv"))
+        output["All Possible Signature"] = output["All Possible Signature"].map(eval)
+        output["Minimal Set"] = output["Minimal Set"].map(eval)
+        output["Minimal Set (number of elements)"] = output["Minimal Set (number of elements)"].map(eval)
+        output["Minimal Set (same flavour)"] = output["Minimal Set (same flavour)"].map(eval)
+        return output
     except:
         print("Couldnt't find transition_df in data \nRegenerating",end="")
         return generate_transition_df(save_csv=True)
 
 def get_transitions(mother, daughter):
-    return TRANSITION_DF[(TRANSITION_DF["Mother"] == mother) & (TRANSITION_DF["Daughter"]== daughter)]
+    output = TRANSITION_DF[(TRANSITION_DF["Mother"] == mother) & (TRANSITION_DF["Daughter"]== daughter)]
+    print('All Possible Signature           : ', np.unique(output['All Possible Signature'].tolist()) )
+    print('Minimal Set                      : ', np.unique(output['Minimal Set'].tolist()) )
+    output = pd.DataFrame(output,columns=['Mother', 'Daughter', 'Nvertex', 'Intermediate', 'Signatures', 'Chain','Signatures (Easy-Read)','All Possible Signature','Minimal Set'])
+
+    return output
 
 def generate_transitions_table():
     transitions_table = pd.DataFrame(TRANSITION_DF, columns=['Mother', 'Daughter' , "All Possible Signature",'Minimal Set (same flavour)'])
@@ -419,9 +429,12 @@ def generate_LSP_RPV_decay_table(rpv_coup):
     print()
     return lsp_dec_df
 
+
 def one_LSP_RPV_decay_table(rpv_coup): 
     try:
-        return pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_1LSP_RPV_DECAY.csv'))
+        outlsp = pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_1LSP_RPV_DECAY.csv'))
+        outlsp["Chain"]      = outlsp["Chain"].map(eval)
+        return outlsp
     except:
         print("Couldnt't find "+rpv_coup+"_1LSP_RPV_DECAY.csv in data \nRegenerating",end="")
         return generate_LSP_RPV_decay_table(rpv_coup)
@@ -1036,6 +1049,7 @@ def find_one_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL"
 
     output_pd = pd.concat(output_dat, ignore_index=True, sort=False)
     nfull = len(output_pd)
+    output_pd["Chain"] = output_pd["Chain"].map(tuple)
     output_pd = output_pd.drop_duplicates()
     output_pd["Chain"] = output_pd["Chain"].map(np.array)
     nunique = len(output_pd)
@@ -1286,6 +1300,7 @@ def find_two_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL"
        output_pd.to_csv(results_path,index=False)      
 
     return output_pd
+
 ##### TWO LSP FUNCTIONS TWO CAT ##### 
 
 def find_two_lsp_from_signature_mixed_couplings(signature,rpv_coup1="ALL",rpv_coup2="ALL",category1="ALL",category2="ALL",filename="",save_results=None,verbose=None):
@@ -1573,7 +1588,11 @@ def find_two_lsp_from_signature_mixed_couplings_inclusive(signature,inclusive_ob
    
     output_pd = pd.concat(output_dat, ignore_index=True, sort=False)
     nfull = len(output_pd)
+    output_pd["Chain A"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain A"],level=False),axis=1)
+    output_pd["Chain B"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain B"],level=False),axis=1)
+    output_pd["Chain A"] = output_pd["Chain A"].map(np.unique)
     output_pd["Chain A"] = output_pd["Chain A"].map(tuple)
+    output_pd["Chain B"] = output_pd["Chain B"].map(np.unique)
     output_pd["Chain B"] = output_pd["Chain B"].map(tuple)
     output_pd = output_pd.drop_duplicates()
     output_pd["Chain A"] = output_pd["Chain A"].map(np.array)
