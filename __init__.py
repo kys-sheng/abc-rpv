@@ -330,10 +330,13 @@ def transition_df():
         print("Couldnt't find transition_df in data \nRegenerating",end="")
         return generate_transition_df(save_csv=True)
 
-def get_transitions(mother, daughter):
+def get_transitions(mother, daughter,verbose=None):
+    if verbose == None:
+        verbose= VERBOSE_MODE
     output = TRANSITION_DF[(TRANSITION_DF["Mother"] == mother) & (TRANSITION_DF["Daughter"]== daughter)]
-    print('All Possible Signature           : ', np.unique(output['All Possible Signature'].tolist()) )
-    print('Minimal Set                      : ', np.unique(output['Minimal Set'].tolist()) )
+    if verbose == True:
+        print('All Possible Signature           : ', np.unique(output['All Possible Signature'].tolist()) )
+        print('Minimal Set                      : ', np.unique(output['Minimal Set'].tolist()) )
     output = pd.DataFrame(output,columns=['Mother', 'Daughter', 'Nvertex', 'Intermediate', 'Signatures', 'Chain','Signatures (Easy-Read)','All Possible Signature','Minimal Set'])
 
     return output
@@ -678,13 +681,16 @@ def generate_2LSP_sig_complete(rpv_coup):
 def two_LSP_sig_cat_complete(rpv_coup): 
     try:
         lsct = pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_2LSP_sig_complete.csv'))
-        #for i in rdef.CAT_DICT[rpv_coup]:
-        #    lsct[i] = lsct[i].map(eval) 
-        return lsct
     except:
         print("Couldnt't find "+rpv_coup+"_2LSP_sig_complete.csv in data")
         print("Will not run regenerate automatically as it might be computationally expensive, refer default table that came along with git repository or generate it manually if needed")
         return None
+    
+    for i in lsct.columns:
+        if ("{" in lsct[i].values.tolist()) or ("[" in lsct[i].values.tolist()):
+            lsct[i] = lsct[i].map(lambda x:  eval(x) if x != "-" else x ) 
+     
+    return lsct
 
 def generate_2LSP_sig_cat_table(rpv_coup):
     output_pd = TWO_LSP_SIG_CAT_COMPLETE_DICT[rpv_coup]
@@ -704,17 +710,17 @@ def generate_2LSP_sig_cat_table(rpv_coup):
             catdat.append(xset)
         onechain_df[i] = catdat
     onechain_df.to_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_2LSP_SIG_CAT.csv'),index=False)
+    print()
     return onechain_df
 
 def two_LSP_sig_cat_table(rpv_coup): 
     try:
         lsct = pd.read_csv(os.path.join(abcrpv_package_path,"data/"+rpv_coup+'_2LSP_SIG_CAT.csv'))
-        #for i in rdef.CAT_DICT[rpv_coup]:
-        #    lsct[i] = lsct[i].map(eval) 
+        for i in lsct.columns:
+            lsct[i] = lsct[i].map(eval) 
         return lsct
     except:
         print("Couldnt't find "+rpv_coup+"_2LSP_SIG_CAT.csv in data \nRegenerating",end="")
-        #print("Will not run regenerate automatically as it might be computationally expensive, refer default table that came along with git repository or generate it manually if needed")
         return generate_2LSP_sig_cat_table(rpv_coup)
 
 
@@ -872,6 +878,8 @@ TWORPVMIXEDMAXNUM = max([max([len(k) for k in j["Signatures"].values]) for i,j i
 ##### ONE LSP FUNCTIONS ##### 
 
 def find_one_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename="",save_results=None,verbose=None):
+    assert rmisc.check_signature_format(signature) == True, "Check Signature Format"
+    signature = rmisc.signature_ordering(signature)
     if verbose==None:
         verbose=VERBOSE_MODE
     if save_results == None:
@@ -997,6 +1005,8 @@ def find_signatures_from_one_lsp(lsp,rpv_coup="ALL",category="ALL",filename="",s
     return  output_pd              
 
 def find_one_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL",category="ALL",filename="",save_results=None,verbose=None):
+    assert rmisc.check_signature_format(signature) == True, "Check Signature Format"
+    signature = rmisc.signature_ordering(signature)
     if verbose==None:
         verbose=VERBOSE_MODE
     if save_results == None:
@@ -1014,11 +1024,14 @@ def find_one_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL"
             print("From our dataset, we noticed that we only have up to {x} objects in the final state".format(x=ONERPVMAXNUM))
 
         n = ONERPVMAXNUM - len(signature)
-        x = ["J","L","X"]
+        x = ["J","L","X","v"]
         nx = x*ONERPVMAXNUM
-        all_signature = np.unique([rmisc.signature_ordering(signature+"".join(i)) for i in list(itertools.combinations(nx, n))])
+        all_signature = []
+        for L in range(n+1):
+            all_signature = np.unique([*all_signature , *np.unique([rmisc.signature_ordering(signature+"".join(subset)) for subset in itertools.combinations(nx, L)])])
     else:
         assert len(signature) + len(inclusive_obj) <= ONERPVMAXNUM , "Exceed maximum number of object (n>{x}) in a signature possible in data set. To double check, please lookup ONE_LSP_RPV_DECAY_DICT and check maxmimum length of all signature strings".format(x=ONERPVMAXNUM)
+        assert rmisc.check_signature_format(inclusive_obj) == True, "Check Signature Format of inclusive_obj"
         inclusive_obj = list(rmisc.signature_ordering(inclusive_obj))
         all_signature = []
         for L in range(len(inclusive_obj) + 1):
@@ -1073,6 +1086,8 @@ def find_one_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL"
 ##### TWO LSP FUNCTIONS ONE CAT ##### 
 
 def find_two_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename="",save_results=None,verbose=None):
+    assert rmisc.check_signature_format(signature) == True, "Check Signature Format"
+    signature = rmisc.signature_ordering(signature)
     if verbose==None:
         verbose=VERBOSE_MODE
     if save_results == None:
@@ -1131,6 +1146,13 @@ def find_two_lsp_from_signature(signature,rpv_coup="ALL",category="ALL",filename
             for k in signature:
                 output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['Signatures'] == k) & (two_LSP_table['CAT'] == category)])
     
+    if len(output_pd) == 0:
+        if verbose==True:
+            print("Found Nothing")
+        return output_pd
+    
+    output_pd["Chain A"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain A"],level=False),axis=1)
+    output_pd["Chain B"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain B"],level=False),axis=1)
     output_pd["Chain A"] = output_pd["Chain A"].map(np.unique)
     output_pd["Chain B"] = output_pd["Chain B"].map(np.unique)
 
@@ -1203,6 +1225,13 @@ def find_signatures_from_two_lsp(lspa,lspb="",rpv_coup="ALL",category="ALL",file
             if lspa != lspb:
                 output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspb) & (two_LSP_table['LSP B'] == lspa)& (two_LSP_table['CAT'] == category)])
     
+    if len(output_pd) == 0:
+        if verbose==True:
+            print("Found Nothing")
+        return output_pd
+    
+    output_pd["Chain A"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain A"],level=False),axis=1)
+    output_pd["Chain B"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain B"],level=False),axis=1)
     output_pd["Chain A"] = output_pd["Chain A"].map(np.unique)
     output_pd["Chain B"] = output_pd["Chain B"].map(np.unique)
 
@@ -1219,6 +1248,9 @@ def find_signatures_from_two_lsp(lspa,lspb="",rpv_coup="ALL",category="ALL",file
     return output_pd
 
 def find_two_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL",category="ALL",filename="",save_results=None,verbose=None):
+    assert rmisc.check_signature_format(signature) == True, "Check Signature Format"
+    signature = rmisc.signature_ordering(signature)
+    
     if verbose==None:
         verbose=VERBOSE_MODE
     if save_results == None:
@@ -1237,11 +1269,14 @@ def find_two_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL"
             print("From our dataset, we noticed that we only have up to {x} objects in the final state".format(x=TWORPVMAXNUM))
 
         n = TWORPVMAXNUM - len(signature)
-        x = ["J","L","X"]
+        x = ["J","L","X","v"]
         nx = x*n
-        all_signature = np.unique([rmisc.signature_ordering(signature+"".join(i)) for i in list(itertools.combinations(nx, n))])
+        all_signature = []
+        for L in range(n+1):
+            all_signature = np.unique([*all_signature , *np.unique([rmisc.signature_ordering(signature+"".join(subset)) for subset in itertools.combinations(nx, L)])])
     else:
         assert len(signature) + len(inclusive_obj) <= TWORPVMAXNUM , "Exceed maximum number of object (n>{x}) in a signature possible in data set. To double check, please lookup TWO_LSP_RPV_DECAY_DICT and check maxmimum length of all signature strings".format(x=TWORPVMAXNUM)
+        assert rmisc.check_signature_format(inclusive_obj) == True, "Check Signature Format of inclusive_obj"
         inclusive_obj = list(rmisc.signature_ordering(inclusive_obj))
         all_signature = []
         for L in range(len(inclusive_obj) + 1):
@@ -1267,6 +1302,10 @@ def find_two_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL"
         output_dat.append(outsig)
     
     output_pd = pd.concat(output_dat, ignore_index=True, sort=False)
+    if len(output_pd) == 0:
+        if verbose==True:
+            print("Found Nothing")
+        return output_pd
     nfull = len(output_pd)
     output_pd["Chain A"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain A"],level=False),axis=1)
     output_pd["Chain B"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain B"],level=False),axis=1)
@@ -1301,6 +1340,8 @@ def find_two_lsp_from_signature_inclusive(signature,inclusive_obj,rpv_coup="ALL"
 ##### TWO LSP FUNCTIONS TWO CAT ##### 
 
 def find_two_lsp_from_signature_mixed_couplings(signature,rpv_coup1="ALL",rpv_coup2="ALL",category1="ALL",category2="ALL",filename="",save_results=None,verbose=None):
+    assert rmisc.check_signature_format(signature) == True, "Check Signature Format"
+    signature = rmisc.signature_ordering(signature)
     if verbose==None:
         verbose=VERBOSE_MODE
     if save_results == None:
@@ -1412,6 +1453,13 @@ def find_two_lsp_from_signature_mixed_couplings(signature,rpv_coup1="ALL",rpv_co
             for k in signature:
                 output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['Signatures'] == k) & (two_LSP_table['CAT A'] == category1) & (two_LSP_table['CAT B'] == category2)])
     
+    if len(output_pd) == 0:
+        if verbose==True:
+            print("Found Nothing")
+        return output_pd
+    
+    output_pd["Chain A"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain A"],level=False),axis=1)
+    output_pd["Chain B"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain B"],level=False),axis=1)
     output_pd["Chain A"] = output_pd["Chain A"].map(np.unique)
     output_pd["Chain B"] = output_pd["Chain B"].map(np.unique)
 
@@ -1519,6 +1567,13 @@ def find_signatures_from_two_lsp_mixed_couplings(lspa,lspb="",rpv_coup1="ALL",rp
         elif category1 != "ALL" and category2 != "ALL" :
             output_pd = output_pd.append(two_LSP_table.loc[(two_LSP_table['LSP A'] == lspa) & (two_LSP_table['LSP B'] == lspb)& (two_LSP_table['CAT A'] == category1) & (two_LSP_table['CAT B'] == category2)])
     
+    if len(output_pd) == 0:
+        if verbose==True:
+            print("Found Nothing")
+        return output_pd
+    
+    output_pd["Chain A"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain A"],level=False),axis=1)
+    output_pd["Chain B"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain B"],level=False),axis=1)
     output_pd["Chain A"] = output_pd["Chain A"].map(np.unique)
     output_pd["Chain B"] = output_pd["Chain B"].map(np.unique)
 
@@ -1535,6 +1590,8 @@ def find_signatures_from_two_lsp_mixed_couplings(lspa,lspb="",rpv_coup1="ALL",rp
     return output_pd
 
 def find_two_lsp_from_signature_mixed_couplings_inclusive(signature,inclusive_obj,rpv_coup1="ALL",rpv_coup2="ALL",category1="ALL",category2="ALL",filename="",save_results=None,verbose=None):
+    assert rmisc.check_signature_format(signature) == True, "Check Signature Format"
+    signature = rmisc.signature_ordering(signature)
     if verbose==None:
         verbose=VERBOSE_MODE
     if save_results == None:
@@ -1553,11 +1610,14 @@ def find_two_lsp_from_signature_mixed_couplings_inclusive(signature,inclusive_ob
             print("Getting maximum inclusive!")
             print("From our dataset, we noticed that we only have up to {x} objects in the final state".format(x=TWORPVMIXEDMAXNUM))
         n = TWORPVMIXEDMAXNUM - len(signature)
-        x = ["J","L","X"]
+        x = ["J","L","X","v"]
         nx = x*n
-        all_signature = np.unique([rmisc.signature_ordering(signature+"".join(i)) for i in list(itertools.combinations(nx, n))])
+        all_signature = []
+        for L in range(n+1):
+            all_signature = np.unique([*all_signature , *np.unique([rmisc.signature_ordering(signature+"".join(subset)) for subset in itertools.combinations(nx, L)])])
     else:
         assert len(signature) + len(inclusive_obj) <= TWORPVMIXEDMAXNUM , "Exceed maximum number of object (n>{x}) in a signature possible in data set. To double check, please lookup TWO_LSP_MIXED_RPV_DECAY_DICT and check maxmimum length of all signature strings".format(x=TWORPVMIXEDMAXNUM)
+        assert rmisc.check_signature_format(inclusive_obj) == True, "Check Signature Format of inclusive_obj"
         inclusive_obj = list(rmisc.signature_ordering(inclusive_obj))
         all_signature = []
         for L in range(len(inclusive_obj) + 1):
@@ -1585,6 +1645,10 @@ def find_two_lsp_from_signature_mixed_couplings_inclusive(signature,inclusive_ob
    
     output_pd = pd.concat(output_dat, ignore_index=True, sort=False)
     nfull = len(output_pd)
+    if len(output_pd) == 0:
+        if verbose==True:
+            print("Found Nothing")
+        return output_pd
     output_pd["Chain A"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain A"],level=False),axis=1)
     output_pd["Chain B"]  = output_pd.apply(lambda x: rmisc.flatten_list(x["Chain B"],level=False),axis=1)
     output_pd["Chain A"] = output_pd["Chain A"].map(np.unique)
@@ -1641,7 +1705,7 @@ def sanity_checks():
     print()                    
 
     print("Checking functions")
-    print("\tChecking find_one_lsp_from_signature",end="")
+    print("\tChecking find_signatures_from_one_lsp",end="")
     for i in rdef.SPARTICLES:
         print(".",end="")
         for j,k in rdef.CAT_DICT.items():
@@ -1650,7 +1714,7 @@ def sanity_checks():
                     raise ValueError(i,j,l)
     print()                    
     
-    print("\tChecking find_two_lsp_from_signature",end="")
+    print("\tChecking find_signatures_from_two_lsp",end="")
     for i in rdef.SPARTICLES_DEGENERACY:
         print(".",end="")
         if len(i) == 1:
@@ -1663,6 +1727,19 @@ def sanity_checks():
                 for l in k:
                     if (len(find_signatures_from_two_lsp(lspa,lspb,j,l,save_results=False))) < 1:
                         raise ValueError(lspa,lspb,j,l)
-    print()                    
+    print()      
 
+    print("\tChecking find_signatures_from_two_lsp_mixed_couplings",end="")
+    for i in rdef.SPARTICLES_DEGENERACY:
+        print(".",end="")
+        if len(i) == 1:
+            lspa= i[0]
+            lspb= i[0]
+        else:
+            lspa= i[0]
+            lspb= i[1]
+        for j in TWO_LSP_MIXED_RPV_DECAY_DICT.keys():
+            if (len(find_signatures_from_two_lsp_mixed_couplings(lspa,lspb,j.split("_")[0],j.split("_")[1],save_results=False))) < 1:
+                raise ValueError(lspa,lspb,j,l)
+    print()      
 #from . import df_checks
