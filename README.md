@@ -33,7 +33,7 @@ Used Python libraries:<br>
 
 ## Citation
 If you use this software please cite the original publication on the framework used in this package: <br>
-> "The ABC of RPV: Classification of Signatures at the LHC for Small Couplings" [arXiv:230X:XXXX] <br>
+> "The ABC of RPV: Classification of R-Parity Violating Signatures at the LHC for Small Couplings" ([arXiv:2306.07317](https://arxiv.org/abs/2306.07317)) <br>
 > Herbi K. Dreiner, Yong Sheng Koay, Dominik Köhler, Víctor Martín Lozano, Javier Montejo Berlingen, Saurabh Nangia and Nadja Strobbe.
 
 and the full manual: <br>
